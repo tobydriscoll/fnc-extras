@@ -2,11 +2,11 @@
 A = [ 2  0; 1  -1 ]
 
 %%
-% The default norm returned by the @glsbegin@norm@glsend@ command is the 2-norm.
+% The default norm returned by the |norm| command is the 2-norm.
 twonorm = norm(A)
 
 %%
-% You can get the other norms with right options.
+% You can get the 1-norm as well.
 onenorm = norm(A,1)
 
 %%
@@ -23,7 +23,7 @@ max( sum(abs(A),2) )   % sum along columns (2nd matrix dimension)
 % Here we illustrate the geometric interpretation of the 2-norm. First, we
 % will sample a lot of vectors on the unit circle in $\mathbf{R}^2$. 
 theta = linspace(0,2*pi,601);
-x = [ cos(theta); sin(theta) ];  % 2x601, each column on the unit circle
+x = [ cos(theta); sin(theta) ];  % 601 unit columns
 subplot(1,2,1), plot(x(1,:),x(2,:)), axis equal
 title('Unit circle in 2-norm')
 xlabel('x_1'),  ylabel('x_2')

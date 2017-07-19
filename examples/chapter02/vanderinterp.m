@@ -12,18 +12,18 @@ y = pop;
 
 %%
 % Now we have four data points $(t_1,y_1),\ldots,(t_4,y_4)$, so $n=4$ and
-% we seek an interpolating cubic polynomial. We
-% write this in matrix form as $\mathbf{V} \mathbf{a} = \mathbf{y}$, where
+% we seek an interpolating cubic polynomial. We construct the associated
+% Vandermonde matrix: 
 V = zeros(4,4);
 for i = 1:4
-	V(i,:) = [1 t(i) t(i)^2 t(i)^3];
+    V(i,:) = [1 t(i) t(i)^2 t(i)^3];
 end
 V
 
 %%
-% To solve for the vector of coefficients $\mathbf{a}$ in MATLAB, we use a
+% To solve for the vector of polynomial coefficients, we use a
 % @glsbegin@backslash@glsend@:
-a = V \ y
+c = V \ y
 
 %%
 % The algorithms used by the backslash operator are the main topic of this
@@ -32,12 +32,12 @@ a = V \ y
 % context. By our definitions, these coefficients are given in ascending
 % order of power in $t$. MATLAB always expects the decreasing-degree order,
 % so we convert ours to this convention here.
-a = a(end:-1:1);       % reverse the ordering
+c = c(end:-1:1);       % reverse the ordering
 
 %%
 % We can use the resulting polynomial to estimate the population of China
 % in 2005:
-polyval(a,2005-1980)   % apply the 1980 time shift
+polyval(c,2005-1980)   % apply the 1980 time shift
 
 %%
 % The official figure is 1297.8, so our result is not bad. 
@@ -57,11 +57,11 @@ hold on
 % To plot the interpolating polynomial, we create a vector with many points
 % in the time interval using @glsbegin@linspace@glsend@.
 tt = linspace(0,30,300)';   % 300 times from 1980 to 2010
-yy = polyval(a,tt);         % evaluation of the interpolating cubic
+yy = polyval(c,tt);         % evaluate the cubic
 plot(1980+tt,yy)
 
 %%
-% Let's clear the figure and redo it (@glsbegin@clf@glsend@), this time 
+% Let's clear the figure (@glsbegin@clf@glsend@) and redo it, this time 
 % continuing the curve outside of the original date range. We'll also 
 % annotate the graph (using @glsbegin@title@glsend@, @glsbegin@xlabel@glsend@, 
 % @glsbegin@ylabel@glsend@ and @glsbegin@legend@glsend@) to make its purpose 
@@ -70,7 +70,7 @@ clf   % clear figure
 plot(1980+t,y,'.')
 hold on
 tt = linspace(-10,50,300)';   
-plot(1980+tt,polyval(a,tt))
+plot(1980+tt,polyval(c,tt))
 title('Population of China')
 xlabel('year'), ylabel('population (millions)')
 legend('data','interpolant','location','northwest')

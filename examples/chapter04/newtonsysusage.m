@@ -1,7 +1,8 @@
 function newtonsysusage   % ignore this line
 %% 
-% We repeat @exarefbegin@newtonsystem@exarefend@. The system is defined by
-% its residual function and its Jacobian.
+% We repeat @exarefbegin@newtonsystem@exarefend@. The system is again
+% defined by its residual and Jacobian, but this time we implement them as
+% a single function.
 
     function [f,J] = nlsystem(x)
         f = zeros(3,1);   % ensure a column vector output
@@ -28,7 +29,7 @@ back_err = norm(nlsystem(r))
 %%
 % Let's use the convergence to the first component of the root as a proxy
 % for the convergence of the vectors.
-log10( abs(x(1,1:end-1)-r(1)) )
+log10( abs(x(1,1:end-1)-r(1)) )'
 
 %%
 % The exponents approximately double, as is expected of quadratic

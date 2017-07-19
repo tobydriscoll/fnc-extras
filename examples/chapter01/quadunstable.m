@@ -1,5 +1,4 @@
 %%
-% We apply the quadratic formula to find the roots of~\eqref{eq:quadunstable}.
 format long    % show all the digits
 a = 1;  b = -(1e6+1e-6);  c = 1;
 

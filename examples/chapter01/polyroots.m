@@ -22,12 +22,12 @@ abs(r - r_computed) ./ r
 % are the polynomial coefficients. We can apply |poly| to find the
 % coefficients of the polynomial (that is, the data) whose roots were
 % actually computed.
-p_computed = poly(r_computed)
+p_computed = poly(r_computed)'
 
 %%
 % We find that in a relative sense, these coefficients are very close to
 % those of the original, exact polynomial:
-(p_computed - p) ./ p
+(p_computed - p') ./ p'
 
 %%
 % In summary, even though there are some computed roots relatively far from

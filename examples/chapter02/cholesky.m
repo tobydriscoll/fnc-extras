@@ -1,6 +1,6 @@
 %%
 % Here is a simple trick for turning any square matrix into a symmetric one.
-A = magic(5);
+A = magic(4) + eye(4);
 B = A+A'
 
 %%

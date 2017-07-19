@@ -1,6 +1,8 @@
 %%
 % Consider the linear BVP 
 % $$ u'' - (\cos x) u' + (\sin x) u = 0, \quad 0 \le x \le \pi/2, \quad u(0)=1, \; u(\pi/2)=e. $$
+% Its exact solution is simple.
+exact = @(x) exp(sin(x));
 
 %%
 % The problem is presented in our standard form, so we can identify the
@@ -11,10 +13,8 @@ q = @(x) sin(x);
 r = @(x) 0*x;      % not a scalar value!
 
 %%
-% Solve the BVP and look at the result. The exact
-% solution is used for comparison.
-[x,u] = bvp2lin(p,q,r,[0 pi/2],1,exp(1),25);
-exact = @(x) exp(sin(x));
+% We solve the BVP and compare the result to the exact solution.
+[x,u] = bvplin(p,q,r,[0 pi/2],1,exp(1),25);
 
 subplot(2,1,1), 
 plot(x,u,'-')

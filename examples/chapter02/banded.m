@@ -1,6 +1,6 @@
 %%
 % Here is a matrix with both lower and upper bandwidth equal to one. Such a
-% matrix is called *tridiagonal*.
+% matrix is called tridiagonal.
 A = [ 2 -1  0  0  0  0
       4  2 -1  0  0  0
       0  3  0 -1  0  0
@@ -10,7 +10,7 @@ A = [ 2 -1  0  0  0  0
 
 %%
 % We can extract the elements on any diagonal using the 
-% @glsbegin@diag@glsend@. The ``main'' or central
+% @glsbegin@diag@glsend@ command. The ``main'' or central
 % diagonal is numbered zero, above and to the right of that is positive,
 % and below and to the left is negative.
 diag_main = diag(A,0)'
@@ -27,7 +27,7 @@ diag_minusone = diag(A,-1)'
 A = A + diag([5 8 6 7],2)
 
 %%
-% Here is what happens when we factor the matrix without pivoting. 
+% Here is what happens when we factor this matrix without pivoting. 
 [L,U] = lufact(A);
 subplot(1,2,1), spy(L), title('L')
 subplot(1,2,2), spy(U), title('U')

@@ -24,9 +24,9 @@ for j = 1:n
     for i = 2:m+1 
         diff1 = (Vj(i+1) - Vj(i-1));
         diff2 = (Vj(i+1) - 2*Vj(i) + Vj(i-1));
-         V(i,j+1) = Vj(i) ...
-         + (lambda*sigma^2*x(i)^2/2)*diff2  ...
-         + (r*x(i)*mu)/2*diff1 - r*tau*Vj(i);
+        V(i,j+1) = Vj(i) ...
+            + (lambda*sigma^2*x(i)^2/2)*diff2  ...
+            + (r*x(i)*mu)/2*diff1 - r*tau*Vj(i);
     end   
 end
 
@@ -40,30 +40,34 @@ xlabel('stock price'),  ylabel('option value')   % ignore this line
 axis tight,  grid on   % ignore this line
 
 %% 
+% The lowest curve is the initial condition, and the highest curve is the last time.
 % The results are easy to interpret, recalling that the time variable
-% really means "time before strike". Say you are not far to the option's If
-% the current stock price is, say, $S=2$, then it's not likely that the
-% stock will end up over the strike price $K=3$ (``in the money'') and
-% therefore the option has little appeal. On the other hand, if presently
+% really means ``time before strike.'' Say you are close to the option's
+% strike time. If the current stock price is, say, $S=2$, then it's not
+% likely that the stock will end up over the strike price $K=3$ and
+% therefore the option has little value. On the other hand, if presently
 % $S=3$, then there are good odds that the option will be exercised at the
 % strike time, and you will need to pay a substantial portion of the stock
-% price in order to hedge your risk.
+% price in order to take advantage.
 
 %%
-% Let's try to extend the simulation time to $T=8$.
+% Let's try to extend the simulation time to $T=8$, keeping everything else
+% the same.
 T = 8;
 n = 1000;  tau = T / n;
 t = tau*(0:n)';
 lambda = tau / h^2;  mu = tau / h;
 for j = 1:n
-    % Set a fictitious value so that the derivative at x=1 is 1.
+    % Fictitious value from Neumann condition.
     Vfict = 2*h + V(m,j);
     Vj = [ V(:,j); Vfict ];
-    % Skip the first row, kept at zero by the Dirichlet condition.
-    for i = 2:m+1         
-         V(i,j+1) = Vj(i) ...
-         + (lambda*sigma^2*x(i).^2/2) * (Vj(i+1)-2*Vj(i)+Vj(i-1)) ...
-         + (r*x(i)*mu)/2 .* (Vj(i+1) - Vj(i-1)) - r*tau*Vj(i);
+    % First row is zero by the Dirichlet condition.
+    for i = 2:m+1 
+        diff1 = (Vj(i+1) - Vj(i-1));
+        diff2 = (Vj(i+1) - 2*Vj(i) + Vj(i-1));
+        V(i,j+1) = Vj(i) ...
+             + (lambda*sigma^2*x(i)^2/2)*diff2  ...
+             + (r*x(i)*mu)/2*diff1 - r*tau*Vj(i);
     end   
 end
 plot(x,V(:,select_times)) 
@@ -72,4 +76,4 @@ xlabel('stock price'),  ylabel('option value')   % ignore this line
 axis tight,  grid on   % ignore this line
 
 %%
-% This ``solution'' is nonsensical. 
+% This ``solution'' is nonsensical.  Look at the scale of the ordinate!

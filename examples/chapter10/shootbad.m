@@ -12,7 +12,8 @@ for k = 1:4
     xlabel('x'), ylabel('u(x)'),  ylim([-1 0.5])   % ignore this line
     title('Shooting instability')    % ignore this line
 end
-legend(num2str(lambda),'location','northwest')   % ignore this line
+lstr = {'\lambda=6','\lambda=10','\lambda=14','\lambda=18'};    % ignore this line
+legend(lstr,'location','northwest')   % ignore this line
 
 
 %%

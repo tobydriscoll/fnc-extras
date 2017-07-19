@@ -11,7 +11,8 @@ x = backsub( U, forwardsub(L,b) )
 %%
 % If we swap the second and fourth equations, nothing essential is changed,
 % and MATLAB still finds the solution.
-A([2 4],:) = A([4 2],:);  b([2 4]) = b([4 2]);    % row swaps
+A([2 4],:) = A([4 2],:);  
+b([2 4]) = b([4 2]); 
 x = A\b   
 
 %%

@@ -1,6 +1,6 @@
 %%
-% We will use Householder reflections to produce the factors in a QR
-% factorization of the matrix
+% We will use Householder reflections to produce a QR factorization of the
+% matrix
 A = magic(6);
 A = A(:,1:4);
 [m,n] = size(A);
@@ -49,7 +49,7 @@ for j = 3:n
 end
 
 %%
-% We have now reduced $\mathbf{A}$ to an upper triangular matrix using four
-% orthogonal Householder reflections:
+% We have now reduced the original $\bm{A}$ to an upper triangular matrix
+% using four orthogonal Householder reflections:
 R = A
 

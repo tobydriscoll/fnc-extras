@@ -1,6 +1,8 @@
 function predator   % ignore this line
 %%
-% We encode the predator--prey equations via
+% We encode the predator--prey equations via an included function. (This
+% entire example was written in a function, not a script, in order to make
+% this definition possible.)
 alpha = 0.1;  beta = 0.25;
 function dudt = predprey(t,u)
     y = u(1);  z = u(2);
@@ -11,8 +13,8 @@ end
 %%
 % Note that the function must accept both |t| and |u| inputs, even though
 % there is no explicit dependence on |t|. To solve the IVP we must also
-% provide the initial condition and the interval for the independent
-% variable. 
+% provide the initial condition, which is a 2-vector here, and the interval
+% for the independent variable.
 u0 = [1; 0.01];
 t = linspace(0,80,2001)';       % specify where the time outputs will be
 [t,u] = ode45(@predprey,t,u0);
@@ -29,7 +31,7 @@ legend('prey','predator')  % ignore this line
 
 %%
 % When there are just two components, it's common to plot the solution in
-% the _phase plane_, i. e., with $y$ and $z$ along the axes and time as
+% the _phase plane_, i.e., with $u_1$ and $u_2$ along the axes and time as
 % a parameterization of the curve.
 plot(y,z)
 xlabel('y'), ylabel('z'), title('Predator-prey phase plane')  % ignore this line

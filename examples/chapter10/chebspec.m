@@ -4,14 +4,11 @@
 format rat, Dx
 
 %%
-% We repeat the test function from \exaref{diffmat_example}. 
+% We again test the convergence rate.  
 f = @(x) x + exp(sin(4*x));
 dfdx = @(x) 1 + 4*exp(sin(4*x)).*cos(4*x);
 d2fdx2 = @(x) 4*exp(sin(4*x)).*(4*cos(4*x).^2-4*sin(4*x));
 
-%%
-% This time we should observe exponential convergence. Notice that it's a
-% semi-log scale, not log-log. 
 n = (5:5:70)';
 err1 = 0*n;
 err2 = 0*n;
@@ -26,3 +23,8 @@ semilogy(n,[err1,err2],'.-'), hold on
 axis tight, legend('f''','f''''')   % ignore this line
 xlabel('n'), ylabel('max error')   % ignore this line
 title('Convergence of Chebyshev derivatives')   % ignore this line
+
+%%
+% Notice that the graph has a log-linear scale, not log-log. Hence the
+% convergence is exponential, as we expect for a spectral method on a
+% smooth function. 

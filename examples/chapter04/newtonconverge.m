@@ -5,7 +5,7 @@ dfdx = @(x) exp(x).*(x+1);
 
 %%
 % We don't know the exact root, so we use the built-in |fzero| to determine the
-% 'true' value.
+% ``true'' value.
 format long,  r = fzero(f,1)
 
 %%
@@ -20,20 +20,23 @@ end
 % Here is the sequence of errors (leaving out the last value, now serving
 % as our exact root). 
 format short e
-err = x - r
+err = x' - r
 
 %%
-% Glancing at the exponents of the errors, they form a neat doubling
+% Glancing at the exponents of the errors, they roughly form a neat doubling
 % sequence until the error is comparable to machine precision. We can see
 % this more precisely by taking logs.
 format short
 logerr = log(abs(err))
 
 %%
-% Quadratic convergence isn't so easy to spot graphically.  
+% Quadratic convergence isn't as graphically distinctive as linear
+% convergence.
 semilogy(abs(err),'.-')
+xlabel('k'), ylabel('|x_k-r|')    % ignore this line
+title('Quadratic convergence')    % ignore this line
 
 %%
-% It looks faster than linear convergence, but it's not easy to
+% This looks faster than linear convergence, but it's not easy to
 % say more. If we could use infinite precision, the curve would continue to
 % steepen forever.

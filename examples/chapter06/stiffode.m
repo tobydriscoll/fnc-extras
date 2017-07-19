@@ -15,10 +15,10 @@ title('AM2 solution')   % ignore this line
 % Now we repeat the process using the explicit AB4 method.
 [tE,uE] = ab4(f,[0 400],u0,200);
 hold on, plot(tE,uE), ylim([-1 2])
-title('AM2 and AM4 solutions')  % ignore this line
+title('AM2 and AB4 solutions')  % ignore this line
 
 %%
-% Once the solution starts to take off, the AB2 result goes
+% Once the solution starts to take off, the AB4 result goes
 % catastrophically wrong.
 format short e, uE(105:111)
 

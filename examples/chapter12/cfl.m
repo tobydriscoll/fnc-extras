@@ -28,6 +28,7 @@ odefun = @(t,u) -c*(Dx*u);
 [t,U] = ode113(odefun,[0,2],uinit);
 
 %%
-% The time step should be cut by a factor of two also.
+% The CFL condition suggests that the time step should be cut by a factor
+% of two also.
 avgtau2 = mean(diff(t))
 ratio = avgtau1 / avgtau2

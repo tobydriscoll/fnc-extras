@@ -2,14 +2,14 @@
 % Deleting the first row and column places all the eigenvalues of the
 % discretization into the left half of the complex plane. 
 [x,Dx,Dxx] = diffcheb(40,[0,1]);
-A = -Dx(2:end,2:end);    % leave out first row and first column
+A = -Dx(2:end,2:end);    % leave out first row and column
 lambda = eig(A);
 plot(real(lambda),imag(lambda),'.')
 axis equal,  grid on     % ignore this line
 title('Eigenvalues of advection with zero inflow')    % ignore this line
 
 %%
-% Note that the rightmost eigenvalues have real part equal to
+% Note that the rightmost eigenvalues have real part at most
 max( real(lambda) )
 
 %%

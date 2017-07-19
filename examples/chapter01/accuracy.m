@@ -1,5 +1,5 @@
 %%
-% You probably remember the grade school rational approximation to the
+% Recall the grade school rational approximation to the
 % number $\pi$.
 p = 22/7
 

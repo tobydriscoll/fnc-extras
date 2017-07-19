@@ -26,13 +26,14 @@ end
 
 %%
 % Things seem to start well.
-plot(x,U(:,1:3:10))
+plot(x,U(:,1:3:7))
 xlabel('x'), ylabel('u(x,t)')   % ignore this line
+warning off    % ignore this line
 legend(num2str(t(1:3:10)))   % ignore this line
 title('Heat equation by forward Euler')   % ignore this line
 
 %%
-% Very shortly thereafter, though, there is nonphysical growth. 
+% Shortly thereafter, though, there is nonphysical growth. 
 cla
 plot(x,U(:,13:3:19))
 xlabel('x'), ylabel('u(x,t)')   % ignore this line
@@ -44,12 +45,14 @@ title('Heat equation by forward Euler')   % ignore this line
 M = max( abs(U), [], 1 );     % max in each column
 semilogy(t,M)
 xlabel('t'), ylabel('max_x |u(x,t)|')   % ignore this line
+axis tight    % ignore this line
 title('Nonphysical growth')   % ignore this line
 
 %%
 % Now we try backward Euler. In this case there is a tridiagonal linear
 % system to solve at each time step. We will use a sparse matrix to get
-% banded LU, although the time savings at this size are negligible.
+% sparse LU factorization, although the time savings at this size are
+% negligible.
 B = sparse(Ix - tau*Dxx);
 for j = 1:n
     U(:,j+1) = B\U(:,j);

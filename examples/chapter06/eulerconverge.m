@@ -17,7 +17,7 @@ hold on, plot(t,u,'-')
 legend('n=20','n=200','location','southwest')  % ignore this line
 
 %%
-% Increasing $n$ changed the solution noticeably. As we know that
+% Increasing $n$ changed the solution noticeably. Since we know that
 % interpolants and finite differences become more accurate as $h\to 0$, we
 % should expect that from Euler's method too.
 
@@ -26,10 +26,6 @@ legend('n=20','n=200','location','southwest')  % ignore this line
 % solver |ode113| with settings chosen to construct an accurate solution. 
 opt = odeset('abstol',5e-14,'reltol',5e-14);  
 uhat = ode113(f,[a,b],u0,opt);
-
-%%
-% With one output argument from a built-in solver, we can construct a
-% function for the solution that can be evaluated at any $t$.
 u_exact = @(t) deval(uhat,t)';
 fplot(u_exact,[a,b],'k-')
 legend('n=20','n=200','accurate','location','southwest')  % ignore this line

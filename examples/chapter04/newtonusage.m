@@ -5,7 +5,7 @@ for c = [2 4 7.5 11]
     f = @(x) exp(x) - x - c;
     dfdx = @(x) exp(x) - 1;
     x = newton(f,dfdx,1);  r = x(end);
-    fprintf('root for c = %4.1f is %.14f\n',c,r)
+    fprintf('root with c = %4.1f is %.14f\n',c,r)
 end
 
 %%
@@ -20,6 +20,9 @@ c = 100; f(r)
 % checked at definition time. So you might discover an error such a
 % definition only later in the code.
 clear c
-f = @(x) exp(x) - x - c;  % executes fine but is nonsense for f
-c = 1;                    % does not change f           
-f(1)                      % error since c was undefined for f                  
+f = @(x) exp(x) - x - c;  % executes OK
+c = 1;                    % does not change f  
+
+%% 
+% A call such as |f(1)| would create an error, since the assignment of |c|
+% did not come until after |f| was defined.                

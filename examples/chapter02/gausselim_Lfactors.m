@@ -1,6 +1,6 @@
 %%
 % We revisit the previous example using algebra to express the row
-% operations. For brevity, we leave the $\mathbf{b}$ vector out. 
+% operations on $\bm{A}$.
 A = [2 0 4 3 ; -4 5 -7 -10 ; 1 15 2 -4.5 ; -2 0 2 -13];
 
 %%

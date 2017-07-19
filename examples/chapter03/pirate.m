@@ -33,7 +33,7 @@ c = V \ log(ep)          % coefficients of linear fit
 a = exp(c(1));  b = c(2),
 
 %%
-% It's not hard to hypothesize that $b=-1$ asymptotically. Here is how the
+% It's tempting to conjecture that $b=-1$ asymptotically. Here is how the
 % numerical fit compares to the original convergence curve. 
 hold on, loglog(k,a*k.^b,'r'), title('power-law fit')
 axis tight    % ignore this line

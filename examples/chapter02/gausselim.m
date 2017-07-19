@@ -1,10 +1,10 @@
 %%
 % We create a 4-by-4 linear system with the matrix
 A = [
-    2   0   4   3 
-    -4   5   -7   -10 
-    1   15   2   -4.5
-    -2   0   2   -13
+     2    0    4    3 
+    -4    5   -7  -10 
+     1   15    2   -4.5
+    -2    0    2  -13
     ];
 %%
 % and with the right-hand side
@@ -16,7 +16,7 @@ b = [ 4; 9; 29; 40 ];
 S = [A, b]
 
 %%
-% The goal is to introduce zeros into the lower triangle of the matrix. By
+% The goal is to introduce zeros into the lower triangle of this matrix. By
 % using only elementary row operations, we ensure that the matrix
 % $\mathbf{S}$ always represents a linear system that is equivalent to the
 % original. We proceed from left to right and top to bottom. The first step

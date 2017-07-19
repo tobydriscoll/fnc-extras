@@ -1,5 +1,5 @@
 %%
-% We return to estimating $\displaystyle\int_0^2 x^2 e^{-2x}\, dx$. 
+% We estimate $\displaystyle\int_0^2 x^2 e^{-2x}\, dx$ using extrapolation. 
 f = @(x) x.^2.*exp(-2*x);
 a = 0;  b = 2;  format short e
 I = integral(f,a,b,'abstol',1e-14,'reltol',1e-14);

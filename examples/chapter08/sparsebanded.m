@@ -5,8 +5,8 @@
 % diagonal is numbered zero, above and to the right of that is positive,
 % and below and to the left is negative.
 n = 50;
-d = [ n*ones(n,1), ones(n,1), -(1:n)'];  % elements on diagonals
-pos = [-3 0 1];                              % which diagonal
+d = [ n*ones(n,1), ones(n,1), -(1:n)'];  % diagonal entries
+pos = [-3 0 1];                          % which diagonals
 A = spdiags(d,pos,n,n);
 full( A(1:7,1:7) )
 

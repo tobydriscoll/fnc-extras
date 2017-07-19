@@ -19,15 +19,16 @@ title('Euler')    % ignore this line
 
 subplot(1,2,2)
 fill([-6 6 6 -6],[-6 -6 6 6],[.8 .8 1])
-z = zc + 1;                            % shift left by 1
+z = zc + 1;                            % shift right by 1
 hold on, plot(real(0.1*lambda),imag(0.1*lambda),'.')
 fill(real(z),imag(z),'w')
 axis equal, axis square, axis([-5 5 -5 5]), grid on    % ignore this line
 title('backward Euler')    % ignore this line
 
 %%
-% It's clear that _no_ real value of $\tau>0$ is going to make all (or
-% even any) of the $\tau\lambda_k$ fit within the stability region. Hence
-% Euler will never produce bounded solutions to this discretization of the
-% advection equation. The A-stable backward Euler time stepping tells the
-% exact opposite story; it will be absolutely stable regardless of $\tau$. 
+% In the Euler case it's clear that _no_ real value of $\tau>0$ is going to
+% make all (or even any) of the $\tau\lambda_j$ fit within the stability
+% region. Hence Euler will never produce bounded solutions to this
+% discretization of the advection equation. The A-stable backward Euler
+% time stepping tells the exact opposite story; it will be absolutely
+% stable regardless of $\tau$.

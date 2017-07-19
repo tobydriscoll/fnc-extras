@@ -8,5 +8,5 @@ AkronB = [ A(1,1)*B, A(1,2)*B;
            A(2,1)*B, A(2,2)*B ]
 
 %%
-% But it's simpler to use the built-in |kron|. 
+% But it's simpler to use the built-in @glsbegin@kron@glsend@. 
 kron(A,B)

@@ -9,10 +9,11 @@ uinit = exp(-100*(x-0.5).^2);
 % First we try imposing $u=0$ at the right boundary, by appending that
 % value to the end of the vector before multiplying by the differentiation
 % matrix.
-odefun = @(t,u) -c*(Dx(1:n,:)*[u;0]);
-[t,UI] = ode113(odefun,[0,1],uinit(1:n));
-pcolor(x(1:n),t,UI)
-xlabel x, ylabel t, shading flat
+chop = @(u) u(1:n);  extend = @(v) [v;0];
+odefun = @(t,v) -c*chop(Dx*extend(v));
+[t,V] = ode113(odefun,[0,1],uinit(1:n));
+pcolor(x(1:n),t,V)
+xlabel x, ylabel t, shading flat     
 
 %%
 % The data propagates off the left edge. Because only zero is coming in
@@ -20,10 +21,11 @@ xlabel x, ylabel t, shading flat
 
 %%
 % Now we try $u=0$ imposed at the left boundary. 
-odefun = @(t,u) -c*(Dx(2:n+1,:)*[0;u]);
-[t,UI] = ode113(odefun,[0,1],uinit(2:n+1));
-pcolor(x(2:n+1),t,UI)
-xlabel x, ylabel t, shading flat
+chop = @(u) u(2:n+1);  extend = @(v) [0;v];
+odefun = @(t,v) -c*chop(Dx*extend(v));
+[t,V] = ode113(odefun,[0,1],uinit(2:n+1));
+pcolor(x(2:n+1),t,V)
+xlabel x, ylabel t, shading flat     % ignore this line
 
 %%
 % Everything seems OK until the data begins to interact with the

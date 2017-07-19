@@ -25,7 +25,6 @@ x = U \ (PtL\b)
 
 %%
 % The pivoted factorization and triangular substitutions are done silently
-% and automatically when backslash is called on the original matrix (for
-% most matrix types). 
+% and automatically when backslash is called on the original matrix. 
 x = A\b
 

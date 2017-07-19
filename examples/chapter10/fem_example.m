@@ -7,4 +7,4 @@ f = @(x) sin(pi*x);
 
 %%
 [x,u] = fem(c,q,f,0,1,25);
-plot(x,u)
+plot(x,u), xlabel('x'), ylabel('u')

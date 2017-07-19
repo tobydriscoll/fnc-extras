@@ -12,7 +12,9 @@ t = [ 1, 1.6, 1.9, 2.7, 3 ];
 Phi = @(x) prod(x-t);
 fplot(@(x) Phi(x)/5,[1 3])
 hold on, plot(t,0*t,'.')
+xlabel('x'), ylabel('\Phi(x)')   % ignore this line
+title('Interpolation error function')   % ignore this line
 
 %%
-% The error bound has one local extreme point between each pair of
-% consecutive nodes. 
+% The error bound has one local extreme point between each consecutive pair
+% of nodes.

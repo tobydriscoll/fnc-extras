@@ -1,5 +1,5 @@
 %%
-% There is a built-in way to generate a random sparse matrix with
+% The |sprandsym| command generates a random sparse matrix with
 % prescribed eigenvalues.
 n = 3000;
 density = 1.23e-3;

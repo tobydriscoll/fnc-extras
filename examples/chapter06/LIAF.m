@@ -17,7 +17,7 @@ for j = 1:length(n)
     f = [dudt(t(1),u(1)); zeros(n(j)-2,1)];
     for i = 2:n(j)
         f(i) = dudt(t(i),u(i));
-        u(i+1) = -4*u(i) + 5*u(i-1) + h*(4*f(i) + 2*f(i-1));
+        u(i+1) = -4*u(i) + 5*u(i-1) + h*(4*f(i)+2*f(i-1));
     end
     err(j) = abs(u_exact(b) - u(end));
 end

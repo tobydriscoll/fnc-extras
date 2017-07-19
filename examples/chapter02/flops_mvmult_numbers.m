@@ -13,7 +13,7 @@ for i = 1:n
 end
 
 %%
-% Each of the loops implies a summation of operations. The total flop count
+% Each of the loops implies a summation of flops. The total flop count
 % for this algorithm is
 %
 % $$ \sum_{i=1}^n \sum_{j=1}^n 2 = \sum_{i=1}^n 2n = 2n^2.$$
@@ -25,17 +25,18 @@ end
 %%
 % Let's run an experiment with the built-in matrix-vector multiplication.
 % We use @glsbegin@tic@glsend@ and @glsbegin@toc@glsend@ to start and 
-% end ``stopwatch" timing of the computation.
-t_ = [];
-n_ = 400:400:4000;
-for n = n_
+% end timing of the computation.
+n_ = (400:400:4000)';
+t_ = 0*n_;
+for i = 1:length(n_)
+    n = n_(i);
     A = randn(n,n);  x = randn(n,1);
     tic  % start a timer
-    for j = 1:10  % repeat ten times
+    for j = 1:10   % repeat ten times
         A*x;
     end
-    t = toc;      % read the timer
-    t_ = [t_,t/10];  % time per instance
+    t = toc;       % read the timer
+    t_(i) = t/10;  % seconds per instance
 end
 
 %%
@@ -44,6 +45,4 @@ end
 % 
 
 %%
-fprintf('   n    time (sec)\n')
-fprintf(' %4i    %7.2e\n',[n_;t_])
-fprintf('\n\n')
+table(n_,t_,'variablenames',{'size','time'})

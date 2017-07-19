@@ -14,7 +14,7 @@ x = forwardsub(L,b)
 b - L*x
 
 %%
-% This time we'll engineer a problem to which we know the exact answer. You
+% Next we'll engineer a problem to which we know the exact answer. You
 % should be able to convince yourself that for any $\alpha$ and $\beta$,
 %
 % $$ \begin{bmatrix} 1 & -1 & 0 & \alpha-\beta & \beta \\ 0 & 1 & -1 & 0 &
@@ -34,7 +34,8 @@ x = backsub(U,b);
 err = x - x_exact
 
 %%
-% Everything seems OK here. But another example is more troubling.
+% Everything seems OK here. But another example, with a different value for
+% $\beta$, is more troubling.
 alpha = 0.3;
 beta = 1e12;
 U = eye(5) + diag([-1 -1 -1 -1],1);
@@ -46,7 +47,7 @@ err = x - x_exact
 
 %%
 % It's not so good to get four digits of accuracy after starting with
-% sixteen! But the source of the error is obvious. Performing
-% $(\alpha-\beta)+\beta$ in the first row, when $|\beta|$ is so much
-% smaller than $|\alpha|$, is a recipe for losing digits to subtractive
-% cancellation.
+% sixteen! But the source of the error is not hard to track down. Solving
+% for $x_1$ performs $(\alpha-\beta)+\beta$ in the first row. Since
+% $|\alpha|$ is so much smaller than $|\beta|$, this a recipe for losing
+% digits to subtractive cancellation.

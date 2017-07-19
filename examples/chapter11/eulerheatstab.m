@@ -12,7 +12,7 @@ xlabel('Re \lambda'),  ylabel('Im \lambda')   % ignore this line
 title('Eigenvalues')   % ignore this line
 
 %%
-% The Euler method is absolutely stable in the region $|\zeta+1|<1$ in the
+% The Euler method is absolutely stable in the region $|\zeta+1| \le 1$ in the
 % complex plane:
 phi = linspace(0,2*pi,361);
 z = exp(1i*phi) - 1;   % unit circle shifted to the left by 1
@@ -23,8 +23,8 @@ title('Stability region')   % ignore this line
 
 %%
 % In order to get inside this region, we have to find $\tau$ such
-% that $\lambda \tau > -2$ for all eigenvalues $\lambda$. This is an \emph{upper} bound on
-% $\tau$. 
+% that $\lambda \tau > -2$ for all eigenvalues $\lambda$. This is an
+% _upper_ bound on $\tau$. 
 lambda_min = min(lambda)
 max_tau = -2 / lambda_min
 
@@ -36,9 +36,9 @@ plot(real(zeta),imag(zeta),'.')
 title('Stability region and \zeta values')   % ignore this line
 
 %%
-% In backward Euler, the region is $|\zeta-1|>1$. Because they are all on
-% the negative real axis, all of the $\zeta$ values will fit no matter what
-% $\tau$ is chosen.
+% In backward Euler, the region is $|\zeta-1|\ge 1$. Because they are all
+% on the negative real axis, all of the $\zeta$ values will fit no matter
+% what $\tau$ is chosen.
 clf,  fill([-6 6 6 -6],[-6 -6 6 6],[.8 .8 1]),  hold on
 z = exp(1i*phi) + 1;   % unit circle shifted right by 1
 fill(real(z),imag(z),'w')

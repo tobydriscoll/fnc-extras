@@ -28,8 +28,3 @@ title('Convergence of AB4')   % ignore this line
 hold on, loglog(n,0.1*(n/n(1)).^(-4),'--')
 axis tight   % ignore this line
 legend('AB4','4th order','location','southwest')   % ignore this line
-
-%%
-% The slope of the convergence curve is unaffected by accounting for the
-% number of stages. The fourth-order variant is more efficient in this
-% problem over a wide range of accuracy. 

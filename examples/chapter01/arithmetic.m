@@ -1,7 +1,6 @@
 %%
-% The value $1+\macheps/2$ is $1+\epsilon$ for $|\epsilon|\le
-% \macheps/2$, so according to our rules it is equivalent to the number
-% 1. Thus the following difference is zero despite its appearance. 
+% There is no double precision number between $1$ and $1+\macheps$. Thus
+% the following difference is zero despite its appearance.
 ( 1 + eps/2 ) - 1
 
 %%
@@ -10,5 +9,5 @@
 1 + ( eps/2 - 1 )
 
 %%
-% This is now the correct result. But we have found a rather shocking
+% This is now the ``correct'' result. But we have found a rather shocking
 % breakdown of the associative law of addition!

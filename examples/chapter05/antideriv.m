@@ -22,5 +22,7 @@ integral(@(x) exp(sin(x)),0,1)
 x = linspace(0,1,201)';
 subplot(2,1,1), fill([x;1;0],[exp(x);0;0],[1,0.9,0.9])
 title('exp(x)')  % ignore this line
+ylabel('f(x)')    % ignore this line
 subplot(2,1,2), fill([x;1;0],[exp(sin(x));0;0],[1,0.9,0.9])
 title('exp(sin(x))')  % ignore this line
+xlabel('x'), ylabel('f(x)')    % ignore this line

@@ -1,6 +1,6 @@
 %%
-% MATLAB has a function @glsbegin@cond@glsend@ to compute $\kappa_2(\mathbf{A})$. 
-% The family of _Hilbert matrices_ is famously badly condition. Here is the
+% MATLAB has a function @glsbegin@cond@glsend@ to compute $\kappa_2(\bm{A})$. 
+% The family of _Hilbert matrices_ is famously badly conditioned. Here is the
 % $7\times 7$ case. 
 A = hilb(7);
 kappa = cond(A)
@@ -41,8 +41,8 @@ rounding_bound = kappa*eps
 
 %%
 % Because $\kappa\approx 10^8$, it's possible to lose 8 digits of accuracy
-% in the process of passing from $\mathbf{A}$ and $\mathbf{b}$ to
-% $\mathbf{x}$. That's independent of the algorithm; it's inevitable once 
+% in the process of passing from $\bm{A}$ and $\bm{b}$ to
+% $\bm{x}$. That's independent of the algorithm; it's inevitable once 
 % the data are expressed in double precision. 
 
 %%
@@ -51,7 +51,7 @@ A = hilb(14);
 kappa = cond(A)
 
 %%
-% Before we even compute anything, note that $\kappa$ exceeds |1/eps|. In
+% Before we compute the solution, note that $\kappa$ exceeds |1/eps|. In
 % principle we might end up with an answer that is completely wrong.
 rounding_bound = kappa*eps
 

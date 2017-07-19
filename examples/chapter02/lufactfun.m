@@ -10,11 +10,11 @@ LtimesU = L*U
 A - LtimesU
 
 %%
-% Usually we can expect ``zero'' only up to machine precision. However, all
-% the numbers in this example are integers or exact powers of 2.
+% (Usually we can expect ``zero'' only up to machine precision. However, all
+% the exact numbers in this example are also floating-point numbers.)
 
 %%
-% To solve a linear system, we no longer need the matrix |A|. 
+% To solve a linear system, we no longer need the matrix $\bm{A}$. 
 b = [4;9;29;40];
 z = forwardsub(L,b);
 x = backsub(U,z)

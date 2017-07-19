@@ -4,25 +4,34 @@
 % respectively.
 m = 4;   x = (0:2*pi/m:2*pi)';
 n = 2;   y = (1:2/n:3)';
-f = @(x,y) sin(x.*y-y);
 
 %%
-% We get $f$, as well as the coordinate functions $x$ and $y$, converted to
-% matrices on the grid by using the mtx function.
-[F,X,Y] = mtx(f,x,y);
-F
+% We create a representation of the grid using two matrices created by the
+% |ndgrid| function.
+[X,Y] = ndgrid(x,y)
 
 %%
-% We can visualize the grid on the rectangle.
+% As you see above, the entries of |X| vary in the first dimension (rows),
+% while the entries of |Y| vary along the second dimension (columns). 
+
+%%
+% We can also visualize this grid on the rectangle.
 plot(X,Y,'bo','markersize',6)
-set(gca,'xtick',x,'ytick',y)
-grid on
+set(gca,'xtick',x,'ytick',y), grid on
 
 %%
-% We can make plots of the function by choosing a much finer grid.
+% For a given definition of $f(x,y)$ we can find $\operatorname{mtx}(f)$ by 
+% elementwise operations on the coordinate matrices |X| and |Y|. 
+f = @(x,y) sin(x.*y-y);
+F = f(X,Y)
+
+%%
+% We can make nice plots of the function by first choosing a much finer
+% grid.
 m = 70;   x = (0:2*pi/m:2*pi)';
 n = 50;   y = (1:2/n:3)';
-[F,X,Y] = mtx(f,x,y);
+[X,Y] = ndgrid(x,y);
+F = f(X,Y);
 
 %%
 subplot(1,2,1)

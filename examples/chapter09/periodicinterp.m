@@ -27,7 +27,7 @@ title('Trig interpolation')    % ignore this line
 % trigonometric interpolation is stable on equally spaced nodes.
 N = (3:3:90)';
 err = 0*N;
-x = linspace(-1,1,1601)';  % for estimating error
+x = linspace(-1,1,1601)';  % for measuring error
 for k = 1:length(N)
     n = (N(k)-1)/2;   t = 2*(-n:n)'/N(k);
     p = triginterp(t,f(t));

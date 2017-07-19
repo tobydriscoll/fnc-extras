@@ -3,8 +3,9 @@
 [A,v] = bucky;
 
 %%
-% It's not hard to prove that the $(i,j)$ entry of $\mA^{\!k}$ is the number of
-% paths of length $k$ between nodes $i$ and $j$. Hence, matrices
-% $\mA^{\!k}$ tend to become denser as $k$ increases.
+% The number of vertex pairs on a soccer ball connected by a path of length
+% $k>1$ grows with $k$, as can be seen here for $k=3$.
 subplot(1,2,1), spy(A)
+title('A')     % ignore this line
 subplot(1,2,2), spy(A^3)
+title('A^3')   % ignore this line

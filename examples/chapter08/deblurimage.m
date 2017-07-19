@@ -17,7 +17,6 @@ vec = @(X) reshape(X,m*n,1);
 unvec = @(x) reshape(x,m,n);
 T = @(x) vec( blur(unvec(x)) );
 
-
 %%
 % Now we apply |gmres| to the compsite blurring transformation |T|.
 y = gmres(T,vec(Z),50,1e-5);

@@ -1,5 +1,6 @@
 %%
-% We define a function and its two exact partial derivatives. 
+% We define a function and, for reference, its two exact partial
+% derivatives.
 u = @(x,y) sin(x.*y-y);
 dudx = @(x,y) y.*cos(x.*y-y);
 dudy = @(x,y) (x-1).*cos(x.*y-y);
@@ -9,7 +10,8 @@ dudy = @(x,y) (x-1).*cos(x.*y-y);
 % implemented by |diffmat2|.
 m = 80;  [x,Dx] = diffmat2(m,[0,2*pi]);
 n = 60;  [y,Dy] = diffmat2(n,[1,3]);
-[U,X,Y] = mtx(u,x,y);
+[X,Y] = ndgrid(x,y);
+U = u(X,Y);
 
 %%
 % Here we compare the exact $\partial u/\partial x$ with the
@@ -32,5 +34,5 @@ title('approximation')    % ignore this lineo
 
 %%
 % To the eye there is little difference to be seen, though we expect that
-% the results are probably have no more than 2-4 correct digits for these
+% the results probably have no more than 2-4 correct digits for these
 % discretization sizes. 

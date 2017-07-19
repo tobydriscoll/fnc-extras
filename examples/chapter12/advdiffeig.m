@@ -1,5 +1,5 @@
 %%
-% The eigenvalues of advection diffusion are near-imaginary for
+% The eigenvalues of advection--diffusion are near-imaginary for
 % $\epsilon\approx 0$ and more negative-real for increasing values of
 % $\epsilon$.
 [x,Dx,Dxx] = diffper(40,[0,1]);

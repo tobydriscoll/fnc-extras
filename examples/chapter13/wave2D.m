@@ -1,49 +1,61 @@
 function wave2D    % ignore this line
 
 %%
-% We will solve a 2D heat equation with a source term, $u_t = u +
-% 0.05(u_{xx} + u_{yy})$.
+m = 60;  n = 60;
+[X,Y,d] = rectdisc(m,[-2,2],n,[-2,2]);
 
 %%
-% Here is the initial condition. The boundary values will remain constant.
-u0 = @(x,y) (x+.2).*exp(-12*(x.^2+y.^2));
-%%
-% Now we discretize.
-m = 60;  n = 60;
-[X,Y,Dx,Dxx,Dy,Dyy,vec,unvec,isbndy] = rectdisc(m,[-2 2],n,[-2 2]);
-N = numel(X);
-pcolor(X,Y,u0(X,Y))
+% Here is the initial condition. The boundary values of $u$ will remain
+% constant.
+U0 = (X+.2).*exp(-12*(X.^2+Y.^2));
+V0 = 0*U0;
+pcolor(X,Y,U0)
 caxis([-.12 .12]), axis equal, shading flat    % ignore this line
 title('Initial condition')    % ignore this line
 xlabel('x'), ylabel('y')    % ignore this line
 
 %%
-% This function computes the time derivative at the interior nodes.
-    function dvdt = timederiv(t,v)
-        U = unvec(v(1:N));
-        dUdt = unvec(v(N+(1:N)));
-        % Apply the PDE.
-        d2Udt2 = (Dxx*U + U*Dyy');
-        % Zero out the derivatives at boundary nodes.
-        dUdt(isbndy) = 0;
-        d2Udt2(isbndy) = 0;
-        dvdt = [vec(dUdt);vec(d2Udt2)];
+% The |unpack| function separates the unknowns for $u$ and $v$, applies
+% the boundary conditions on $u$, and returns two functions on the grid.
+    function [U,V] = unpack(w)
+        numU = (m-1)*(n-1);  % number of unknowns for U
+        U = U0;               
+        U(~d.isbndy) = w(1:numU); % overwrite the interior
+        V = d.unvec( w(numU+1:end) );     % use all values
     end
 
 %%
-% Since this problem is parabolic, a nonstiff integrator like |ode45| is
-% fine and faster than a stiff integrator.
-t = linspace(0,3,5);
-v0 = [ vec(u0(X,Y)); zeros(N,1) ];
-[t,v] = ode45(@timederiv,t,v0);
-v = v';  % each column is one time instant
+% The next function drops the boundary values of $u$ and returns a vector
+% of all the unknowns for both components of the solution. It's the inverse
+% of the |unpack| function.
+    function w = pack(U,V)
+        w = U(~d.isbndy);
+        w = [ w; V(:) ];
+    end
 
 %%
-% We plot the solution at four different times. (The results are best viewed
-% using an animation produced in the online materials.) 
+% The following function computes the time derivative of the unknowns. Besides the
+% translation between vector and matrix shapes, it's quite straightforward.
+    function dwdt = timederiv(t,w)
+        [U,V] = unpack(w); 
+        dUdt = V;
+        dWdt = d.Dxx*U + U*d.Dyy';
+        dwdt = pack(dUdt,dWdt);
+    end
+
+%%
+% Since this problem is hyperbolic, not parabolic, a nonstiff integrator
+% like |ode45| is fine and faster than a stiff integrator.
+t = linspace(0,3,5);
+v0 = pack(U0,V0);
+[t,W] = ode45(@timederiv,t,v0);
+W = W';  % each column is one time instant
+
+%%
+% We plot the solution at four different times. 
 for k = 1:2
     subplot(1,2,k)
-    U = unvec(v(1:N,k+1));
+    [U,~] = unpack(W(:,k+1));
     pcolor(X,Y,U)
     axis equal, shading flat     % ignore this line
     caxis([-.1 .1])     % ignore this line
@@ -54,7 +66,7 @@ end
 %%
 for k = 1:2
     subplot(1,2,k)
-    U = unvec(v(1:N,k+3));
+    [U,~] = unpack(W(:,k+3));
     pcolor(X,Y,U)
     axis equal, shading flat     % ignore this line
     caxis([-.1 .1])     % ignore this line

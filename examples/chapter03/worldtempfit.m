@@ -9,15 +9,15 @@ y = [ -0.0480; -0.0180; -0.0360; -0.0120; -0.0040;
 % meets the least squares criterion. 
 t = year - 1955;             % better matrix conditioning later
 V = [ t.^0 t ];    % Vandermonde-ish matrix
-a = V\y;
-f = @(x) polyval(a(end:-1:1),x-1955);
+c = V\y;
+f = @(x) polyval(c(end:-1:1),x-1955);
 fplot(f,[1955 2000])
 hold on, plot(year,y,'.')
 xlabel('year'), ylabel('anomaly ({\circ}C)'), axis tight   % ignore this line
 %%
 % If we use a global cubic polynomial, the points are fit more closely.
 V = [ t.^0 t t.^2 t.^3];    % Vandermonde-ish matrix
-a = V\y;   f = @(x) polyval(a(end:-1:1),x-1955);
+c = V\y;   f = @(x) polyval(c(end:-1:1),x-1955);
 fplot(f,[1955 2000]) 
 
 %%

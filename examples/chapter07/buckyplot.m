@@ -11,5 +11,5 @@ gplot(A,v), axis equal
 
 %%
 % As you can see, the edges resemble those on a soccer ball. The same
-% structure, when made of carbon atoms, is called a *buckyball* in
-% materials science.
+% structure, when made of carbon atoms at the nodes, is called a
+% _buckyball_ in materials science.

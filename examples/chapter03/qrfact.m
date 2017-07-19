@@ -1,8 +1,8 @@
 %%
-% MATLAB gives direct access to both the full and compressed forms of the QR
+% MATLAB gives direct access to both the full and thin forms of the QR
 % factorization. 
 
-A = magic(6);
+A = magic(5);
 A = A(:,1:4);
 [m,n] = size(A)
 
@@ -18,7 +18,7 @@ QTQ = Q'*Q
 norm(QTQ - eye(m))
 
 %%
-% With a second input argument given, the compressed form is returned.
+% With a second input argument given, the thin form is returned.
 [Q,R] = qr(A,0);
 szQ = size(Q)
 szR = size(R)
@@ -26,4 +26,4 @@ szR = size(R)
 %%
 % Now $\mathbf{Q}$ cannot be an orthogonal matrix, because it is not even
 % square, but it is still ONC.
-Q'*Q
+Q'*Q - eye(4)

@@ -20,7 +20,7 @@ size(x)
 % for a block representation, as long as all the block
 % sizes are compatible.
 AA = [ A; A ]
-B = [ A, ones(3,1) ]
+B = [ zeros(3,2), ones(3,1) ]
 
 %%
 % The dot-quote |.'| transposes a matrix. A single quote
@@ -37,15 +37,16 @@ x'
 % other than entering all of their entries directly or in a loop. To get a
 % row vector with evenly spaced entries between two endpoints, you have two
 % options.
-r = ( 0:3:12 )'        % start:step:stop
+row = 1:4              % start:stop
+col = ( 0:3:12 )'      % start:step:stop
 
 %%
 s = linspace(-1,1,5)'  % start,stop,number
 
 %% 
 % Accessing an element is done by giving one (for a vector) or two index
-% values in parentheses. The keyword @glsbegin@end@glsend@ as an index refers to the
-% last element of the corresponding dimension of the matrix.
+% values in parentheses. The keyword @glsbegin@end@glsend@ as an index
+% refers to the last position in the corresponding dimension.
 a = A(2,end-1)
 
 %%
@@ -72,17 +73,21 @@ B = diag( [-1 0 -5] )     % create a diagonal matrix
 BA = B*A     % matrix product
 
 %%
-% |A*B| would be an error.
+% |A*B| causes an error. (We trap it here using a special syntax.)
 try A*B, catch lasterr, end
-disp(lasterr.message)
+disp('Error using  *')   % ignore this line
+disp(lasterr.message)   % ignore this line
 
 %%
-Bsq = B^2    % same as B*B
+% A square matrix raised to an integer power is the same as repeated matrix
+% multiplication.
+B^3    % same as B*B*B
 
 %%
-% In many cases, one instead wants to treat a matrix or vector as a dumb
+% In many cases, one instead wants to treat a matrix or vector as a mere
 % array and simply apply a single operation to each element of it. For
-% multiplication, division, and power, the corresponding operators start with a dot. 
+% multiplication, division, and power, the corresponding operators start
+% with a dot.
 C = -A;
 
 %%
@@ -95,10 +100,10 @@ elementwise = A.*C
 % The two operands of a dot operator have to have the
 % same size---unless one is a scalar, in which case it is expanded or
 % ``broadcast'' to be the same size as the other operand. 
-xsq = x.^2
+xtotwo = x.^2
 
 %%
-Twotox = 2.^x
+twotox = 2.^x
 
 %%
 % Most of the mathematical

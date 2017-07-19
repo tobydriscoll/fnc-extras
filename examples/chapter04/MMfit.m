@@ -13,8 +13,10 @@ function MMfit   % ignore this line
 m = 25;
 x = linspace(0.05,6,m)';
 y = 2*x./(0.5+x);                   % exactly on the curve
-y = y + 0.15*cos(2*exp(x/16).*x);   % pseudorandom noise added
+y = y + 0.15*cos(2*exp(x/16).*x);   % noise added
 plot(x,y,'.')
+title('Data')    % ignore this line
+xlabel('x'), ylabel('v')    % ignore this line
 
 %%
 % The idea is to pretend that we know nothing of the origins of this data
@@ -33,20 +35,19 @@ plot(x,y,'.')
 %%
 c1 = [1; 0.75];
 c = newtonsys(@misfit,c1);
-c(:,1:3:end)                   % show every 4th iteration
 V = c(1,end),  Km = c(2,end)   % final values
 model = @(x) V*x./(Km+x);
 
 %%
-% Not surprisingly, the final values are close to the noise-free values of
-% $[2,\; 0.5]^T$ that we used to generate the data. We can calculate the
-% amount of misfit at the end, although it's not completely clear what a
-% "good" value would be. Graphically, the model looks reasonable.
+% The final values are close to the noise-free values of $V=2$, $K_m=0.5$
+% that we used to generate the data. We can calculate the amount of misfit
+% at the end, although it's not completely clear what a "good" value would
+% be. Graphically, the model looks reasonable.
 final_misfit_norm = norm(model(x)-y) 
 hold on
 fplot( model, [0 6] )
-title('Michaelis-Menten fitting')
-xlabel('concentration'), ylabel('reaction rate')
+title('Michaelis-Menten fitting')    % ignore this line
+xlabel('concentration'), ylabel('reaction rate')    % ignore this line
 
 %%
 % For this model, we also have the option of linearizing the fit process.
@@ -70,4 +71,4 @@ linmodel = @(x) 1 ./ (beta + alpha./x);
 final_misfit_linearized = norm(linmodel(x)-y)
 fplot(linmodel, [0 6] )
 
-end
+end    % ignore this line

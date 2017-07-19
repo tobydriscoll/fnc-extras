@@ -17,7 +17,9 @@ function newtonsystem   % ignore this line
     end
 
 %%
-% Our initial guess at a root is the origin.
+% (These functions could be written as separate files, or embedded within
+% another function as we have done here.) Our initial guess at a root is
+% the origin.
 x = [0;0;0];   % column vector!
 
 %%
@@ -28,8 +30,8 @@ J = nljac(x);
 
 %%
 % We solve for the Newton step and compute the new estimate. 
-h = -(J\f);
-x(:,2) = x(:,1) + h(:,1);
+s = -(J\f);
+x(:,2) = x(:,1) + s;
 
 %%
 % Here is the new residual.
@@ -41,13 +43,13 @@ f(:,2) = nlvalue(x(:,2))
 % times. 
 for n = 2:8
     f(:,n) = nlvalue(x(:,n));
-    h(:,n) = -( nljac(x(:,n)) \ f(:,n) );
-    x(:,n+1) = x(:,n) + h(:,n);
+    s = -( nljac(x(:,n)) \ f(:,n) );
+    x(:,n+1) = x(:,n) + s;
 end
 
 %%
 % We find the infinity norm of the residuals. 
-residual_norm = max(abs(f),[],1)'   % max in first dimension
+residual_norm = max(abs(f),[],1)'   % max in dimension 1
 
 %%
 % We don't know an exact answer, so we will take the last computed value as
@@ -56,8 +58,8 @@ r = x(:,end);
 x = x(:,1:end-1);
 
 %%
-% Here is a compact way to subtract a vector from every column of a matrix.
-e = bsxfun( @minus, x, r );
+% The following will subtract a vector from every column of a matrix.
+e = x - r;
 
 %%
 % Now we take infinity norms and check for quadratic convergence. 

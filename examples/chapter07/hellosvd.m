@@ -1,5 +1,5 @@
 %%
-% We will make an image from some text, then reload it as a matrix.
+% We make an image from some text, then reload it as a matrix.
 tobj = text(0,0,'Hello world','fontsize',44);
 ex = get(tobj,'extent');      % ignore this line 
 axis([ex(1) ex(1)+ex(3) ex(2) ex(2)+ex(4)]), axis off   % ignore this line 
@@ -10,9 +10,9 @@ imagesc(A),  colormap gray
 [m,n] = size(A)
 
 %%
-% The singular values decrease exponentially, until they reach zero
-% (more precisely, are about $\sigma_1 \macheps$). For all numerical
-% purposes, this determines the rank of the matrix.
+% Next we show that the singular values decrease exponentially, until they
+% reach zero (more precisely, are about $\sigma_1 \macheps$). For all
+% numerical purposes, this determines the rank of the matrix.
 [U,S,V] = svd(A);
 sigma = diag(S);
 semilogy(sigma,'.')

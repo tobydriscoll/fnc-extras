@@ -17,12 +17,12 @@ b = A*x;
 % about $\kappa$ times machine epsilon.
 x_BS = A\b;
 observed_err = norm(x_BS-x)/norm(x)
-predicted_err = kappa*eps
+max_err = kappa*eps
 
 %%
 % If we formulate and solve via the normal equations, we get a much larger
-% relative error. With $\kappa^2\approx 10^{14}$, we should not expect
-% much better than 2 or 3 accurate digits.
+% relative error. With $\kappa^2\approx 10^{14}$, we may not be left with
+% more than about 2 accurate digits.
 N = A'*A;
 x_NE = N\(A'*b);
 observed_err = norm(x_NE-x)/norm(x)

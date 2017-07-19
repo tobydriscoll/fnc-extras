@@ -28,4 +28,4 @@ hold on, loglog(h,[h,h.^2],'--')      % perfect 1st and 2nd order
 set(gca,'xdir','reverse')
 xlabel('h'), ylabel('error in f''(0)')     % ignore this line
 legend('error FD1','error FD2','order 1','order 2','location','southwest') % ignore this line
-title('Convergence of finite differences')
+title('Convergence of finite differences')   % ignore this line

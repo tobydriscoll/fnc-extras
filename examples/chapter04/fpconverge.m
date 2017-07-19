@@ -1,6 +1,4 @@
 %%
-% We revisit the earlier foxed point problem and investigate the
-% convergence rate.
 f = @(x) x.^2 - 4*x + 3.5;
 r = roots([1 -4 3.5]);
 

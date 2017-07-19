@@ -1,16 +1,17 @@
 %%
 % Let's repeat the experiment of the previous figure for more, and larger,
 % values of $n$.
-t_ = [];
-n_ = 400:200:6000;
-for n = n_
+n_ = (400:200:6000)';
+t_ = 0*n_;
+for i = 1:length(n_)
+    n = n_(i);
     A = randn(n,n);  x = randn(n,1);
     tic  % start a timer
     for j = 1:10  % repeat ten times
         A*x;
     end
     t = toc;  % read the timer
-    t_ = [t_,t/10];  
+    t_(i) = t/10;  
 end
 
 
@@ -24,11 +25,11 @@ title('Timing of matrix-vector multiplications')
 %%
 % You can see that the graph is trending to a straight line of positive
 % slope. For comparison, we can plot a line that represents $O(n^2)$
-% growth. (All such lines have slope equal to 2.)
+% growth exactly. (All such lines have slope equal to 2.)
 hold on, loglog(n_,t_(1)*(n_/n_(1)).^2,'--')
 axis tight
 legend('data','O(n^2)','location','southeast')
 
 %%
-% It's too complicated to be a perfect match, but the asymptotic approach
-% to $O(n^2)$ is unmistakable. 
+% The full story of the execution times is complicated, but the asymptotic
+% approach to $O(n^2)$ is unmistakable.

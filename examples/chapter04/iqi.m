@@ -4,32 +4,38 @@ f = @(x) x + cos(10*x);
 interval = [0.5,1.5];
 fplot(f,interval)
 set(gca,'ygrid','on'), axis(axis)   % ignore this line
-format long, r = fzero(f,1)
+title('Objective function')    % ignore this line
+xlabel('x'), ylabel('y')    % ignore this line
+r = fzero(f,1)
 
 %%
 % We choose three values to get the iteration started.
 x = [0.8 1.2 1]';
 y = f(x);
 hold on, plot(x,y,'.')
+title('Three initial points')    % ignore this line
 
 %%
 % If we were using "forward" interpolation, we would ask for the polynomial
 % interpolant of $y$ as a function of $x$. But that parabola has no real
 % roots. 
-c = polyfit(x,y,2);    % coefficients of interpolating polynomial
+c = polyfit(x,y,2);    % coefficients of interpolant
 q = @(x) polyval(c,x);
-fplot(q,interval,'k--')
+fplot(q,interval,'--')
+title('Parabola model')     % ignore this line
 
 %%
 % To do inverse interpolation, we swap the roles of $x$ and $y$ in the
 % interpolation.
+cla, fplot(f,interval), plot(x,y,'.')     % ignore this line
 c = polyfit(y,x,2);    % coefficients of interpolating polynomial
 q = @(y) polyval(c,y);
-fplot(q,@(y) y,ylim,'r')    % plot x=q(y), y=y
+fplot(q,@(y) y,ylim,'--')    % plot x=q(y), y=y
+title('Sideways parabola')    % ignore this line
 
 %%
 % We seek the value of $x$ that makes $y$ zero. This means evaluating $q$
-% at zero, not finding a root like we did in the Newton and secant cases. 
+% at zero. 
 x = [x; q(0)];
 y = [y; f(x(end))]
 
