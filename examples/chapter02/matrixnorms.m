@@ -38,7 +38,7 @@ Ax = A*x;
 % with the @glsbegin@subplot@glsend@ command.
 subplot(1,2,2), plot(Ax(1,:),Ax(2,:)), axis equal
 hold on, plot(twonorm*x(1,:),twonorm*x(2,:),'--')
-title('Image of Ax, showing ||A||')
+title('Image of Ax, with ||A||')
 xlabel('x_1'),  ylabel('x_2')
 
 

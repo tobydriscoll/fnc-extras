@@ -15,8 +15,8 @@ num_steps_ode15s = length(t)
 %%
 % You can see that |ode15s| takes small time steps only when some part of
 % the solution is changing rapidly. However, the |ode45| solver, based on
-% an explicit RK4 method, is much slower and takes more steps compared to the 
-% \verb+num_steps+ of |ode15s|.
+% an explicit RK4 method, is much slower and takes more steps compared to 
+% |ode15s|.
 tic, [t,u] = ode45(f,[0 6],[1,1,4]); toc
 num_steps_ode45 = length(t)
 

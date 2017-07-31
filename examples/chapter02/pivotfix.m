@@ -1,5 +1,5 @@
 %%
-% Here is the system that "broke" LU factorization for us.
+% Here is the system that ``broke" LU factorization for us.
 A = [ 2 0 4 3; -2 0 2 -13 ; 1 15 2 -4.5 ; -4 5 -7 -10 ];
 b = [ 4; 40; 29; 9 ];
 

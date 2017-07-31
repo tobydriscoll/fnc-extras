@@ -30,7 +30,7 @@ c = V \ log(ep)          % coefficients of linear fit
 
 %%
 % In terms of the parameters $a$ and $b$ used above, we have 
-a = exp(c(1));  b = c(2),
+a = exp(c(1)),  b = c(2),
 
 %%
 % It's tempting to conjecture that $b=-1$ asymptotically. Here is how the

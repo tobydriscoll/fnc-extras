@@ -7,7 +7,7 @@ set(gca,'ygrid','on')  % ignore this line
 title('Objective function')    % ignore this line
 
 %%
-% From the graph, it's clear that there is a root near $x=1$. So we call
+% From the graph, it is clear that there is a root near $x=1$. So we call
 % that our initial guess, $x_1$.
 x1 = 1;
 f1 = f(x1)

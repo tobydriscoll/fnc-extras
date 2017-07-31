@@ -1,6 +1,7 @@
 %%
 % MATLAB has a function @glsbegin@cond@glsend@ to compute $\kappa_2(\bm{A})$. 
-% The family of _Hilbert matrices_ is famously badly conditioned. Here is the
+% The family of \index{matrix!Hilbert} _Hilbert matrices_ is famously 
+% badly conditioned. Here is the
 % $7\times 7$ case. 
 A = hilb(7);
 kappa = cond(A)

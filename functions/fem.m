@@ -25,12 +25,12 @@ fval = f(x);   fbar = (fval(1:n)+fval(2:n+1)) / 2;
 % Assemble global system, one interval at a time.
 K = zeros(n-1,n-1);  M = zeros(n-1,n-1);  f = zeros(n-1,1);
 K(1,1) = cbar(1)/h;  M(1,1) = sbar(1)*h/3;  f(1) = fbar(1)*h/2;
+K(n-1,n-1) = cbar(n)/h;  M(n-1,n-1) = sbar(n)*h/3;  f(n-1) = fbar(n)*h/2;
 for k = 2:n-1
   K(k-1:k,k-1:k) = K(k-1:k,k-1:k) + (cbar(k)/h) * Ke;
   M(k-1:k,k-1:k) = M(k-1:k,k-1:k) + (sbar(k)*h) * Me;
   f(k-1:k) = f(k-1:k) + (fbar(k)*h) * fe;
 end  
-K(n-1,n-1) = cbar(n-1)/h;  M(n-1,n-1) = sbar(n-1)*h/3;  f(n-1) = fbar(n-1)*h/2;
 
 % Solve system for the interior values.
 u = (K+M) \ f;

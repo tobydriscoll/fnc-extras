@@ -16,8 +16,8 @@ pcolor(x(1:n),t,V)
 xlabel x, ylabel t, shading flat     
 
 %%
-% The data propagates off the left edge. Because only zero is coming in
-% from the upwind direction, the solution remains zero forever.
+% The data from the initial condition propagates out of the left edge. Because only zero is coming in
+% from the upwind direction, the solution remains zero thereafter.
 
 %%
 % Now we try $u=0$ imposed at the left boundary. 

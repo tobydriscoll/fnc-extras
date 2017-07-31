@@ -12,7 +12,7 @@ format long
 eigval = gamma(end)
 
 %%
-% As expected, the eigenvalue that was found is the one closest to $0.5$.
+% As expected, the eigenvalue that was found is the one closest to $0.7$.
 % The convergence is again linear.
 err = eigval - gamma;
 semilogy(abs(err),'.-')

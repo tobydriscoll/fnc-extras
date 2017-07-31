@@ -17,7 +17,7 @@ c = 100; f(r)
 
 %%
 % This can get a little tricky, because the function is not executed or
-% checked at definition time. So you might discover an error such a
+% checked at definition time. You may discover an error using such a
 % definition only later in the code.
 clear c
 f = @(x) exp(x) - x - c;  % executes OK

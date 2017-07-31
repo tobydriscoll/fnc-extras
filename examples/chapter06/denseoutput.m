@@ -1,6 +1,6 @@
 %%
-% The equation $u'=\sin[(u+t)^2]$ has a solution that can be found
-% numerically with ease, even though no formula exists for it. We
+% We return to he equation $u'=\sin[(u+t)^2]$ to see two variations on how 
+% to obtain numerical solutions for it. In the first one, we
 % can supply a vector of time nodes and receive the solution at exactly
 % those times. 
 f = @(t,u) sin( (t+u).^2 );
@@ -10,9 +10,9 @@ plot(t,u,'.')
 xlabel('t'), ylabel('u(t)'), title('Solution at 60 points')     % ignore this line
 
 %% 
-% It's also possible to create a callable function for the solution.
-% Essentially this is a high-quality interpolant of the computed particular
-% values. 
+% In the second variation, we see that it's also possible to create a 
+% callable function for the solution. Essentially this is a high-quality 
+% interpolant of the computed particular values. 
 u = @(t) deval( ode45(f,[0,4],-1), t );
 fplot(u,[0,4])
 xlabel('t'), ylabel('u(t)'), title('Solution as a callable function')     % ignore this line

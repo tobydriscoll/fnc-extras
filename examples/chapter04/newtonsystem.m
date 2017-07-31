@@ -41,7 +41,7 @@ f(:,2) = nlvalue(x(:,2))
 %%
 % We don't seem to be especially close to a root. Let's iterate a few more
 % times. 
-for n = 2:8
+for n = 2:7
     f(:,n) = nlvalue(x(:,n));
     s = -( nljac(x(:,n)) \ f(:,n) );
     x(:,n+1) = x(:,n) + s;
@@ -58,8 +58,9 @@ r = x(:,end);
 x = x(:,1:end-1);
 
 %%
-% The following will subtract a vector from every column of a matrix.
-e = x - r;
+% The following will subtract r from every column of x.
+z = size(x);
+e = x - r*ones(1,z(2));
 
 %%
 % Now we take infinity norms and check for quadratic convergence. 

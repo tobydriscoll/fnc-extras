@@ -1,5 +1,5 @@
 %%
-% It's easy to get just the lower triangular part of any matrix.
+% It's easy to get just the lower triangular part of any matrix using the \gls{tril} command.
 A = magic(5)
 L = tril(A)
 

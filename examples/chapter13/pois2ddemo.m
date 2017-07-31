@@ -39,7 +39,7 @@ b(d.isbndy) = 0;                 % Dirichlet values
 
 %%
 % Now we can solve for $\bfu$ and reinterpret it as the matrix-shaped $\mU$,
-% the solution on our grid. This grid is much too small for the result to
+% the solution on our grid. This grid is much too coarse for the result to
 % look like a smooth function of two variables.
 u = A\b;
 U = d.unvec(u);

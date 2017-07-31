@@ -21,8 +21,9 @@ title('Convergence of fixed point iteration')
 %%
 % It's quite clear that the convergence quickly settles into a linear
 % rate. We could estimate this rate by doing a least-squares fit to a
-% straight line. Keep in mind that the values for small $k$ should be left
-% out of the computation, as they don't represent the linear trend.
+% straight line using MATLAB's builtin @glsbegin@polyfit@glsend@. Keep in mind 
+% that the values for small $k$ should be left
+% out of the computation, as they don't represent the linear trend.  
 p = polyfit(5:12,log(err(5:12)),1)
 
 %%
