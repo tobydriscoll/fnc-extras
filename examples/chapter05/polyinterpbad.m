@@ -8,6 +8,7 @@ plot(t,y,'.')
 %%
 % The polynomial interpolant, as computed using |polyfit|, looks very
 % sensible. It's the kind of function you'd take home to meet your parents. 
+% The interpolant plot is created using @glsbegin@fplot@glsend@.
 c = polyfit(t,y,n);     % polynomial coefficients
 p = @(x) polyval(c,x);
 hold on, fplot(p,[-1 1])

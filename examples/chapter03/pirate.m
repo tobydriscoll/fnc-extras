@@ -12,6 +12,8 @@ k = (1:100)';
 s = cumsum( 1./k.^2 );   % cumulative summation
 p = sqrt(6*s);
 plot(k,p,'.-')
+xlabel('k'), ylabel('p_k')
+title('Sequence converging to \pi')
 
 %% 
 % This graph suggests that $p_k\to\pi$ but doesn't give much information
@@ -20,7 +22,7 @@ plot(k,p,'.-')
 % can see a nearly linear relationship.
 ep = abs(pi-p);    % error sequence
 loglog(k,ep,'.'), title('log-log convergence')
-xlabel('k'), ylabel('error'),  axis tight    % ignore this line
+xlabel('k'), ylabel('error'),  axis tight    
 
 %%
 % This suggests a power-law relationship where $\epsilon_k\approx a k^b$,

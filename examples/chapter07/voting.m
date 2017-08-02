@@ -1,7 +1,7 @@
 %%
 % This matrix describes the votes on bills in the 111th session of the
-% United States Senate. Each row is one senator and each column is a
-% vote item. 
+% United States Senate. (The data set was obtained from |voteview.com|.)
+% Each row is one senator and each column is a vote item.
 load voting    % get from the book's website
 [m,n] = size(A); 
 

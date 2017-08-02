@@ -1,5 +1,6 @@
 %%
 % The equation $u'=(u+t)^2$, gives us some trouble.
+warning on    % ignore this line
 f = @(t,u) (t+u).^2;
 [t,u] = ode45(f,[0,1],1);
 semilogy(t,u)

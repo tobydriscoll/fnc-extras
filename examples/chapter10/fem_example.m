@@ -8,3 +8,4 @@ f = @(x) sin(pi*x);
 %%
 [x,u] = fem(c,q,f,0,1,50);
 plot(x,u), xlabel('x'), ylabel('u')
+title('Solution by finite elements')    % ignore this line

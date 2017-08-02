@@ -13,7 +13,8 @@ chop = @(u) u(1:n);  extend = @(v) [v;0];
 odefun = @(t,v) -c*chop(Dx*extend(v));
 [t,V] = ode113(odefun,[0,1],uinit(1:n));
 pcolor(x(1:n),t,V)
-xlabel x, ylabel t, shading flat     
+xlabel x, ylabel t, shading flat    % ignore this line
+title('Inflow boundary condition')   % ignore this line
 
 %%
 % The data from the initial condition propagates out of the left edge. Because only zero is coming in
@@ -26,6 +27,7 @@ odefun = @(t,v) -c*chop(Dx*extend(v));
 [t,V] = ode113(odefun,[0,1],uinit(2:n+1));
 pcolor(x(2:n+1),t,V)
 xlabel x, ylabel t, shading flat     % ignore this line
+title('Outflow boundary condition')   % ignore this line
 
 %%
 % Everything seems OK until the data begins to interact with the

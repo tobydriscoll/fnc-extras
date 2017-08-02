@@ -3,7 +3,8 @@
 [x,Dx] = diffper(40,[0,1]);
 lambda = eig(Dx);
 plot(real(lambda),imag(lambda),'.')
-axis equal, grid on
+axis equal, grid on    % ignore this line
+title('Eigenvalues for pure advection')    % ignore this line
 
 %%
 % Let's choose a time step of $\tau=0.1$ and compare to the stability

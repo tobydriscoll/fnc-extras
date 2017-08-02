@@ -1,6 +1,6 @@
 %%
-% Here is the adjacency matrix of a graph with 60 nodes from a builtin MATLAB 
-% function.  
+% Here is the adjacency matrix of a graph with 60 nodes from a built-in
+% MATLAB function.
 [A,v] = bucky;
 size(A)
 

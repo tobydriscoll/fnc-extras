@@ -18,6 +18,7 @@ end
 % Now we solve a least squares problem for Krylov matrices of increasing
 % dimension.
 warning off    % ignore this line
+resid = zeros(30,1);
 for m = 1:30  
     z = (A*Km(:,1:m))\b;
     x = Km(:,1:m)*z;

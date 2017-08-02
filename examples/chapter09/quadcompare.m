@@ -22,8 +22,9 @@ xlabel('number of nodes'), ylabel('error'), title('Spectral integration')   % ig
 legend('CC','GL')   % ignore this line
 
 %%
-% Gauss--Legendre does converge faster here, but at something less than twice the rate.
-% Now we try a more sharply peaked integrand:
+% (The missing dots are where the error is exactly zero.) Gauss--Legendre
+% does converge faster here, but at something less than twice the rate. Now
+% we try a more sharply peaked integrand:
 %%
 % 
 % $$\int_{-1}^1 \frac{1}{1+16x^2} \, dx = \frac{1}{2}\arctan(4).$$

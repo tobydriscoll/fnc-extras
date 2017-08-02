@@ -22,7 +22,7 @@ xlabel('x'), ylabel('p(x)')   % ignore this line
 title('Trig interpolation')    % ignore this line
 
 %%
-% The convergence of the interpolant is exponential (specrtal). We let $N$
+% The convergence of the interpolant is exponential (spectral). We let $N$
 % go needlessly large here in order to demonstrate that unlike polynomials,
 % trigonometric interpolation is stable on equally spaced nodes.
 N = (3:3:90)';
