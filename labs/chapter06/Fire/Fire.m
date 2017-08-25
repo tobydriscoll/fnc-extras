@@ -1,69 +1,37 @@
-%% We didn't start the fire
-clear all
-close all
-
 %% 1. Reference solution
-r0 = 0.01;
+f = @(t,r) r^2*(1-r);
+tspan = [0 500];
+opt = odeset('reltol',1e-12,'abstol',1e-12);
+sol = ode15s(f,tspan,0.01,opt);
+ref = @(t) deval(sol,t);
+% You can now evaluate ref(t) to get the solution at time t. 
 
-%*** Define the high-accuracy reference solution r_hat as instructed.
+%*** Plot the reference solution over [0,500]
 
-clf
-fplot(r_hat,[0 200])
-xlabel('t'), ylabel('r(t)')
-title('Reference (exact) solution')
+%% 2. Convergence at t=100
+tspan = [0 100];
+n = 100*[1 2 4 8 16 64 256];
+err = zeros(size(n));
 
-%% 2. Euler solution with h=1
+%*** Compute Euler error at t=100 for each n.
 
-%*** Make a call to eulerivp to get t and r, using h=1
-%*** (You must first figure out what n is.)
+loglog(n,err,'-o')
+title('Convergence at t=100')
+xlabel('n')
+ylabel('error')
 
-plot(t,r,t,r_hat(t))
-xlabel('t'), ylabel('r(t)')
-title('Exact solution and Euler method, h=1')
+%*** Add a curve to the plot for first-order error.
 
-%% 3. Convergence of the Euler solution at t=100
-n = (50:50:10000)';
-err = [];
-for i = 1:length(n)
-    %*** Compute the Euler solution for n(i)
-    %*** Compute the error at t=100 and assign it to err(i,1) in next line  
-    err(i,1);
-end
+%% 3. Convergence at t=200
+%*** Repeat step 2 for t=200. 
 
-clf, loglog(n,abs(err),'-o')
-xlabel('n'), ylabel('error')
-title('Convergence of Euler at t=100')
-hold on, axis tight
-loglog([1000 8000],20./[1000 8000],'k--')
-text(6000,25/6000,'O(n^{-1})')
+loglog(n,err,'-o')
+title('Convergence at t=200')
+xlabel('n')
+ylabel('error')
 
-%% 4. Convergence at t=500
-n = (50:50:10000)';
-err = [];
-for i = 1:length(n)
-    %*** Compute the Euler solution for n(i)
-    %*** Compute the error at t=500 and assign it to err(i,1) in next line  
-    err(i,1);
-end
+%% 4. Solutions as functions of time
+n = [150 200 250];
 
-clf
-loglog(n,abs(err),'-o')
-xlabel('n'), ylabel('error')
-title('Convergence of Euler at t=500')
-hold on
-loglog([1000 8000],20./[1000 8000],'k--')
-text(6000,30/6000,'O(n^{-1})')
+%*** Plot r(t) versus t for each n, over t in [0,500].
 
-%% 5. Plot the Euler solutions as functions of time
-clf
-n = [100 150 200 250];
-for i = 1:4
-    subplot(4,1,i)
-
-    %*** Compute solution for n(i), and plot it
-    
-    xlabel('t')
-    ylabel('r(t)')
-    title(['n = ' num2str(n(i))])
-end
-xlabel('t')
