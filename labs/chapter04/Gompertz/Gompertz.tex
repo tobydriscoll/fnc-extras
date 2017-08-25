@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amsthm}
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+\usepackage{color}
+
+\pagestyle{myheadings}
+\markboth{MATH426/CISC410}{MATH426/CISC410}
+
+\input{../../fncextra}
+\begin{document}
+
+\begin{center}
+  \bf A fitting challenge
+\end{center}
+
+Some phenomena, like the growth of tumors, can be predicted by theory to follow a \textbf{Gompertz function},
+\begin{equation}
+  \label{g}
+  g(t) = A e^{-b e^{-ct}},
+\end{equation}
+where $A,b,c$ are positive parameters. As $t$ varies over the real line, $g$ increases from 0 to $A$. 
+
+Suppose you have data $(t_i,z_i)$, $i=1,\dots,m$, that you believe follow a Gompertz curve with unknown parameters. Taking the log, we get
+\begin{equation}
+  \label{logdata}
+  \log(z_i) \approx (\log A) - b e^{-c t_i}.
+\end{equation}
+We let $y_i=\log z_i$ and let $a=\log A$. Define a function $\bff$ whose components are
+\begin{equation}
+	\label{f}
+	f_i(a,b,c) = a - b e^{-c t_i} - y_i.
+\end{equation}
+In order to fit the data, we seek to minimize $\|\bff\|_2$ as a function of $a$, $b$, and $c$, which together we call the vector $\bfx$. This is a nonlinear least squares problem that can be solved by the Levenberg iteration.
+
+\subsection*{Preparation}
+
+Read section 4.7. 
+
+
+\subsection*{Goals}
+
+You will find a nonlinear least squares fit to given data and use the result to predict the asymptotic value $g(\infty)=A$. 
+
+\subsection*{Procedure}
+
+Download the script template and the file \texttt{gompertz\_data}.
+
+\begin{enumerate}
+    \item Load the data file, which has two vectors \texttt{t} and \texttt{z}. Make a plot of $z$ versus $t$. 
+     
+    \item In a separate file, write a function 
+\begin{verbatim}
+function f = gomp(x,t,z)
+\end{verbatim}
+    that returns the $m$-vector defined by~\eqref{f}, given a value of $\bfx=[a;b;c]$ and the vectors \texttt{t} and \texttt{z}.
+    
+    \item In the script file, use \texttt{levenberg} to find best fitting values for $a,b,c$. 
+    
+    \item Using the result of the fit, calculate the value of $\lim_{t\to\infty} g(t)$. 
+    
+    \item On top of the data points, make a plot of the fitting function~\eqref{g} over $0\le t \le 40$. (Remember that the function fits the log of the values, not the values themselves.)
+\end{enumerate}
+
+
+\end{document}
+

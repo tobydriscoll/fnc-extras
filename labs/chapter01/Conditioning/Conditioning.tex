@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+
+\pagestyle{myheadings}
+\markboth{}{Conditioning}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf Rooting for accuracy
+\end{center}
+
+Suppose we have a quadratic polynomial $p(x;s) = a(s)x^2+b(s)x+c(s)$ whose coefficients depend on a parameter $s$. In this lab, we define
+\begin{equation}
+  \label{eq:poly}
+  p(x;s) = 9x^2 - (6+s)x + 1.
+\end{equation}
+For each value of $s$ there are two roots $t_1(s)$ and $t_2(s)$. Since $a$, $b$, and $c$ vary continuously as a function of $s$, $t_1(s)$ and $t_2(s)$ are also continuous.
+
+The effect of roundoff in floating point calculations is to perturb the coefficients of $p$ by a relative amount $\macheps$. As a result, the roots may change by a relative amount $\kappa \macheps$, where $\kappa$ is the condition number of the roots. In the text it's shown in a special case that for the root $t_k$, the condition number is given by
+\begin{equation}
+  \label{eq:kappa}
+  \kappa = |t_k|/|t_1-t_2|.
+\end{equation}
+If $t_1\approx t_2$, the errors in the computed roots are potentially large (compared to machine precision). In our case $p(x;0)=(3x-1)^2$, which makes $\kappa$ formally infinite, so $s=0$ is critical to the conditioning of the roots.
+
+
+%Even when a computed $\tilde{t}_k$ is not close to $t_k$, however, it may still be the case that the \textbf{residual} $p(\tilde{t}_k;s)$ is close to zero. In practical computations we usually don't know the error, but we can always compute the residual.
+
+\subsection*{Goals}
+
+You will examine the sensitivity of the roots of a quadratic polynomial whose roots come together, coalesce, and separate again.
+
+\subsection*{Preparation}
+
+Read section~1.2 and the online help for the \texttt{roots} and \texttt{polyval} commands.
+
+In MATLAB, perform the following.
+\begin{verbatim}
+t1 = @(s) (6+s+sqrt((6+s).^2-36))/18;
+t2 = @(s) (6+s-sqrt((6+s).^2-36))/18;
+s = linspace(-1,1,800)';
+plot(t1(s),'r.')
+hold on
+plot(t2(s),'b.')
+xlabel('real part'),  ylabel('imaginary part')
+title('Roots for -1 < s < 1') 
+\end{verbatim}
+Use the resulting picture to describe in words what happens to the roots as the parameter $s$ passes from negative to positive values. 
+
+
+\subsection*{Procedure}
+
+Download the template script and complete it in sections as guided below.
+
+\begin{enumerate}
+\item Define the functions \texttt{t1} and \texttt{t2} as in the Preparation section above.
+
+\item Let $s=-0.1$. Use \texttt{roots} to compute the two roots of $p(x;s)$ as a vector \texttt{r}. One complication is that we don't know whether \texttt{r(1)} is meant to be $t_1$ or $t_2$. So we compute its error by means of
+\begin{verbatim}
+err1 = min( abs(r(1)-t1(s)), abs(r(1)-t2(s)) )
+\end{verbatim}
+  Find this value. Then find $\kappa$ from~\eqref{eq:kappa} with $k=1$.
+
+\item Define the vector
+\begin{verbatim}
+s = linspace(-1,1,800)';
+\end{verbatim}
+  In a loop over the entries of the vector \texttt{s}, find the error and $\kappa$, storing the results in vectors. The template has code for plotting the results. 
+
+\item Nothing in the previous step indicates much reason for concern. However, the results are strikingly different if we approach very close to $s=0$. Define 
+\begin{verbatim}
+s = logspace(-15,-1,100)';
+\end{verbatim}
+Then repeat the loop from step~3. 
+\end{enumerate}
+
+\subsection*{Going further}
+
+We always compute with a fixed value of $\varepsilon_{\text{mach}}$, but we can simulate the effect of varying it by manually perturbing data. For example, a relative perturbation of size $\delta$ to each entry of vector $y$ is made by
+\begin{verbatim}
+r = 2*rand(size(y))-1;    % random in [-1,1]
+yy = y .* (1+delta*r);
+\end{verbatim}
+For each $\delta=10^{-6},10^{-8},10^{-10},10^{-12},10^{-14}$, make 500 random perturbations to the coefficient vector of $p(x;0)$, each time using \texttt{roots} to find the resulting roots and plotting them in the complex plane. (You should end up five plots, each with 1000 points.) 
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

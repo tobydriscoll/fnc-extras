@@ -1,0 +1,67 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage{amsmath,amsthm}
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+\usepackage{color}
+\usepackage{graphicx}
+
+\pagestyle{myheadings}
+\markboth{Eye See You}{Eye See You}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf Eye See You
+\end{center}
+
+We have used least-squares fitting to create functions of a single variable, $y=f(t)$, which can be plotted as a curve to represent data. Some curves, however, cannot be represented as a single function. A more flexible representation is a parametric curve: 
+\begin{equation}
+  \label{eq:1}
+  x = f(t), \qquad y = g(t).
+\end{equation}
+Given points in the plane as $(x_i,y_i)$, we can separately fit them as functions of a third parametric variable $t$ and use the curve $(f(t),g(t))$ to pass near the points. 
+
+\subsection*{Preparation}
+
+Read section 3.1. 
+
+\subsection*{Goals}
+
+You will capture an image of an eye and find points along the top and bottom eyelids, then do two least-squares fits to represent the eyelids as curves. Because both $x$ and $y$ are periodic as you go around the eye once, you will use periodic functions for the least-squares fitting implied in equation~(1):
+\begin{align}
+  f(t) &= b_1 + b_2 \cos(2\pi t) + b_3 \cos(4\pi t) + b_4 \cos(6\pi t)  + b_5 \sin(2\pi t) + b_6 \sin(4\pi t) + b_7 \sin(6\pi t),\label{eq:2x} \\
+  g(t) &= c_1 + c_2 \cos(2\pi t) + c_3 \cos(4\pi t) + c_4 \cos(6\pi t)  + c_5 \sin(2\pi t) + c_6 \sin(4\pi t) + c_7 \sin(6\pi t). \label{eq:2y}
+\end{align}
+
+
+\subsection*{Procedure}
+
+Download the template script and edit it to perform the following steps.
+
+\begin{enumerate}
+\item Using a phone, take a picture of an open eye (your own or someone else's). Load the image into MATLAB using \texttt{imread} and display it using \texttt{image}. 
+\item Enter the command 
+\begin{verbatim}
+[xup,yup] = ginput(10);
+\end{verbatim}
+This will create a crosshair in the image window. Click at ten roughly
+evenly spaced points along the upper eyelid \textbf{from right to left}. Get close to the corners of the eye, but don't put points on the corners. Afterward both \texttt{xup} and \texttt{yup} will be $10\times 1$ vectors representing the selected points. 
+\item Repeat step 2 using \verb+[xlo,ylo] = ginput(10)+ and clicking
+  along the lower eyelid \textbf{from left to right}.
+\item Stack \texttt{xup} and \texttt{xlo} into a vector \texttt{x},
+  and stack \texttt{yup} and \texttt{ylo} into a vector \texttt{y}. Both of these should be $20\times 1$. On top of your eye image, plot the points $(x_i,y_i)$ using \texttt{'o'} markers. (If the points don't lie close to the eyelids, you have done something wrong.)  
+\item Now let \texttt{t} be a $20\times 1$ vector where $t_i=(i-1)/20$ for $i=1,\ldots,20$. Referring back to equations~\eqref{eq:2x} and~\eqref{eq:2y}, create a $20\times 7$ matrix \texttt{A} whose columns are the values of the functions $1$, $\cos(2\pi t)$, and so on, through $\sin(6\pi t)$. 
+\item Apply linear least squares (using backslash) to solve for the coefficients $b_j$ in~(2) using the \texttt{x} data, and to solve for the coefficients $c_j$ in~(3) using the \texttt{y} data. 
+\item Evaluate the functions in~\eqref{eq:2x} and~\eqref{eq:2y} at 500 equally spaced values of $t$ between 0 and 1. On top of the axes showing the eye image and the selected points, and using the coefficients from the previous step, plot the curve defined by equation~\eqref{eq:1}. 
+\end{enumerate}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

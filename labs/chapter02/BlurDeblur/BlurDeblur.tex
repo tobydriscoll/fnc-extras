@@ -1,0 +1,73 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage{amsmath,amsthm}
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+\usepackage{color}
+
+\pagestyle{myheadings}
+\markboth{Deblurring}{}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf You can't go home again
+\end{center}
+
+In a previous lab you learned to blur an image, represented as an
+$m\times n$ pixel intensity matrix $\mX$, through multiplying by a
+matrix on each side. Let $\mV=\mB_m$ and $\mH=\mB_n^T$, where each
+$\mB_p$ is a $p\times p$ local blurring matrix returned by your function
+\texttt{blurmatrix}. For some positive integer $k$, 
+\begin{equation}
+  \label{eq:BlurDeblur1}
+  \mZ=\mV^k \mX \, \mH^k
+\end{equation}
+applies local blurring $k$ times in each direction to get the
+resulting $\mZ$. 
+
+It's much more common, of course, to have a blurred image that you
+want to restore, or \textit{deblur}. We can easily express the process
+using matrix inverses: 
+\[
+  \mX = \mV^{-k} \mZ \, \mH^{-k}.
+\] 
+However, in computational practice we rarely use matrix inverses;
+instead, we solve linear systems. In MATLAB this is done by using
+\verb+\+ (backslash) when multiplying by an inverse on the left, and
+\verb+/+ (forward slash) when multiplying by an inverse on the right.
+
+It's intuitively clear that blurring and deblurring are fundamentally different. While we can blur an image as much as we like, we expect that a severely blurred image cannot be accurately restored. In finite precision, this proves to be the case. We will soon be learning how to characterize matrix multiplications like this that cannot easily be undone. 
+
+\subsection*{Goals}
+
+You will blur an image as before, then apply backslash and slash to
+deblur it. For a small amount of blur this will succeed, but not when you try to restore a more severely blurred image. 
+
+\subsection*{Preparation}
+
+Read Section 2.3 and review the lab on blurring an image. You will need a working copy of \texttt{blurmatrix.m}. 
+
+\subsection*{Procedure}
+
+Download the script template and make \texttt{blurmatrix.m} available. 
+\begin{enumerate}
+
+\item Using \texttt{blurmatrix}, let $\mV=\mB_{100}$. Make side-by-side plots of $\mV$ and $\mV^{-1}$ using \texttt{imagesc} (see the template). Note that while the nonzeros of $\mV$ are all near the diagonal, the same is not true for $\mV^{-1}$, so deblurring is not a simple local operation.  \item Download and locally save an image. For best results, use a cartoon or line drawing of size 500 pixels or less on each side. Import the image and call the result $\mX$, the original image.
+
+\item Make side-by-side plots of $(V^{-1})^6$ and $(V^6)^{-1}$. These should be equivalent, but your results will not be---our first sign of some trouble.
+
+\item Using $k=1$, let $\mZ$ be the blurred image as described in equation~\eqref{eq:BlurDeblur1} . Using \texttt{subplot} and \texttt{imshow}, make side by side pictures of the original and blurred images.
+
+\item Now let $\m{Y}$ be the result of deblurring $\mZ$. Use \verb+\+ and \verb+/+, as described in the introduction. Make side by side pictures of $\mX$ and $\m{Y}$. You should see apparently
+  identical images.
+
+\item Repeat steps 4 and 5, but using $k=6$. The restoration results should be \emph{very}
+  different!
+
+\end{enumerate}
+
+
+\end{document}

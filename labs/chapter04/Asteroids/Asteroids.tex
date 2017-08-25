@@ -1,0 +1,54 @@
+\documentclass[11pt,twoside]{fncextra}
+
+\pagestyle{myheadings}
+\markboth{}{Asteroids}
+
+\begin{document}
+
+\begin{center}
+  \bf Asteroids (pew pew)
+\end{center}
+
+In 1609 Johannes Kepler proposed that celestial bodies in the solar system follow elliptical orbits with the sun at one focus. This so-called First Kepler Law laid the groundwork for sophisticated mathematical description of orbits, and indeed spurred and justified the early development of calculus, as Kepler's geometric laws were worked out into formulas that were used to explain gravitational force.
+
+There are multiple parameters used to characterize these orbits. If we consider only the motion within the plane of the orbit, these can all be derived from two readily observed ones: $\tau$, the period of the orbit, and $\epsilon$, the eccentricity of the ellipse. (Larger values mean greater deviation from circularity, with a circle at $\epsilon=0$ and a degenerate line at $\epsilon=1$. )
+
+Perhaps the geometrically easiest parameters to understand are the \emph{true anomaly} $\nu$, which is the angle between the body and its \emph{perihelion}, or its closest approach to the sun; and the distance $r$ from the body to the sun. These parameters are related by the equations \begin{align}
+  \tan \frac{\nu}{2} &= \sqrt{\frac{1+\epsilon}{1-\epsilon}}\,
+    \tan \frac{\psi}{2}, \label{eq:Asteroids1} \\
+  M &= \psi - \epsilon \sin \psi, \label{eq:Asteroids2} \\
+  r &=  \frac{a(1-\epsilon^2)}{1+\epsilon \cos \nu} \\
+  a^3 &= \mu \left(\frac{\tau}{2\pi}\right)^2.
+\end{align}
+Here, $M$ is known as the \emph{mean anomaly}; it is proportional to time and varies from 0 to $2\pi$ over one complete orbit traversal. In addition, $\psi$ is known as the \emph{eccentric anomaly}, $a$ is half of the (maximum) diameter of the ellipse, and $\mu$ is a gravitational parameter that for the Sun is $39.47524$ $\text{AU}^3/\text{yr}^2$. (An AU is roughly the Earth--Sun distance.)
+
+Equation~\eqref{eq:Asteroids2} implicitly defines $\psi$ as a function of $M$ (and therefore time), but it cannot be solved in closed form. Instead, given a value of $M$, rootfinding must be used to find $\psi$. The rest of the parameters in the equations can be calculated explicitly from $\psi$.
+
+
+
+\subsection*{Preparation}
+
+Read Section~4.1.
+
+\subsection*{Goals}
+
+You will apply \texttt{fzero} in MATLAB to compute the eccentric anomaly given the orbital period and eccentricity of an asteroid. From this you can compute other quantities of interest.
+
+
+%\end{document}
+
+\subsection*{Procedure}
+
+\begin{enumerate}
+\item Let \texttt{M} be a vector of 800 evenly spaced values from $0$ to $2\pi$. Set $\epsilon=0.1$ and solve~\eqref{eq:Asteroids2} using \texttt{fzero} to compute a value of $\psi$ for each entry of $M$. Make a labeled plot of $\psi(M)$.  \item Add to the plot of step 1 by stepping through $\epsilon=0.2,0.3,\ldots,0.9$, and plotting the resulting $\psi(M)$ each time.  \item The asteroid 324 Bamberga is both one of the largest and one of the most eccentric in the asteroid belt. It has $\epsilon = 0.338$ and $\tau = 4.40$ yr. Plot $\nu(M)$ over $0\le M \le 2\pi$ for this asteroid. (You will probably find that $\nu$ jumps suddenly from $\pi$ to $-\pi$. It's not incorrect, but if this offends you, use \texttt{unwrap(nu)} to get a smooth equivalent in $[0,2\pi]$.)
+\item Plot $r(M)$ as a function of $M$ for 324 Bamberga.
+\item Halley's Comet has $\epsilon=0.967$ and $\tau = 75.3$ yr. Plot $r(M)$ for this comet. What are its maximum (aphelion) and minimum (perihelion) values? (You can check these figures against ones you find on the internet.) 
+\end{enumerate}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

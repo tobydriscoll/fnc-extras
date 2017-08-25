@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amsthm}
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+\usepackage{color}
+
+\pagestyle{myheadings}
+\markboth{Matrix conditioning}{}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf Terms and conditions
+\end{center}
+
+Previously you have seen how to blur an image, represented as an
+$m\times n$ pixel intensity matrix $\mX$, through multiplying by a matrix on each side:
+\begin{equation}
+  \label{eq:2}
+   \mZ=\mV\, \mX \, \mH,
+\end{equation}
+where $\mV = (\mB_m)^k$, $\mH = (\mB_n)^k$, 
+$B_i$ is the $i\times i$ matrix made by your function
+\texttt{blurmatrix}, and $k$ is a positive integer. You have also seen that deblurring can be accomplished by multiplying by matrix inverses on each side of $\mZ$ (as computed equivalently by solving linear systems). However, while the restoration seems perfect for $k=1$, it fails completely for larger $k$.
+
+Matrix condition numbers explain these observations. The blurred matrix $\mZ$ is perturbed by an amount comparable to machine precision. For $k=1$, the condition numbers of $\mV$ and $\mH$ are not large enough to amplify this error up to the same order of magnitude as $\mX$ itself, so the noise is not perceived. But at some $k>1$, the condition numbers are so large that the noise is amplified enough to overwhelm the expected result.
+
+Let $\bfx$ be a single column of $\mX$. For the case of vertical blurring only, we have $\bfz=\mV\bfx$ as a column of $\mZ$. We solve $\mV \bfy = \bfz$ for $\bfy$, which is mathematically the same as $\bfx$. Due to machine precision, though, the perturbation to $\bfz$ causes an error satisfying
+\begin{equation}
+	\label{bound}
+	\frac{\|\bfy-\bfx\|}{\|\bfx\|} \le \kappa(\mV)\macheps,
+\end{equation}
+with $\kappa$ being the matrix condition number. 
+
+\subsection*{Preparation}
+
+Read Section~2.8. Make sure your working \texttt{blurmatrix.m} is available. 
+
+\subsection*{Goals}
+
+You will compute condition numbers of blur matrix powers and compare them to the errors of repeated blur/deblur operations. 
+
+\subsection*{Procedure}
+
+\begin{enumerate}
+\item The condition number of a matrix has two factors, $\|\mA\|$ and $\|\mA^{-1}\|$. First you will show that the $\|\mA\|$ term makes no trouble. For $n=50,100,150,\ldots,800$, plot $\|\mB_n\|$ versus $n$. 
+
+\item For the same $n$ as in step 1, plot $\kappa(\mB_n)$ versus $n$. You should use a log-log scale for this graph and get essentially a straight line. This implies that $\log \kappa \approx a \log n + b$, or $\kappa \approx C n^p$. 
+
+\item Let $\mV=\mB_{100}$. For $k=1,2,\ldots,8$, plot $\kappa(\mV^k)$ as a function of $k$. This time the graph is straight on a semi-log scale, which implies $\kappa \approx C q^k$. 
+
+\item Let $\bfx$ be a random vector of length 100. For $k=1,2,\ldots,8$, let $\bfz=\mV\bfx$ and then solve $\mV\bfy=\bfz$ for $\bfy$. Record the relative error in the result. Then make a table showing both sides of the inequality~\eqref{bound}.
+
+\end{enumerate}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

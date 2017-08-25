@@ -1,0 +1,100 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage[utopia]{mathdesign}
+\usepackage[headings]{fullpage}
+\usepackage{color}
+\usepackage{enumerate}
+
+\pagestyle{myheadings}
+\markboth{}{Blur}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf Blurred lines
+\end{center}
+
+In a computer, an image is ultimately a table of numbers representing pixel intensity values. We can regard these values as a matrix and model some common image operations using linear
+algebra. A prominent example of such operations is blurring due to poor focus. 
+
+Consider first an $m\times 1$ vector $\bfx$ of pixel intensities, mapped to a
+vector $\bfz$ of intensities after blurring. We model each pixel
+in the new vector as a weighted average,
+\[
+z_i = \frac{1}{4}x_{i-1} + \frac{1}{2}x_i + \frac{1}{4} x_{i+1}.
+\]
+Pixel values that are beyond the boundaries, namely $x_0$ and $x_{m+1}$, are taken to be zero.  We can express the relationship between original and blurred image as a matrix-vector product:
+\begin{equation}
+\label{eq:blurmatrix}
+\bfz = 
+\begin{bmatrix}
+  \frac{1}{2} & \frac{1}{4} & 0           & \cdots      & 0           \\[2mm]
+  \frac{1}{4} & \frac{1}{2} & \frac{1}{4} & \cdots      & 0           \\[2mm]
+              & \ddots      & \ddots      & \ddots      &             \\
+  0           & \cdots      & \frac{1}{4} & \frac{1}{2} & \frac{1}{4} \\[2mm]
+  0           & 0           & \cdots      & \frac{1}{4} & \frac{1}{2} 
+\end{bmatrix}
+\bfx = \mB_m \bfx,
+\end{equation}
+where the $m$ subscript indicates an $m\times m$ matrix. 
+
+Things are not much more complicated for actual 2D images. Let $\mX$
+be an $m\times n$ image and $\mZ$ be a blurred version of
+it. We can first blur in the vertical direction by recalling the columnwise multiplication identity,
+\[
+\mB_m \mX = 
+\begin{bmatrix}
+  \mB_m \mX_1 & \mB_m \mX_2 & \cdots & \mB_m \mX_n
+\end{bmatrix}.
+\]
+Thus, $\mB_m\mX$ applies vertical blur to each column of the image. 
+
+To blur rows, we go in three steps. First, transpose the image to turn rows into columns. Second, apply blurring to each column as shown above. Finally, transpose the result back to restore the original orientation. Hence the fully blurred image is given by
+\begin{equation}
+\label{eq:blurop}
+  \mZ = \Bigl[ \mB_n(\mB_m\mX)^T \Bigr]^T = \mB_m \mX \, \mB_n^T = \mB_m \mX \, \mB_n, 
+\end{equation}
+where the last step uses the symmetry apparent in~\eqref{eq:blurmatrix}. 
+
+Finally, we can simulate a larger amount of blur by applying our simple blur multiple times, as in $ (\mB_m)^k \mX \, (\mB_n)^k$ for some integer $k>1$. 
+
+\subsection*{Preparation}
+
+Read Section 2.2. Then read the online documentation for \texttt{diag}, paying particular attention to the examples. 
+
+
+\subsection*{Goals}
+
+You will write a function that produces a blur matrix of requested size. This will be used to blur an image that you import as a matrix.
+
+%\end{document}
+
+\subsection*{Procedure}
+
+Download the template script \texttt{Blur} and the template file \texttt{blurmatrix.m}.
+
+\begin{enumerate}
+\item The file \texttt{blurmatrix.m} has the first line
+\begin{verbatim}
+function B = blurmatrix(n)
+\end{verbatim}
+Within the function, \texttt{n} is an input parameter describing the size of the matrix, and \texttt{B} is the result that is returned to the caller. Using the functions \texttt{ones} and \texttt{diag}, complete the definition of the function so that it returns $\mB_n$ as in~\eqref{eq:blurmatrix}.
+\item In the script, construct the matrix $\mB_7$ using a call to \texttt{blurmatrix} and have it printed out (no semicolon) to show that it's correct.
+\item Save an image to your working folder. (It should have between 400 and 1000 pixels in each dimension.) The template script has code for importing it, converting it to a floating-point matrix $\mX$, and displaying it. 
+\item Apply blurring to your image 60 times in the vertical direction only, and display the result as in step~3.  
+\item Blur the image 60 times in each direction and display it. 
+\end{enumerate}
+
+\subsection*{Extras}
+\begin{enumerate}
+\item[E1.] Look at the output of the final step. What creates the ``black lines'' around the edges? What happens to them as the number of blur applications increases? 
+\end{enumerate}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
