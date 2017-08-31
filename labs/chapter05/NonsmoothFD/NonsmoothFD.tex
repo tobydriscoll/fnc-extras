@@ -1,0 +1,69 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+
+\pagestyle{myheadings}
+\markboth{Nonsmooth FD}{Nonsmooth FD}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf (Non)smooth moves
+\end{center}
+
+We derive finite difference formulas by interpolating with a polynomial, then differentiating the interpolant. This leads to, for example, the formulas
+\begin{align}
+   W_1(h) &=  \frac{f(h)-f(0)}{h} = f'(0) + O(h), \label{W1} \\
+   W_2(h) &=  \frac{f(h)-f(-h)}{2h} = f'(0) + O(h^2), \label{W2} \\
+   W_4(h) &=  \frac{-f(2h) + 8f(h)-8f(-h)+f(-2h)}{12h} = f'(0) + O(h^4). \label{W4}
+\end{align}
+The terms $O(h^p)$ are a statement about the accuracy of the formula, which we say has order $p$.
+
+However, interpolation by a polynomial isn't ideal for every $f$ you might encounter. One reason is that polynomials are smooth---they have infinitely many derivatives. Consider $f(x)=|x|$, for example. It's continuous but not differentiable at $x=0$. What value should the finite difference attempt to get there: $+1$, $-1$, or something else? For a function that has one derivative but not two, there is a unique value to converge to, but the convergence rate is slowed by the singularity. 
+
+\subsection*{Goals}
+
+You will apply finite difference methods of different orders to 
+functions that lack smoothness at a point, and observe the effects on
+the order of accuracy.
+
+\subsection*{Preparation}
+
+Read sections 5.4 and 5.5. Determine the number of continuous derivatives at $x=0$ for the following functions:
+\begin{align}
+  g_1(x) =
+  \begin{cases}
+    5x+1, & x \le 0 \\ (x+1)^5, & x > 0
+  \end{cases}  \label{g1} \\
+  g_2(x) =
+  \begin{cases}
+    10x^2 + 5\sin(x) + 1, & x \le 0 \\ (x+1)^5, & x>0
+  \end{cases} \label{g2}
+\end{align}
+
+\subsection*{Procedure}
+
+Download the script template and complete it to perform the following tasks, answering all questions in the text of your script. 
+
+\begin{enumerate}
+\item Define $f(x)=\exp(\sin(x+1))$. This is our ``control'' case of a function with infinitely many derivatives everywhere. For each value of $h=2^{-1},2^{-2},2^{-3},\ldots,2^{-10}$, compute $W_1(h)$, $W_2(h)$, and $W_4(h)$, storing the results in vectors. Then make a log-log plot showing all three cases of $|W_i(h)-f'(0)|$ as functions of $h$. You should see three straight lines with different slopes.
+
+\item To the graph from step 1, add plots of the functions $h^1$, $h^2$, $h^3$, and $h^4$, as dashed lines. (Use labels, legends, etc.)  Confirm that each solid convergence curve matches well with the dashed line corresponding to the order of accuracy in the presentation of the formulas above.
+
+\item Now let $f$ be $g_1$ from~\eqref{g1}, by defining 
+\begin{verbatim}
+f = @(x) (5*x+1).*(x<=0) + ((x+1).^5).*(x>0);
+\end{verbatim}
+(This defines the function piecewise for negative and positive $x$.) Make a plot of the function over $[-1/4,1/4]$.
+
+\item Repeat steps 1--2 for the function in step 3. Now what are the observed orders of accuracy for $W_1$, $W_2$, and $W_4$?
+  
+\item Repeat steps 1--2 for the function $g_2$ in~\eqref{g2}.
+  
+\end{enumerate}
+
+\end{document}
+

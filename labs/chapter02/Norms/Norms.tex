@@ -1,0 +1,72 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amsthm}
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+\usepackage{color}
+
+\pagestyle{myheadings}
+\markboth{Norms}{Norms}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf Norm-an conquest
+\end{center}
+
+The absolute value $|x|$ represents the distance on the number line
+between the point $x$ and the origin. We can do the same for a vector
+of $n$ numbers, plotting an arrows whose tail is at the origin and
+applying the Pythagorean theorem to conclude that $\bfx$ represents a
+point that is a distance $(x_1^2 + \cdots + x_n^2)^{1/2}$ from the
+origin. This is what we call the 2-norm, $\|\bfx\|_2$. It turns out
+that if we abstract the notion of ``distance'' a little to its
+essential properties, we can get other vector norms as well. Each norm has its own set of unit vectors (those having norm equal to 1).
+
+For matrices, a definition based on the action of the
+matrix as a linear transformation is quite handy for analyzing linear
+algebra algorithms.  The definition starts with all the unit vectors
+in whatever norm we like. Each of these
+vectors $\bfv$ is mapped to the vector $\bfu=\mA\bfv$. The maximum of
+$\|\bfu\|$ for all such $\bfv$ is the value of $\|\mA\|$. This
+definition can be visualized easily only when both $\bfv$ and
+$\bfu$ are low-dimensional.
+
+\subsection*{Goals}
+
+You will use experiments based on the definitions of norms to approximate the calculation of norms of a small matrix.
+
+\subsection*{Preparation}
+
+Read section 2.7. Recall that the equations $x=\cos(\theta)$, $y=\sin(\theta)$, $0\le \theta \le 2\pi$ parameterize the unit circle (set of all unit vectors) defined by the 2-norm in $\mathbf{R}^2$.
+
+\subsection*{Procedure}
+
+Download the script template and complete it to perform the following steps.
+
+\begin{enumerate}
+\item Define a vector \texttt{theta} of 200 equally spaced values from 0 to $2\pi$. Use it to define vectors \texttt{x} and \texttt{y} via $x_j = \cos(\theta_j)$, $y_j = \sin(\theta_j)$ (do this without any loops). Plot these points, which lie on the unit circle.
+
+\item Let \texttt{A=magic(2)}. For each $j$, define the vector $\bfv=[x_j\:y_j]^T$ and let $\bfu=\mA\bfv$. On a new graph, plot all the $\bfu$ points, and make a vector storing $\|\bfu\|_2$ for all $j$.
+
+\item Plot $\|\bfu\|_2$ as a function of $\theta$. 
+
+\item Using \texttt{format long} and \texttt{max}, calculate and show the maximum value of $\|\bfu\|_2$ over all $j$. This estimates $\|\mA\|_2$. Also compute the actual value \texttt{norm(A,2)}.
+  
+\item The script creates new vectors \texttt{x} and \texttt{y} that are unit vectors in the $\infty$-norm. Plot these points, giving a title and axis labels.
+
+\item Repeat step 2, this time collecting $\|\bfu\|_\infty$ as a function of the point index $j$.
+  
+\item Make a plot as in step 3. This time, the $x$-axis will the index number $j$.
+
+\item Estimate the norm $\|\mA\|_\infty$ and compute its exact value, as in step 4. 
+\end{enumerate}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

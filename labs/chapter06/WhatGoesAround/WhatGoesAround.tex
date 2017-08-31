@@ -1,0 +1,97 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+
+\pagestyle{myheadings}
+\markboth{What goes around}{What goes around}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf What goes around, comes around
+\end{center}
+
+
+A small satellite in the Earth--moon system can be modeled as a \emph{restricted three-body problem}, in which one object has so little relative mass that the motions essentially take place in a plane. In this formulation, Newton's laws of motion are simplified by a transformation so that the Earth has mass $\mu_*$ and remains at $(0,0)$, while the moon has mass $\mu$ and is at $(1,0)$, where $\mu+\mu_*=1$. The position of the satellite is $(x(t),y(t))$ and satisfies
+\begin{equation}
+\begin{split}
+  x'' &= x + 2y' - \mu_* \frac{x+\mu}{r} - \mu \frac{x-\mu_*}{r_*} \\
+  y'' &= y - 2x' - \mu_* \frac{y}{r} - \mu \frac{y}{r_*}, 
+\end{split}\label{eq:r3body}
+\end{equation}
+where
+\begin{align*}
+  r &= \left[ (x+\mu)^2 + y^2 \right]^{3/2} \\
+	r_* &= \left[ (x-\mu_*)^2 + y^2 \right]^{3/2}.
+\end{align*}
+For the Earth/moon system, $\mu=0.012277471$.
+
+The key to computing solutions using standard software is to transform the original ODE system into a first-order one. Since there are two dependent variables $x$ and $y$, and both of these appear to second order, there will be 4 variables and 4 equations in the first-order version. Define $u_1=x$, $u_2=y$, $u_3=x'$, $u_4=y'$. Two trivial equations in the new system are $u_1'=u_3$ and $u_2'=u_4$. The other two equations, for $u_3'$ and $u_4'$, come from substitution into the original system~\eqref{eq:r3body}. For example,
+\begin{equation*}
+  u_3' = u_1 + 2u_4 - \mu_* \frac{u_1+\mu}{r} - \mu \frac{u_1-\mu_*}{r_*},
+\end{equation*}
+and so on.
+
+\subsection*{Goals}
+
+You will explore unlikely-looking satellite orbits that have fascinated mathematicians since Poincar\'e. They are of more than academic interest, because despite their strangeness, they are energy-efficient. 
+
+\subsection*{Preparation}
+
+Read section 6.1. Fully write out the first-order system of ODEs $\bfu'=\bff(t,\bfu)$ that is equivalent to~\eqref{eq:r3body}. 
+
+\subsection*{Procedure}
+
+Download the script template and complete it to execute the following steps. 
+
+\begin{enumerate}
+\item Set
+\begin{verbatim}
+opt = odeset('reltol',1e-13,'abstol',1e-13);
+\end{verbatim}
+This will be used below to require strict error tolerances in the ODE solutions. The solutions below will all use \texttt{ode113} with \texttt{opt} as a fourth input argument.
+
+\item Using the expression of equation~\eqref{eq:r3body} as a first-order system, $\bfu'=\bff\,(t,\bfu)$, write the function
+\begin{verbatim}
+function dudt = r3body(t,u)
+\end{verbatim}
+in which \texttt{u} is a vector containing numerical values for the dependent variables, and \texttt{dudt} returns the components of $\bfu'$. 
+
+\item Using the initial conditions 
+  \begin{align*}
+    x(0) &= 1.2, \; & x'(0) &= 0, \\
+    y(0) &= 0, \; & y'(0) &= -1.049357510,
+  \end{align*}
+solve the problem on the interval $[0,6.192169331]$, using \texttt{ode113} and passing \texttt{opt} as a fourth input argument. Plot the trajectory in the $(x,y)$ phase plane. It will have two major loops, one to each side of the Earth. Add the moon and Earth positions as points in the plot.  
+
+\item Repeat step 3 for
+  \begin{align*}
+    x(0) &= 0.994 \; & x'(0) &= 0 \\
+    y(0) &= 0 \; & y'(0) &= -2.03173262955734
+  \end{align*}
+  and solve over $[0,11.124340337266]$. This orbit has three loops.
+
+\item Repeat step 3 for 
+      \begin{align*}
+        x(0) &= 0.994 \; & x'(0) &= 0 \\
+        y(0) &= 0 \; & y'(0) &= -2.00158510637908
+      \end{align*}
+      and solve over $[0,17.06521656015796]$. This one has four loops. 
+
+\item These orbits are very sensitive to perturbations, and while our convergence theorems apply to a fixed time interval and $h\to 0$, the case of $t\to\infty$ is quite different. Re-solve step~5 for $0\le t \le 100$. Your plot will show the path of the satellite departing from the apparently periodic orbit. 
+\end{enumerate}
+
+\subsection*{Discussion}
+
+In step 3 above, what is the maximum speed of the satellite over the whole orbit? 
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

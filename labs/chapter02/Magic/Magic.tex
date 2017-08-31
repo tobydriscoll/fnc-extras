@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+\usepackage{color}
+\usepackage{graphicx}
+
+\pagestyle{myheadings}
+\markboth{Magic}{Magic}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf Do you believe in magic?
+\end{center}
+
+Magic squares have fascinated humanity for centuries. In our
+terminology, a magic square is an $n\times n$ matrix whose entries are
+the integers from 1 to $n^2$, arranged so that the sum of every row,
+every column, and the two long diagonals is the magic number
+$n(n^2+1)/2$. 
+
+A famous example is Durer's magic square,
+\[
+\begin{bmatrix}
+  16 & 3 & 2 & 13 \\ 5 & 10 & 11 & 8 \\ 9 & 6 & 7 & 12 \\ 4 & 15 & 14 & 1
+\end{bmatrix}
+\]
+One of the coolest facts about this magic square is that it contains the numbers 15 and 14 next to each other, and in 1514 he made an engraving about it:
+\begin{center}
+  \includegraphics[height=2in]{durer}
+\end{center}
+It has a couple more tricks up its sleeve as well.
+
+We can check the magic square properties with a little linear algebra. First consider the inner product 
+\begin{equation}
+	\label{ones}
+\begin{bmatrix}
+a & b & c & d 
+\end{bmatrix} \begin{bmatrix}
+1 \\ 1 \\ 1 \\ 1
+\end{bmatrix}
+= a + b + c + d,
+\end{equation}
+allowing us to sum the entries of a vector. We can do something similar with the square matrix $M$, summing all the rows simultaneously:
+\begin{equation}
+	\label{Mones}
+	M \begin{bmatrix}
+		1 \\ 1 \\ 1 \\ 1
+	\end{bmatrix}
+	= 1 \bm{m}_1 + 1 \bm{m}_2 + 1 \bm{m}_3 + 1 \bm{m}_4.
+\end{equation}
+The result is a column vector, each entry of which is the sum of elements in its row. To sum columns instead, we can first transpose $M$ so that the columns become rows. Finally, note that if $\mA$ is $n\times n$ and $\bfx$ is a column vector of $n$ ones, then we can do two multiplications and get
+\begin{equation}
+	\label{sumall}
+	\bfx^T \mA \bfx = \bfx^T ( \bfa_1 + \cdots + \bfa_n) = \sum_{i=1}^n \sum_{j=1}^n A_{ij}.
+\end{equation}
+
+
+\subsection*{Preparation}
+
+Read section 2.2, and the online help for the \texttt{diag} command.
+
+\subsection*{Goals}
+
+You will use MATLAB commands to manipulate Durer's magic square and check its special properties. While you could do all the operations by summing in loops, we'll use linear algebra techniques that make vectors and matrices the central focus.
+
+\subsection*{Required submission elements}
+
+Download the template script and complete it to do the following. You should use the techniques described in the introduction. 
+
+\begin{enumerate}
+\item Let \texttt{M} be Durer's magic square as given above. 
+\item Use the matrix-vector multiplication in~\eqref{Mones} to compute the row sums of $M$.  
+\item Use a transpose and~\eqref{Mones} to compute the column sums of $M$. 
+\item There are four $2\times 2$ submatrices made by drawing lines
+  horizontally and vertically through the center of the matrix. Using the identity~\eqref{sumall}, verify that the sum of the elements of each of these submatrices is also the magic number.
+\item There is another $2\times 2$ submatrix made by the four interior elements. Verify that the sum of these elements is---wait for it---the magic number. 
+\item Find the sum of the main diagonal of \texttt{M} using \texttt{diag} and~\eqref{ones}. Then do the same for the sum on the ``antidiagonal.'' (Hint: How can you rearrange $M$ so that the antidiagonal becomes the diagonal?)
+\end{enumerate}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

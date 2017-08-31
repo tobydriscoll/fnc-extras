@@ -1,3 +1,6 @@
 *.aux
 *.log
 *.out
+*.fdb_latexmk
+Stability.fls
+*.fls
