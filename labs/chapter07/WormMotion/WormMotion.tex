@@ -1,0 +1,89 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+
+\pagestyle{myheadings}
+\markboth{Eigenworms}{Eigenworms}
+
+\input{../../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf Early bird gets the eigenworm
+\end{center}
+
+The idea and data for this lab come from Stephens \textit{et al.}, ``Dimensionality and Dynamics in the Behavior of \textit{C.\ elegans},'' \textit{PLoS Comput Biol}, 2008. In this work the authors captured video of worms moving as they were subjected to stimuli (from ``standard'' to ``painful''). Using image processing, they found 100 points representing a path along the back of single worm within each frame of the video and computed a representation independent of rotation and translation using the tangents to the path. The result is a $100\times n$ matrix of tangent angles for $n$ frames of video. They used $n=56200$.
+
+The authors then noted that dimension reduction by the SVD is extraordinarily successful for this data set; they showed that the data are well characterized by a small number of ``eigenworms''.\footnote{One often sees the ``eigen-'' prefix used in this context, but the SVD is a more fundamental description of the mathematics.} This makes some sense, as the motions are constrained a great deal by anatomy and kinematics. 
+
+Suppose $\m{T}$ is the matrix of angles; i.e., column $\bft_j$ is the vector of angles in the $j$th video frame. Suppose we have the full SVD $\m{T}=\m{U} \mS \mV^T$. This would make $\mV$ an $n\times n$ matrix, which would not fit in memory, so we have to use a thin SVD. In the text we only did this for an $m\times n$ matrix with $m>n$, which is not the case for $\m{T}$. However, $\m{T}^T=\m{V} \mS^T \mU$ does have a thin form in which $\m{T}^T=\widehat{\mV} \widehat{\mS}^T \mU$, where $\widehat{\mV}$ is only $n\times 100$ and $\widehat{\mS}$ is $100\times 100$. Finally, this gives us
+\begin{equation}
+  \label{eq:reducesvd}
+  \m{T}=\mU \widehat{\mS} \widehat{\mV}^T,
+\end{equation}
+the thin SVD we need. 
+
+Observe that
+\begin{equation}
+  \m{T} = \sum_{k=1}^{100} \sigma_k \bfu_k \bfv_k^T.
+\end{equation}
+Because the singular values are always in decreasing order, we may approximate the original matrix by
+\begin{equation}
+  \m{T}_r = \sum_{k=1}^{r} \sigma_k \bfu_k \bfv_k^T,
+\end{equation}
+for some rank $r\ll 100$.  The range of this matrix is spanned by $\bfu_1,\ldots,\bfu_r$, which are the eigenworms. A good way to express the proportion of $\m{T}$ that is captured by $\m{T}_r$ is the ratio
+\begin{equation}
+  \tau_r = \frac{\|\mathbf{s}_r\|^2_2}{\|\mathbf{s}_{100}\|^2_2},
+\end{equation}
+where $\mathbf{s}_k$ is the vector $\bigl[ \sigma_1,\ldots,\sigma_k \bigr]$.
+
+One use of the eigenworms is to create a compact representation of the data. A column $\bft_j$ of the original data can be expressed in terms of its closest approximation as a linear combination of the eigenworms:
+\[
+  \bft_j \approx c_1 \bfu_1  + \cdots + c_r \bfu_r = \mU_r \bfc,
+\]
+where $\mU_r$ is $100\times r$. This is a least squares problem, but by orthogonality its solution is $\bfc=\mU_r^T\bft_j$. The $r$ values in this vector give the components of $\bft_j$ in the principal eigenworm directions and could be used as a low-dimensional representation for further analysis.  
+
+\subsection*{Goals}
+
+Given the data matrix, you will perform the SVD analysis, find a reasonable value for the cutoff rank $r$ using the coefficients $\tau_k$, and extract the eigenworms. 
+
+\subsection*{Preparation}
+
+Read section 7.5. Read the online help for \texttt{svd}; it uses the term ``economy size'' for the thin SVD. 
+
+\subsection*{Procedure}
+
+\begin{enumerate}
+\item Load the \texttt{shapes.mat} file from the assignment site. It has the matrix \texttt{T}. 
+
+\item On one graph, plot the first three columns of $\m{T}$. (These are tangent angles of the worm's body as a function of arc length.) 
+
+\item Using \texttt{svd}, compute the three matrices in the thin SVD~\eqref{eq:reducesvd}.
+
+\item Let \texttt{s} be the vector of singular values. Using it, plot $1-\tau_r$ versus $r$ on a semi-log scale, for $r=1,\dots,100$. From this plot it should be clear that $r=4$ is a compelling choice. Compute and print out the value of $\tau_4$.
+  
+\item In a 2-by-2 subplot grid, plot the first 4 eigenworms.
+
+\item For the first three columns of $\mT$, plot the best approximation of each column by the leading 4 eigenworms. (The results will be much smoother curves than in step~1.) 
+\end{enumerate}
+
+\subsection*{Extra}
+The data has been presented as $\theta(s)$, i.e.\ tangent angle as a function of arclength. The tangent and normal vectors to the curve are given by
+\begin{equation}
+  \begin{split}
+    \bft'(s) &= \frac{d\theta}{ds} \mathbf{n}(s),\\
+    \mathbf{n}'(s) &= -\frac{d\theta}{ds} \mathbf{t}(s), \\
+    \bft(0) &= \bigl[1,0\bigr], \quad \mathbf{n}(0) = \bigl[ 0,1 \bigr].
+  \end{split}
+\end{equation}
+The position vector $\bfr(s)=\bigl[x(s),y(s)\bigr]$ is then given by $\bfr'(s)=\bft(s)$, $\bfr(0)=\bigl[ 0,0 \bigr]$. For each of the four eigenworms plotted in step~5, solve these equations and plot $\bfr(s)$. (Hint: You may either discretize the ODEs using Euler's method and then plug in the computed $\theta$, or you may interpolate the computed $\theta$ and plug that into an IVP solver. High accuracy is not a concern here.)
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

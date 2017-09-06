@@ -1,0 +1,67 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+
+\pagestyle{myheadings}
+\markboth{Potential}{Potential}
+
+\input{../../fncextra}
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+
+\begin{center}
+  \bf You've got potential
+\end{center}
+
+One reason the Laplace equation is considered so important is its relationship to \emph{potential functions}. Broadly speaking, a potential function usually replaces a vector quantity with a scalar one. The standard relationship is via a gradient, e.g., $\bfF=\nabla u$. Familiar forces from physics are subject to this relationship, as are certain fluid flows and other phenomena. 
+
+In the absence of sources or sinks, a conservative force is divergence-free, which implies that $\nabla^2 u=0$. So Laplace's equation can be solved for the potential, which can be considerably easier than solving the equations for the orignal force. Level curves of $u(x,y)$ are called \emph{equipotential curves}. Thanks to the properties of the gradient, the force is everywhere orthogonal to the equipotential curves. 
+
+\subsection*{Goals}
+
+You will use numerical solutions of Laplace's equation to find the potential and force for a two different boundary conditions on a square.
+
+\subsection*{Preparation}
+
+Read section 13.3. All of the following questions are about the potential function $u(x,y)=(\cos \theta)x + (\sin \theta)y$, for an arbitrary fixed real $\theta$.
+\begin{enumerate}
+\item Show that $u$ is a solution of Laplace's equation.
+\item Find $\nabla u$.
+\item Suppose $\theta=\pi/3$. In the square $[0,1]\times[0,1]$, sketch 5 equipotential curves. Draw arrows representing the gradient at 3 points along each equipotential curve. 
+\end{enumerate}
+
+\subsection*{Procedure}
+
+Download the template script and complete it to perform the following tasks.
+
+\begin{enumerate}
+\item Let the boundary values be given by $g(x,y) = \tanh\bigl(12 w(x,y) - 7\bigr)$, where $w(x,y)=(\cos \theta)x + (\sin \theta)y$ and $\theta=\pi/5$. Solve Laplace's equation on $[0,1]\times[0,1]$ with $u=g$ on the boundary and $m=n=144$. Make a surface plot of the solution, labelling the axes.
+  
+\item Use differentiation matrices to compute $\pp{u}{x}$ and $\pp{u}{y}$ on the grid. Use a $1\times2$ subplot grid to make surface plots of them.
+  
+\item In a new graph, use \texttt{contour} to make a contour plot of $u$ with 32 level curves. To this plot you should add a \texttt{quiver} plot that draws arrows representing the gradient of $u$. In order to avoid having too many arrows, use only every 6th row and column in all of the matrix arguments to \texttt{quiver}. Use \texttt{axis equal} after the plot.
+  
+\item Repeat the previous steps for $\theta=3\pi/5$.
+\end{enumerate}
+
+\subsection*{Extra}
+\begin{enumerate}
+\item[E1.] In two dimensions, solutions of Laplace's equation have a close connection with complex analysis. For instance, let $z=x+iy$, let $\zeta=h(z)$ for a differentiable function $h$ whose derivative never vanishes in the square, and let $\xi=\Re(\zeta)$, $\eta=\Im(\zeta)$. If $u_{xx}+u_{yy}=0$, and if we define
+\[
+\tilde{u}(\xi,\eta) = u(x,y),
+\]
+then $\tilde{u}_{\xi\xi} + \tilde{u}_{\eta\eta}=0$ and $\tilde{u}$ is a potential function in the geometry that results from applying $h$ to every point in the $(x,y)$ domain.
+
+Let $h(z)=\exp(\pi z/2)$. Calculate $u$ as in step~1 above. Then make a \texttt{pcolor} plot of $\tilde{u}$ over its domain (which should look like a quarter of a donut). Don't forget \texttt{axis equal}!
+\end{enumerate}
+
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

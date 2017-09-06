@@ -1,0 +1,95 @@
+\documentclass[11pt,twoside]{article}
+
+\pagestyle{myheadings}
+\markboth{Actor ranking}{Actor ranking}
+
+\input{../../fncextra}
+
+\begin{document}
+    
+\begin{center}
+  \bf Not Kevin Bacon
+\end{center}
+    
+Suppose we have a graph or network with $n$ nodes and some connections between them. The matrix $\mA$ whose entries are 
+\begin{equation}
+  A_{ij} = 
+  \begin{cases}
+    1, & \text{if node $i$ connects to $j$},\\
+    0, & \text{otherwise,}
+  \end{cases}
+\end{equation}
+is the \textbf{adjacency matrix} of the network. Note that these connections have direction, and $i$ connecting to $j$ does not automatically imply that $j$ connects to $i$ (i.e., this is a directed graph). Let $s_i = \sum_{j=1}^n A_{ij}$ be the number of nodes that node $i$ connects to. If we were to randomly select a link leaving node $i$, each link would have probability $1/s_i$ of being selected. 
+     
+Let $\bfx$ be a vector of positive values. We will require that $\sum_i x_i = 1$, so that $\bfx$ has the interpretation of a probability distribution over the nodes. If all connections are given equal weighting, the probability of following a connection from any node to node $i$ is
+\begin{equation}
+  z_i = \sum_{j\in P_i} \frac{x_j}{s_j} ,
+\end{equation} 
+where $P_i$ is the set of nodes that connect to node $i$. These are the rows with ones in column $i$ of $\mA$. By the definition of $\mA$, this is the same as  
+\begin{equation}
+  \label{eq:yvec}
+  z_i = \sum_{j=1}^n \frac{A_{ji} x_j}{s_j} =\sum_{j=1}^n B_{ij} x_j,
+\end{equation} 
+where we defined $B_{ij}=A_{ji}/s_j$. Put simply, $\bfz=\mB \bfx$. 
+
+It's important to introduce some overall randomness into the jumps between nodes---this is the only way to escape a self-contained clique (disconnected subgraph). The probability of hopping to any node $i$ entirely at random is just $1/n$. We blend link-following with random hopping as follows. Choose some $p\in[0,1]$, and suppose that a hop between nodes follows one of the connections with probability $p$, or is a random hop with probability $1-p$. Using $\bm{1}$ to denote the $n$-vector of all ones, then 
+\begin{equation}
+  \label{eq:totalmap}
+  \bfy = p \mB \bfx + \frac{1-p}{n} \bm{1}
+\end{equation}
+describes how to update probabilities after each hop. Finally, the fact that 
+\begin{equation}
+  1 = \sum_i x_i = \bm{1}^T \bfx,
+\end{equation}
+allows us to express the map~\eqref{eq:totalmap} as
+\begin{equation}
+  \label{eq:matvec}
+  \bfy =  \left[ p \mB + \frac{1-p}{n} \bm{1}\bm{1}^T \right] \bfx = \mR\bfx,
+\end{equation}  
+for a square matrix $\mR$. If the probabilities are unchanged by hopping (i.e., $\bfz=\bfx$), then $\bfx$ is an eigenvector of $\mR$ with associated eigenvalue $\lambda=1$. We won't prove this, but $\mR$ is guaranteed to have $\lambda=1$ as the leading eigenvalue, making power iteration possible. The resulting eigenvector $\bfx$ can be sorted to find out which nodes are most likely to be visited in the long run.
+
+Note that $\mR$ is \emph{not} sparse and should never be formed. However, $\mR\bfx$ as defined in~\eqref{eq:totalmap} can be computed efficiently if $\mB$ is sparse. That is all we need to do a power iteration with $\mR$. Since we are working with probability, normalization is not required in the power iteration: $\bfx_{k+1}=\mR \bfx_k$, provided $\bfx_1$ has positive entries and $\|\bfx\|_1=1$.  
+
+
+\subsection*{Goals}
+
+You will use an adjacency matrix for movie actors to perform the power iteration and find the leading eigenvector of $\mR$, and using that vector to rank the actors in influence.
+    
+
+\subsection*{Preparation}
+
+Read section 8.2. Answer the following questions based on the above description.
+
+\begin{enumerate}
+\item Show using \eqref{eq:yvec} that $\displaystyle \sum_{i=1}^n z_i = 1$. This proves that $\bfz$ is also a probability distribution.
+  \item Show using \eqref{eq:totalmap} that $\bfy$ is a probability distribution. 
+\end{enumerate}
+ 
+%\vspace{1ex}     
+%\noindent \textbf{Notable MATLAB functions:} \texttt{whos}, \texttt{nnz}, \texttt{sort}, \texttt{histogram}
+
+    
+\subsection*{Procedure}
+
+Download the script template and the data file \texttt{actornetwork.mat}.
+
+\begin{enumerate}
+\item Load \texttt{actornetwork.mat} file from the assignment site. It has a vector \texttt{actor} of unique actor names for all credited roles in films released from 2004 through 2013. It also has a sparse adjacency matrix \texttt{A}, where a (symmetric) link between actors means that they appeared in at least one film together.
+\item Use \texttt{nnz} to compute the density (number of nonzeros over total number of elements) of \texttt{A}. Use \texttt{whos} to find the memory usage of \texttt{A} in bytes. Also calculate the memory usage of an equivalent full (non-sparse) matrix. 
+\item Compute the vector $\mathbf{s}$ whose entries are $s_i$ as defined above. Make a histogram of its entries using 32 bins.  
+\item  Construct the matrix $\mB$ appearing in~\eqref{eq:yvec} above. It helps to use the fact that $\mA$ is symmetric. (It's reasonable to loop over one dimension of the matrix, but not over all of the elements.)
+\item Set $p=0.9$ and let $\bfx_1$ be a random vector of positive numbers. Normalize $\bfx_1$ to be a probability distribution. By repeatedly applying~\eqref{eq:totalmap}, do 100 power iterations to get $\bfx_{101}$. \emph{Important: Do not attempt to define the matrix $\mR$}, and do \emph{not} use the book's power iteration function; instead use~\eqref{totalmap} to compute $\mR\bfx$. Check that $\|\bfx_{101}-\bfx_{100}\|_1$ is less than $10^{-6}$. 
+\item Sort the entries of $\bfx$ in descending order, using the second output to print out the names of the 10 ``most collaborative'' actors. 
+\end{enumerate}
+
+\subsection*{Discussion}
+\begin{enumerate}
+\item The data file also includes an $m\times n$ sparse matrix $\m{M}$. Its $(i,j)$ entry is one if actor $j$ appeared in film $i$, and zero otherwise. Give a simple interpretation of the matrix $\m{M}^T\m{M}$.
+%\item[E2.] Repeat the ranking process using $\m{M}^T\m{M}$ in place of $\mA$. How many movies is the top actor credited with appearing in? 
+\item What is the interpretation of $\m{M}\m{M}^T$? What would a ranking using this matrix reveal? 
+\end{enumerate}
+    
+    
+    
+\end{document}
+

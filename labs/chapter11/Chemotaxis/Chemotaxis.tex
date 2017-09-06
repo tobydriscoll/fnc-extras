@@ -1,0 +1,93 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+
+\pagestyle{myheadings}
+\markboth{Chemotaxis}{Chemotaxis}
+
+\input{../../fncextra}
+
+\begin{document}
+   
+\begin{center}
+    \bf You've been slimed
+\end{center}
+
+Slime mold cells are able to spontaneously aggregate by secreting a chemical attractant in a process called \emph{chemotaxis}. A nondimensional 1D model for the process is
+\begin{equation}
+\label{eq:1}
+    \begin{split}
+    u_t &= u_{xx} - \chi (uv_x)_x, \qquad -1\le x \le 1, \quad t\ge0, \\
+    v_t &= \epsilon v_{xx} + u - v,
+    \end{split}
+\end{equation}
+where $u(x,t)$ represents a scaled cell density function, $v(x,t)$
+represents the attractant concentration, and $\chi$ and $\epsilon$ are nonnegative constants. We will use periodic end conditions. 
+
+In order to apply the method of lines to~\eqref{eq:1}, first discretize in space using finite differences to get
+\begin{equation}
+\label{eq:mol}
+    \begin{split}
+    \bfu' &= \bff\,(\bfu,\bfv) = \mD_{xx} \bfu - \chi \mD_x \bigl[\bfu \odot \bigl(\mD_{x} \bfv \bigr)\bigr] 
+    \\
+    \bfv' &= \bfg\,(\bfu,\bfv) = \epsilon \mD_{xx} \bfv + \bfu - \bfv,
+    \end{split}
+\end{equation}
+where $\odot$ is the elementwise product \verb|.*| in MATLAB. Choosing the Euler time stepping method, for example, leads to this iteration in the time step $j$:
+\begin{equation}
+\label{eq:euler}
+\begin{split}
+\bfu_{j+1} &= \bfu_j + \tau \bff\,(\bfu_j,\bfv_j) \\
+\bfv_{j+1} &= \bfv_j + \tau \bfg\,(\bfu_j,\bfv_j).
+\end{split}
+\end{equation}
+
+To apply a built-in IVP solver, equation~\eqref{eq:mol} has to be expressed as a single first-order vector equation. The two ``variables'' of the system are actually the two $m$-vectors $\bfu$ and $\bfv$, which are combined into a column vector $\bfz=\bigl[ \bfu\;;\; \bfv \bigr]$, leading to a system in the standard form $\bfz'=\bfF\,(t,\bfz)$. 
+
+\subsection*{Goals}
+
+You will simulate the chemotaxis of slime mold and observe concentration of cells around initially small increases in attractant. You will use both the Euler and \texttt{ode15s} timestepping methods.
+
+\subsection*{Preparation}
+
+Read section 11.4. 
+
+\subsection*{Procedure}
+
+Throughout all of these steps, let  $\chi=6$ and $\epsilon=0.1$ in all the equations above. 
+
+\begin{enumerate}
+\item Let $m=50$, $u(x,0)=1$, and $v(x,0)=1+0.1e^{-100x^2}$, representing a small drop of extra attractant. (Note: the initial $v$ is not truly periodic, but the exponential is so small at $x=\pm1$ that is practically so.) Use the Euler timestepping method as shown in~\eqref{eq:euler} to solve over $0\le t \le0.05$ with $n=100$ time steps. Make a waterfall plot of the solution.
+  
+\item Now you will repeat step~1 with $m=200$ and for $0\le t \le 0.6$. Due to absolute stability restrictions, there is a minimum acceptable value of $n$. Start with $n=2000$ and increment $n$ repeatedly by 500 until the solution at the final time is finite. (Use the syntax \texttt{all(isfinite(w))} to determine if a vector is finite.) Output the minimum stable $n$ and plot $u(x,0.6)$. 
+  
+\item The next goal is to use the built-in solver \texttt{ode15s} that works well for stiff problems. To do this, write a function \texttt{timederiv.m} with headline
+    \begin{verbatim}
+      function dzdt = timederiv(u,v,chi,Dx,Dxx)
+    \end{verbatim}	
+  and returning $\bfz'=\bigl[ \bfu'\;;\; \bfv' \bigr]$ for the given inputs.
+  
+\item Now solve (with the same $m$ and initial conditions as step~2) using \texttt{ode15s} for $0\le t \le 15$. You will need to write an anonymous function of $t$ and $\bfz$ only that encapsulates a call to \texttt{timederiv}. Print out the number of time steps that were taken and make a waterfall plot of the solution.
+  
+\item You would expect that if there were two symmetrically placed drops of attractant, the solution would remain symmetric for all time. However, that solution is unstable in time and one of the drops will eventually ``win.'' Repeat step~4 using $$v(x,0)=1+0.1e^{-100(x-0.5)^2}+0.1e^{-100(x+0.5)^2}.$$
+  
+\end{enumerate}
+
+% \subsection*{Extras}
+% \begin{enumerate}
+%   \item[E1.] Observe that
+%   $$\frac{d}{dt} \int_{-1}^{1} u\, dx = \int_{-1}^{1} u_t \,dx = \int_{-1}^{1} \bigl[u_x - \chi(uv_x)\bigr]_x \,dx = 0,$$
+%   due to the periodicity in $x$. Thus the total ``mass'' $M(t)=\int u\,dx$ is conserved in the exact solution. Use the trapezoidal quadrature formula to make a plot of $M(t)$ for the numerical solution of step~5 and check the conservation property. Make sure you apply the formula correctly over the entire interval and account for the periodicity of $u$.
+% \end{enumerate}
+
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+

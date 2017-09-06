@@ -1,0 +1,78 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+
+\pagestyle{myheadings}
+\markboth{Horn equation}{Horn equation}
+
+\input{../../fncextra}
+
+\begin{document}
+   
+\begin{center}
+    \bf Toot your own horn
+\end{center}
+
+The use of mathematics for the design and analysis of musical instruments has a long and rich history. One of the landmarks in this area is the 1919 model known as Webster's horn equation, even though the relevant modeling and mathematics had largely been worked out by such luminaries as Daniel Bernoulli, d'Alembert, Euler, Lagrange, Green, Helmholtz, and Rayleigh. For Webster the unknown is the air pressure $u(x)$ in a long, thin tube of length $L$ with varying cross-section $A(x)$, as governed by
+\begin{equation}
+  \label{eq:webster}
+  u'' + \frac{A'}{A} u' + \omega^2 u = 0, \qquad x\in [0,L],
+\end{equation}
+where $\omega$ is the time frequency in a harmonic solution, i.e., the pitch of the sound. Reasonable boundary conditions are a fixed nonzero value of $u$ at $x=0$ (the mouthpiece) and $u'(L)=0$ at the open end. In the analysis problem, $A(x)$ is taken as prescribed, whereas in design the goal is to find an $A(x)$ that optimizes some desired quality of the horn. 
+
+For some prescriptions of $A(x)$, a solution can be found in closed form. For example, if $A(x)=e^{2k x}$, then the general solution of~(\ref{eq:webster}) is
+\begin{equation}
+  \label{eq:solution-exp}
+  u(x) = c_1 e^{s_1 x} + c_2 e^{s_2 x},
+\end{equation}
+where $s_1$ and $s_2$ are the roots of $s^2+2k s + \omega^2$, and $c_1$, $c_2$ are constants.  
+
+Naturally, we will focus on numerical solutions of the horn equation. The problem is a linear BVP and easy to solve for most choices of $A(x)$. The solution $u(x)$ represents a standing wave whose amplitude 
+\begin{equation}
+  \label{eq:amplitude}
+  \alpha(\omega)=\|u\|  
+\end{equation}
+can vary considerably with the frequency $\omega$. Physically, a horn player produces more or less white noise with significant components in a wide range of frequencies. A sharp peak in $\alpha(\omega)$ indicates a resonant frequency of the horn that is likely to dominate the resulting sound. 
+
+\subsection*{Goals}
+
+You will compute finite difference solutions of the horn equation for a few choices of $A(x)$, and look for resonances.
+
+\subsection*{Preparation}
+
+Read section 10.4. 
+% \begin{enumerate}
+%     \item Derive~\eqref{eq:solution-exp}.
+%     \item Let $k=3$, $L=1$, $u(0)=1$ and $u'(L)=0$. Define the amplitude using the 2-norm in~(\ref{eq:amplitude}) and make a plot of $\alpha(\omega)$ for $1\le \omega \le 16$. Computer algebra and/or numerics is \emph{strongly} recommended. How many resonant frequencies are in this range? 
+%\end{enumerate}
+
+
+\subsection*{Procedure}
+
+Download the template script and complete it to perform the following tasks.
+
+\begin{enumerate}
+    \item Set $L=2$, $\omega=6$, and $A(x)=e^{6x}$  in~(\ref{eq:webster}). Find the roots $s_1$ and $s_2$ in~(\ref{eq:solution-exp}). (Note that $k=3$ in that equation.) Use $u(0)=1$ and $u'(L)=0$ to solve for $c_1$ and $c_2$, and plot the solution for $0\le x \le L$. 
+    \item Using the same values as in step~1, apply \texttt{bvp} with $n=500$ to find a numerical solution. Plot the difference between the exact and numerical solutions at all of the finite difference nodes. 
+    \item Now let $A(x)=3x^2+x+1$ and $\omega=2$ (still with $L=2$). Plot the finite difference solution using $n=500$. 
+    \item Repeat the computation from step~3, but for 100 equally spaced values of $\omega$ between 0.2 and 3. In each case compute $\alpha(\omega)$ using the infinity norm in~(\ref{eq:amplitude}). Plot $\alpha$ as a function of $\omega$.
+    \item Your amplitude graph should have two sharp spikes. Find $\omega_1$ and $\omega_2$, the horizontal coordinate of each spike. (One easy way is to use the ``data cursor'' tool in the figure's menu.) Solve the BVP for these two values of $\omega$ to get $\bfu_1$ and $\bfu_2$. Plot $\bfu_1$ and $\bfu_2$ together over $[0,L]$. You should find that $\bfu_1$ has no interior local extrema and that $\bfu_2$ has one local max or min (depending on exactly what you choose for $\omega_2$). 
+\end{enumerate}
+
+% \subsection*{Extras}
+% \begin{enumerate}
+%   \item[E1.] Here is a creative way to check the solution even when the exact solution is unknown. Equation~(\ref{eq:webster}) can be rearranged to give
+%     \begin{equation}
+%       \label{eq:logAprime}
+%       \log A(x) = \log A(0) - \int_0^x \frac{u''(s) + \omega^2u(s)}{u'(s)}\, ds.
+%     \end{equation}
+%     Use $\omega_1$ and $\bfu_1$ from the last step. Obtain the differentiation matrices and compute the vector
+% \begin{verbatim}
+% z = -(Dxx*u1 + omega1^2*u1) ./ (Dx*u1);
+% \end{verbatim}
+%     which gives the integrand of~(\ref{eq:logAprime}) at the equally spaced nodes. (The last value, $z_n$, will be useless because of the boundary condition, but this does not affect much.) For each $x_i$, perform trapezoid quadrature on $\bfz$ from element 0 to $i$ in order to approximate the integration in~(\ref{eq:logAprime}). Then finish the calculation of $A(x)$ and compare it graphically to the original $A(x)$ used to define the ODE. 
+% \end{enumerate}
+
+\end{document}
+

@@ -1,0 +1,102 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+
+\pagestyle{myheadings}
+\markboth{Be rational}{Be rational}
+
+\input{../../fncextra}
+
+\begin{document}
+   
+\begin{center}
+    \bf Let's be rational about this
+\end{center}
+
+Our go-to form of interpolating function is the polynomial,
+\begin{equation}
+ p(x) = c_0 + c_1 x + c_2 x^2 + \cdots + c_{n-1} x^{n-1}.
+\end{equation}
+When the monomials are evaluated at $m$ nodes, we get the Vandermonde matrix
+\begin{equation}
+\mV = 
+ \begin{bmatrix}
+      1 & t_0 & t_0^{2} & \cdots & t_0^{m-1} \\[1mm]
+      1 & t_1 & t_1^{2} & \cdots & t_1^{m-1}   \\[1mm]
+      1 & t_2 & t_2^{2} & \cdots & t_2^{m-1} \\[1mm]
+      \vdots & \vdots & \vdots  &  & \vdots \\
+      1 & t_{m-1} & t_{m-1}^{2} & \cdots & t_{m-1}^{m-1} 
+ \end{bmatrix} .         
+\end{equation}
+Given a function $f$, setting $y_i=f(t_i)$ and solving $\mV \bfc = \bfy$ produces the coefficients of the interpolating polynomial.
+
+Polynomials can, in principle, converge pointwise to any continuous function. However, they are not equally efficient at doing so for all functions. One way to obtain faster convergence in some cases is to turn to a different category of functions. An interesting choice are the \textbf{rational functions},
+\begin{equation}
+\label{ratdef}
+ r(x) = \frac{a_0 + a_1 x + \cdots + a_{n-1} x^{n-1}}{b_0 + b_1 x + \cdots + b_{n-1} x^{n-1}+ b_nx^n}.
+\end{equation}
+Because they can have zeros in the denominator, rational functions are often superior for approximating functions that blow up or have steep gradients. 
+
+Observe that in~\eqref{ratdef}, multiplying all of the coefficients by the same constant leaves $r$ unchanged. Thus we make a normalization, $b_n=1$. This leaves a total of $n+n=2n$ coefficients to be determined in $r$, so we require $2n$ interpolation nodes. From~\eqref{ratdef}, setting $r(t_i)=f(t_i)=y_i$, for $i=0,\ldots,2n-1$ and clearing the denominator, we eventually obtain
+\begin{equation}
+\label{eq:sys1}
+\m{W} \bfa - \m{Y} \m{W} \bfb = \m{Y} 
+\begin{bmatrix}
+ t_0^n \\ t_1^n \\ \vdots \\ t_{2n-1}^n
+\end{bmatrix},
+\end{equation}
+where $\m{W}$ is a $2n\times n$ Vandermonde-style matrix, 
+$\m{Y}=\diag(y_0,\ldots,y_{2n-1})$, and $\bfa$ and $\bfb$ collect the polynomial coefficients in the numerator and denominator respectively. This equation is actually a square linear system,
+\begin{equation}
+  \label{eq:sys2}
+\begin{bmatrix}
+  \m{W} & - \m{Y} \m{W} 
+\end{bmatrix}
+\begin{bmatrix}
+\bfa \\ \bfb
+\end{bmatrix}
+= \m{Y} 
+\begin{bmatrix}
+t_0^n \\ t_1^n \\ \vdots \\ t_{2n-1}^n
+\end{bmatrix},
+\end{equation}
+easily solved for the vector $\bfc = \bigl[ \bfa\,; \, \bfb \bigr]$. 
+
+\subsection*{Goals}
+
+You will compute a rational interpolant and compare it to a polynomial interpolant for the same points. 
+
+\subsection*{Preparation}
+
+Read section 9.1 and answer the following questions.
+
+\begin{enumerate}
+    \item Derive~\eqref{eq:sys1}.
+    \item Write out the linear system~\eqref{eq:sys2} for the rational interpolant to the four points $(-1,0)$, $(0,-1)$, $(1,1)$, $(2,1)$. 
+\end{enumerate}
+
+\subsection*{Procedure}
+
+Download templates for the script and for the function \texttt{ratinterp.m}.
+
+\begin{enumerate}
+    \item Complete the function \texttt{ratinterp} that computes a rational interpolant to given data using the algorithm outlined above. 
+    \item Define the function $g(x) = \tanh(10x) + 2x^2$ and plot it over the interval $[-1,1]$.
+    \item To your plot add the polynomial interpolant using $m=18$ equally spaced nodes in $[1,1]$. (It will not be a good result.)
+    \item Find the rational interpolant with $n=9$ and the same nodes. Start a new plot and plot the error $g(x)-r(x)$ over $[-1,1]$. It should be fairly small over the whole interval.
+\end{enumerate}
+
+\subsection*{Discussion}
+
+Returning to the $n=9$ rational interpolant of $g$, find the poles of $r$ (i.e., the roots of the denominator). Several of them are conjugate pairs that lie essentially on the imaginary axis of the complex plane. Referring to a property of $g$, explain the two poles closest to the origin. You may want to prove and then use the identity $\cosh(x)=\cos(ix)$. 
+
+
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
