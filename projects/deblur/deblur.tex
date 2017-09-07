@@ -1,0 +1,129 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[charter]{mathdesign}
+\usepackage{fullpage}
+\pagestyle{empty}
+
+\input{../fncextra}
+
+\begin{document}
+	
+\begin{center}
+  \bf 
+  Project: Deblur, denoise, delight!
+\end{center}
+	
+Recall that an image may be represented as an $m\times n$ matrix $\mX$ of pixel intensities. A fair way to simulate blurring the image is by
+\begin{equation}
+\label{blurmat}
+\mZ =  (\mB_m)^p \mX \, (\mB_n^T)^p,
+\end{equation}
+where $p$ is a positive integer and each $\m{B}_k$ is a $k\times k$ symmetric tridiagonal matrix with $1/2$ all along the main diagonal, and $1/4$ all along both the sub- and superdiagonals. As can easily be verified, the mapping from $\mX$ to $\mZ$ is linear, so if we represent the images as vectors (say, by stacking columns), then $\bfz=\mG \bfx$. The matrix $\m{G}$ must be $mn\times mn$, and can be found explicitly, but we consider it to be unavailable. 
+
+Suppose that the image $\mZ$ is derived from both blurring of $\mX$ and some added noise. We can write this as 
+\begin{equation}
+\label{forward}
+\bfz = \mG \bfx + \bfy, \quad \text{for some $\bfy$ with $\|\bfy\|^2=\delta^2$},
+\end{equation}
+where $\delta$ is a small(?) number. Our goal is the reconstruction problem: for known $\bfz$, $\mG$, and $\delta$, return the best (most likely) $\bfx$. An optimization is essential, since there are many possible solutions of~\eqref{forward}. 
+
+Truly random noise will look like static, with lots of value jumps from pixel to pixel. Real images, on the other hand, usually have large patches of slowly-varying values. Consider the $k\times k$ matrix 
+\begin{equation}
+\mR_k = 
+\begin{bmatrix}
+  -2 & 1      &        &        &    \\
+  1  & -2     & 1      &        &    \\
+     & \ddots & \ddots & \ddots &    \\
+     &        & 1      & -2     & 1  \\
+     &        &        & 1      & -2 \\
+\end{bmatrix}.
+\end{equation}
+$\mR_k$ is a scaled finite-difference approximation of the second derivative, so $\|\mR_k\bfu\|$ is a measure of the ``roughness'' of the vector $\bfu$. The 2D equivalent of this process on an image matrix $\mX$ is to apply roughening from both the left and the right, in the form 
+\begin{equation}
+  \label{roughmat}
+   \mR_m\mX + \mX\mR_n^T.
+\end{equation}
+This too is a linear transformation of the image $\mX$, which we denote by $\m{L}\bfx$ for an unspecified matrix $\mL$. Minimizing roughness, as measured by $\|\mL\bfx\|$, seems like a reasonable optimization criterion. 
+
+We now have a complete problem to state:
+\begin{equation}
+   \label{consopt}
+   \min \| \mL \bfx\|^2 \; \text{over all $\bfx$ satisfying $\|\mG\bfx-\bfz\| = \delta$.}
+\end{equation}
+This is a multidimensional minimization subject to a scalar constraint function, a problem nicely changed to an unconstrained form by the method of Lagrange multipliers. Introducing the unknown scalar $\lambda$, we obtain the simultaneous equations
+\begin{align}
+    (\mL^T\mL + \lambda \mG^T\mG)\bfx &= \lambda \mG\bfz \label{lineq}\\
+    \|\mG\bfx - \bfz\| - \delta & = 0. \label{nonlineq}
+\end{align}
+
+Equation~\eqref{lineq} is an $mn\times mn$ linear system that defines $\bfx$ when $\lambda$ is given. We could pose~\eqref{nonlineq} as a rootfinding problem for $\lambda$. However, we rarely know a good value for $\delta$ in advance, so it makes more sense to regard the solution $\widehat{\bfx}$ of~\eqref{lineq} as a function of a tunable parameter $\lambda$. As $\lambda\to0$, greater emphasis is placed on minimizing roughness (increased smoothing), and as $\lambda\to\infty$, more emphasis is on deblurring (increased sharpness).
+
+The matrices $\mL$ and $\mG$ are never needed for these computations. It's possible to show that $\mL$ and $\mG$ are both symmetric, so $\mL^T\mL\bfx=\mL(\mL\bfx)$ and $\mG^T\mG\bfx=\mG(\mG\bfx)$. For implementation, the multiplication $\mL\bfx$ or $\mG\bfx$ is achieved by reshaping $\bfx$ to the image matrix $\mX$,  applying~\eqref{roughmat} or~\eqref{blurmat}, respectively, and then reshaping back into a vector. Hence, given $\lambda$, the operator on the left side of~\eqref{lineq} can be implemented by writing a function that can be passed to \texttt{gmres} in lieu of a matrix.
+
+A final note: Adding a constant to all the entries of $\mZ$ can improve the reconstruction. A typical choice is to make the mean value of the pixels equal to zero. This doesn't affect the plot using \texttt{imagesc}, which maps min and max pixel values to black and white. 
+
+\subsection*{Project assignment}
+\label{sec:project-assignment}
+
+Submit a zip archive with files as directed here. Don't forget to convert an imported image to a 2D matrix of class \texttt{double}. \textbf{You should use \texttt{imagesc} for plotting all images, and after each image plot use}
+\begin{verbatim}
+    colormap(gray(256))), axis equal
+\end{verbatim}
+
+\begin{description}
+\item[\textbf{Objective 1.}] Derive~\eqref{lineq}--\eqref{nonlineq} from~\eqref{consopt}. You will need to consult a calculus book, and to take the gradients of expressions like $\mC^T \mC \bfu$ and $\bfu^T \bfc$ with respect to $\bfu$. 
+
+For this objective, submit the following:
+\begin{itemize}
+\item A PDF, \texttt{objective1.pdf}, typeset nicely or scanned from a neatly written document and showing the derivation in convincing detail.
+\end{itemize}
+
+\item[\textbf{Objective 2.}]  Write two functions:
+\begin{verbatim}
+    function Z = blur(X,p)
+    function Z = roughen(X)
+\end{verbatim}
+They implement the equivalent of $\mG\bfx$ and $\mL\bfx$, respectively, but by operating on $m\times n$ images via~\eqref{blurmat} and~\eqref{roughmat}. In practice, both $m$ and $n$ are small enough that it's not important to use sparse matrices. 
+You can test your functions on the image \texttt{checkeredflag} available on the website. 
+
+For this objective, submit the following:
+\begin{itemize}
+\item Files \texttt{blur.m} and \texttt{rough.m}. Each should be self-contained. 
+\item Two PNG images. One shows the original and blurred (with $p=2$) checkered flag images side by side, and the other shows the original and roughened images side by side. 
+\end{itemize}
+
+\item[\textbf{Objective 3.}] Write a function
+\begin{verbatim}
+    function y = linop(x,lambda,p,m,n)
+\end{verbatim}
+The inputs are a vectorized $mn\times 1$ image $\bfx$, a positive scalar value for $\lambda$, and the size $m\times n$ of the original image. The output is $\bfy=(\mL^T\mL + \lambda \mG^T\mG)\bfx$, computed using calls to \texttt{blur} and \texttt{roughen}.
+
+For this objective, submit the following:
+\begin{itemize}
+\item The file \texttt{linop.m}. It should depend only on native MATLAB commands and \texttt{blur} and \texttt{roughen}.
+\item A PNG file showing the result of applying \texttt{linop} to the checkered flag image with $\lambda=8$, $p=4$.
+\end{itemize}
+
+\item[{Objective 4.}] Download \texttt{fonzie.png} from the website and import it as the degraded image $\mZ$. For $p=3$ and $\lambda=0.05,0.2,1,5$, apply \texttt{gmres} using \texttt{linop} to reconstruct the image $\widehat{\mX}$ (the matrix form of the solution of~\eqref{lineq}).
+
+For this objective, submit the following:
+\begin{itemize}
+\item Four PNG images, each showing one of your reconstructions with the value of $\lambda$ in the title.
+\end{itemize}
+
+
+\item[Objective 5.] Download \texttt{plate.png} from the website and import it as the degraded image $\mZ$. It's a severely degraded image of a license plate. Experiment with $p$ and $\lambda$ and do your best to identify all of the characters on the plate. You might want to use different parameter values for different characters.
+
+For this objective, submit the following:
+\begin{itemize}
+\item One or more PNG images, showing your best reconstructions for the characters on the plate. The title of each image should show the values of $p$ and $\lambda$ used to generate it.
+\end{itemize}
+
+\end{description}
+
+\end{document}

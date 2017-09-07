@@ -1,0 +1,76 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage[headings]{fullpage}
+\usepackage{amsmath}
+\pagestyle{myheadings}
+\markboth{SVD compression}{SVD compression}
+
+\input{../fncextra}
+
+\begin{document}
+
+\begin{center}
+  \bf Project: SVD image compression
+\end{center}
+
+Suppose $\mA$ is a matrix of pixel intensity values representing an image. Recall that if $\mA=\mU\mS\mV^T$ is an SVD, then we construct an approximation $\mA_k=\mU_k\mS_k\mV_k^T$ using the first $k$ columns of $\mU$ and $\mV$, and the first $k$ singular values only. This is the ``best'' approximation to $\mA$ in a certain precise sense: among all matrices of rank $k$ or less, $\| \mA-\mA_k \|$ has the smallest possible value. This optimality is true in the 2-norm, and in another norm that serves us better here, the Frobenius norm: \begin{equation}
+  \label{eq:fro}
+  \| \mX \|_F = \left( \sum_{i=1}^m \sum_{j=1}^n |X_{ij}|^2 \right)^{1/2}.
+\end{equation}
+
+Unlike our other matrix norms, the Frobenius norm is not induced by a vector norm. However, in the image context there is a relationship: if $\mZ$ is an image in matrix form and $\bfz$ is its vector form, then $\|\mZ\|_F=\|\bfz\|_2$. The Frobenius norm is also closely related to the SVD of $\mA$ and the formulation of $\mA_k$, via
+\begin{equation}
+  \label{eq:frosvd}
+  \begin{split}
+    \|\mA\|_F^2 &= \sigma_1^2 + \sigma_2^2 + \cdots + \sigma_n^2, \\
+    \|\mA_k\|_F^2 &= \sigma_1^2 + \cdots + \sigma_k^2. 
+  \end{split}
+\end{equation}
+
+The low-rank approximation $\mA_k$ is not necessarily a great way to compress an image. However, it might be better if we break the image into blocks and apply compression to the blocks. That is your goal in this project.
+
+\begin{enumerate}
+\item Write a function \texttt{k = cutoff(sigma,p)}. Here \texttt{sigma} is a
+  vector of $n$ singular values and \texttt{p} is a number between 0
+  and 1. The value \texttt{k} that is returned should be the smallest
+  possible $k$ such that
+  \begin{equation}
+    \label{eq:cutoff}
+    \frac{ {\sigma_1^2 + \cdots + \sigma_k^2}}{{\sigma_1^2 +
+        \cdots + \sigma_n^2}} \ge p^2.
+  \end{equation}
+\item Write a function \texttt{[Z,ratio] = svdcompress(X,b,p)} that performs
+  block SVD compression. $\mX$ is divided into nonoverlapping $b\times
+  b$ blocks. For example, the first block is \verb+X(1:b,1:b)+. A
+  block $\mA$ should have its SVD computed. The singular values and $p$
+  are passed to the \texttt{cutoff} function to determine a value of
+  $k$ for the block. The corresponding approximation $\mA_k$ will occupy
+  the same position in $\mZ$ as $\mA$ does in $\mX$. 
+  
+  The number of scalars needed to define $\mA_k$ is $k(2b+1)$.
+  Therefore, if $k\ge b/2$, you should use $\mA$ rather than $\mA_k$ in
+  the output $\mZ$, as it will be more efficient. In addition, along the
+  bottom and right edges of the image there may be blocks whose width
+  or height is smaller than $b$. Those can be copied directly into the
+  output $\mZ$. 
+
+  You also should keep a running total of the number of values needed
+  to reconstruct $\mZ$ (that is, either $k(2b+1)$ or the number of
+  elements in the block). At the end of the function, divide this
+  total by the total number of elements in $\mX$ to get the output value
+  \texttt{ratio}, which represents the compression ratio achieved. It
+  should be no greater than one in all cases.
+\item Apply your \texttt{svdcompress} to the image you selected for
+  the first project. Try block sizes $8$, $16$, $24$, and $32$ and a
+  cutoff threshold $p=0.5$. Display the resulting images and report
+  the compression ratio in each case.
+\item Apply \texttt{svdcompress} to your image, with the blocksize that
+  you judge to give the best results in part 3, and cutoff
+  thresholds of $p=0.2$, $0.4$, $0.6$, and $0.8$. Again, display the
+  images and report the compression ratios.
+\end{enumerate}
+
+For your submission, turn in your images and your functions.
+
+
+\end{document}

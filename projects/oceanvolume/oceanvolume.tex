@@ -1,0 +1,73 @@
+\documentclass[11pt,twoside]{article}
+
+\usepackage{amsmath,amsthm}
+\usepackage{listings}
+\usepackage[headings]{fullpage}
+\usepackage[utopia]{mathdesign}
+\usepackage{color}
+\usepackage{graphicx}
+
+\lstset{basicstyle=\footnotesize\ttfamily,language=Matlab}
+
+\pagestyle{myheadings}
+\markboth{Volume}{Volume}
+
+\input{../fncextra}
+
+\begin{document}
+
+
+\begin{center}
+  \bf Depths of despair
+\end{center}
+
+Numerical integration of a function of one variable is called quadrature. The analogous situation of integrating a function of two variables is sometimes called \emph{cubature}. In this project you will explore the extension of the trapezoid formula to this situation, and apply it to find the volume of water in a patch of the ocean.
+
+Consider the problem $\iint_R f(x,y)\,dx\,dy$, where $R$ is the rectangle $[x_0,x_m] \times [y_0,y_n]$. We discretize each variable using the space steps $h$ and $k$, respectively, so that $x_i = x_0 + ih$ for $i=0,\ldots,n$, and $y_j=y_0+jk$ for $j=0,\ldots,m$. (This requires that $h=(x_m-x_0)/m$ and $k=(y_n-y_0)/n$.) The result is a decomposition of $R$ into rectangles with the nodes at the corners. The strategy is to compute a volume over each little rectangle and sum them over the whole domain. Here's an example of how the discretization process works in MATLAB:
+
+\input{CubatureSetup}
+
+At the corners of each rectangle we have values of $z$ according to $Z_{ij}=f(x_i,y_j)$. We can model the surface $z=f(x,y)$ over one of these rectangles using the function $L_{ij}(x,y)=a + b (x-x_i) + c(y-y_j) + d(x-x_i)(y-y_j)$, where $a,b,c,d$ are determined by interpolation conditions at the four corners of the rectangle. (These coefficients depend on $i$ and $j$, but that is left out to make the notation clearer.) We get a solid defined over the rectangle looking like this:
+
+\input{CubatureSolid}
+
+
+\subsection*{Objectives}
+\label{sec:objectives}
+
+Mathematical content:
+\begin{enumerate}
+\item Using a symbolic math package if you want, derive exact expressions for the interpolant $L_{ij}$ over the rectangle whose lower left corner is $(x_i,y_j)$, in terms of $h$, $k$, and four values $Z_{ij}$, $Z_{i+1,j}$, $Z_{i,j+1}$, $Z_{i+1,j+1}$. (Show the steps involved, whether you use a computer or not.)  
+\item Integrate the interpolant over the rectangle to get another expression in terms of the same quantities. This is $V_{ij}$, the volume used to approximate the integral of $f$ over the rectangle. 
+\item Show that if the $V_{ij}$ are added up over all $i$ and $j$, the result is identical to applying the trapezoid formula in each dimension sequentially over the domain (i.e., as an iterated integral). 
+\end{enumerate}
+
+Computational content:
+\begin{enumerate}
+\item Download and install the GeoMapApp at \texttt{www.geomappapp.org}. 
+\item Start the app and agree to the license. You should get a window with a projected map of the world, in latitude-longitude corrdinates as measured in degrees of arc, and some GUI widgets. Use the magnifying glass tool to select a small rectangle over the ocean. You should try to get it to include about 1-2 degrees of latitiude (the $y$ axis). 
+\item Click on the icon that looks like a grid. After a few seconds another window should open with a histogram in it. Make sure the dropdown menu at the top of this window says ``GMRT Grid'' with some version number. Click on the floppy disk icon, select ``Grid: .XYZ (ascii format)'', and save the file to your computer. At this point you can close GeoMapApp. 
+\item You can import this data into MATLAB by double-clicking on it in the ``Current Folder'' tab of the MATLAB Desktop, and using the resulting dialog. What you will get is three columns of $x$, $y$, and $z$ data on a regular rectangular grid, where $x$ and $y$ are reported in degrees of arc, and $z$ will be negative to represent depths below sea level.
+\item \textbf{After converting all the data into km units}, use it and the formula you derived above to estimate the amount of water in your patch of ocean.
+\end{enumerate}
+
+
+\subsection*{Submission}
+
+Submit a function 
+\begin{verbatim}
+function volume = ocean(x,y,z)
+\end{verbatim}
+that will compute an approximation to the volume using three vectors of depth data as described in the previous section.
+
+Prepare a report that includes the following.
+\begin{enumerate}
+\item The required mathematical content. 
+\item Details needed to acquire the same raw data from the app and compute your volume result.
+\item Some form of quantitative check on whether your answer is reasonable, in the sense of being at least the right order of magnitude. 
+\item A brief statement of the contributions of each team member to the project. \textbf{Be as specific as possible.}
+\end{enumerate}
+Your report should read like a document understandable to anyone else in the class. All of the mathematical expressions in your document should be typeset properly as mathematical notation. You have several options: Word, OpenOffice, \LaTeX, \texttt{texmacs.org}, Mathematica. Submit your report as a single PDF document, along with your M-file. 
+
+\end{document}
+

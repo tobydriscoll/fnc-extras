@@ -1,0 +1,106 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[charter]{mathdesign}
+\usepackage{fullpage}
+\pagestyle{empty}
+
+\input{../fncextra}
+\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}
+
+\addtolength{\textheight}{2em}
+
+\begin{document}
+	
+\begin{center}
+  \bf 
+  Project: Wave goodbye
+\end{center}
+	
+Water waves have occupied mathematicians for centuries. Almost all of the interesting models are nonlinear. One of these is the \emph{KdV equation},
+\begin{equation}
+\label{eq:KdV}
+u_t + 6uu_x + u_{xxx} = 0.
+\end{equation}
+Unlike the linear advection equation, most solutions of~\eqref{eq:KdV} do not propagate unchanged. However, there are so-called \emph{soliton} solutions that do hold their shape as they move. The soliton solutions are
+\begin{equation}
+\label{eq:soliton}
+   s(x,t;c) = \frac{c}{2} \operatorname{sech}^2 \left(  \frac{\sqrt{c}}{2}(x-ct) \right),
+\end{equation}
+where $c>0$ is the constant velocity. Solitons can be experimentally observed under the right conditions. They have an odd property: if a faster soliton overtakes a smaller one, they pass through each other with unchanged shapes, but the path of each soliton undergoes a shift; i.e., the solution $s(x,t;c)$ becomes $s(x-\xi,t;c)$ after the interaction. 
+
+If equation~\eqref{eq:KdV} is linearized about the soliton solution $s$, the perturbation $w$ is governed by
+\begin{equation}
+\label{eq:KdVlin}
+  w_t = -6 ( s w_x + s_x w) - w_{xxx},
+\end{equation}
+which discretizes in $m$ points to 
+\newcommand{\bfs}{\mathbf{s}}
+\begin{equation}
+\label{eq:KdVlin-disc}
+  \bfw'(t) = \bigl[ -6 \diag(\bfs)\mD_x -6 \diag(\mD_x\bfs) -\mD_{xxx} \bigr]\, \bfw = \mA\bfw,
+\end{equation}
+where $\bfs$ is the spatial discretization of $s(x,t;c)$ at a fixed time $t_*$. As usual, the eigenvalues of the Jacobian matrix in this equation govern time step restrictions due to absolute stability. The presence of the third derivative makes this problem quite stiff in general.
+
+Another, more easily generalized model of waves is provided by the \emph{shallow water equations}, 
+\begin{equation}
+\label{eq:shallow}
+  \begin{split}
+    h_t + \pp{}{x} \bigl( (h-\delta) u  \bigr) + \pp{}{y} \bigl( (h-\delta) v  \bigr) &= 0 \\
+    u_t + u u_x + vu_y &= -h_x - \epsilon u \\
+    v_t + uv_x + vv_y &= -h_y - \epsilon v,
+  \end{split}
+\end{equation}
+where $h(x,y,t)$ is the height of water above a neutral $z=0$ plane, $u(x,y,t)$ and $v(x,y,t)$ are the $x$-velocity and $y$-velocity of a particle on the surface of the water, and $\delta(x,y)<0$ describes the depth of the solid bed underneath the surface. The terms with $\epsilon$ represent frictional loss; and are often set to zero in theoretical work. As far as I know, the shallow water equations don't have pretty solutions like those of KdV.
+
+
+
+\subsection*{Project assignment}
+\label{sec:project-assignment}
+
+You should submit only M-files. Five of them are required to produce output as described in detail below. \textbf{Each of these scripts should start with the line}
+\begin{verbatim}
+    close all, clear all
+\end{verbatim}
+While you may use book functions and other codes written for the class as guides, none of them will completely address any of the problems. You may also include as many other M-files as are needed to make the scripts run. In your submission, \textbf{include all other files needed, including those from the book.} You can locate all dependencies by entering, for example,
+\begin{verbatim}
+    matlab.codetools.requiredFilesAndProducts('p1')
+\end{verbatim}
+
+\textbf{If a script does not run  successfully, you may receive no credit on that part of the assignment. If any code is found to be plagiarized from the internet or another student, you may receive a zero on the entire assignment.}
+
+\begin{enumerate}
+\item Let equation~\eqref{eq:KdV} by posed over $-20<x<20$ with periodic end conditions. Using $m=300$ points and the initial condition $s(x,0;1)$ from~\eqref{eq:soliton}, compute the solution for $0\le t \le 10$. (Remember that the MATLAB IVP solvers allow you to request output at particular times; see the documentation.)
+\begin{description}
+    \item[p1.m] This script produces two separate figures. One shows the numerical solution as a function of $x$ at $t=0,2,4,6,8,10$. The other shows the difference between the numerical solution and the exact solution, as a function of $x$, for $t=0,2,4,6,8,10$.
+\end{description}
+\item Continuing with the setup in step 1, find the matrix $\mA$ of the linearization equation~\eqref{eq:KdVlin-disc} about the solution $s(x,0;1)$. 
+\begin{description}
+    \item[p2.m] This script makes a plot of the eigenvalues of $\mA$ in the complex plane. Don't forget to use \texttt{axis}~\texttt{equal}!
+\end{description} 
+\item Look up the stability region of the 4th order R-K method in Figure~12.5. The intersections of the region with the coordinate axes are at the origin, $-2\sqrt{2}+0i$, and $\pm2\sqrt{2}i$. Use this information, compute an upper bound for the time step in RK4. Then apply \texttt{ode45} to solve the problem (same conditions as in step~1), and find the maximum step size taken by the solver. (If it is larger than your upper bound, you did something wrong.) 
+\begin{description}
+    \item[p3.m] This script prints out the upper bound and the observed maximum step size.
+\end{description}
+\item Still with $-20<x<20$, periodic end conditions, $m=300$, and $0\le t \le 10$, compute the numerical solution with initial condition $s(x,0;1) + s(x+8,0;2)$ at 81 equally spaced times in $[0,10]$ (including $t=0$ and $t=10$). You should be able to see clearly that the faster soliton overtakes the slower one, leaving them both shifted sideways from their original paths. 
+\begin{description}
+    \item[p4.m] This script makes a \texttt{pcolor} plot showing the numerical solution as a function of $x$ and $t$. 
+\end{description}
+\item Let the shallow water equations~\eqref{eq:shallow} be posed over $(x,y) \in [-8,8]\times[-4,4]$ and subject to periodicity in both coordinates. Let the depth function be
+  \begin{equation*}
+    \delta(x,y) = -2 + 1.75 \exp[-2(x-4)^2-2y^2],
+  \end{equation*}
+corresponding to a flat surface with a tall bump at $(4,0)$, and let $\epsilon=0.05$. Use $m=n=100$ points in space and let the initial conditions be $h(x,y,0)=\exp(-x^2/2)$, $u(x,y,0)=0$, and $v(x,y,0)=0$. Simulate for 100 equally spaced times between $t=0$ and $t=10$ (I recommend a nonstiff IVP solver). You should see the original bump split into two waves. The waves aren't perfect, though---they shed little waves behind them as they go. Each of the two main waves will interact with the bump as they flow past the line $x=4$.
+\begin{description}
+\item[p5.m] This script should generate an animated GIF of a \texttt{surf} or \texttt{pcolor} plot of $h(x,y,t)$ for the 100 times in your numerical solution. You will want a separate function file to define the ODE to be solved, so include that file too. 
+\end{description}
+
+\end{enumerate}
+
+
+\end{document}
+
