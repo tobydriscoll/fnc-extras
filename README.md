@@ -7,3 +7,5 @@ Driscoll and Braun.
 - **functions** Files for all the numbered functions in the text.
 - **labs** Laboratory-style exercises to accompany the text.
 - **projects** Projects relating to one or more chapters in the text. 
+- **slides** PPT and PDF slides for the first half of the text.
+

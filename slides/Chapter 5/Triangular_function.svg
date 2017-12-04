@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" width="695" height="485" 
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Plot of trangular function</title>
+  <desc>A plot from -1.5 to 1.5 of the trangle function</desc>
+  <defs>
+    <g id="v_tm">
+       <path d="m0,0.125 h0.05 m-0.05,0.125 h0.05 m-0.05,0.125 h0.05 m-0.05,0.125 h0.1" />
+    </g>
+    <g id="h_tm">
+      <path d="m0.125,0 v0.05 m0.125,-0.05 v0.05 m0.125,-0.05 v0.05 m0.125,-0.05 v0.1" />
+    </g>
+  </defs>
+  <!-- rect fill="#FFD" x="0" y="0" width="695" height="485" -->
+  <g transform="translate(370, 325)scale(200,-200)" stroke-width="0.01"
+       stroke="#000" fill="none" >
+    <path stroke="#BBB" stroke-width="0.0075" d="M-1.5,0 h3.0 M0.0,-0.5 v2.0" />
+    <g id="v_ax" >
+      <path d="M -1.5,-0.5 v2" />
+      <use xlink:href="#v_tm" x="-1.5" y="-0.5" />
+      <use xlink:href="#v_tm" x="-1.5" y="0.0" />
+      <use xlink:href="#v_tm" x="-1.5" y="0.5" />
+      <use xlink:href="#v_tm" x="-1.5" y="1.0" />
+    </g>
+    <g transform="scale(-1,1)">
+      <use xlink:href="#v_ax" />
+    </g>
+    <g id="h_ax">
+      <path d="M -1.5,-0.5 h3" />
+      <use xlink:href="#h_tm" x="-1.5" y="-0.5" />
+      <use xlink:href="#h_tm" x="-1.0" y="-0.5" />
+      <use xlink:href="#h_tm" x="-0.5" y="-0.5" />
+      <use xlink:href="#h_tm" x="0.0" y="-0.5" />
+      <use xlink:href="#h_tm" x="0.5" y="-0.5" />
+      <use xlink:href="#h_tm" x="1.0" y="-0.5" />
+    </g>
+    <g transform="translate(0,1.00)scale(1,-1)">
+      <use xlink:href="#h_ax" />
+    </g>
+    <!-- this is the graph plot -->
+    <g stroke="#5060E0" fill="none">
+    	<path d="m-1.5,0 h0.5 l1.0,1.0 l1.0,-1.0 h0.5" />
+    </g>
+  </g>
+  <g style="font-family:Liberation Sans;font-size:18pt" 
+      stroke="#000" fill="#000" transform="translate(50,25)" stroke-width=".3" >
+    <g text-achor="end">
+      <text x="-24" y="10">1.5</text>
+      <text x="-24" y="107">1.0</text>
+      <text x="-24" y="207">0.5</text>
+      <text x="-24" y="307">0.0</text>
+      <text x="-24" y="407">-0.5</text>
+    </g>
+    <g text-achor="middle">
+      <text y="432" x="0">
+	<tspan x="0">-1.5</tspan>
+	<tspan x="100">-1.0</tspan>
+	<tspan x="200">-0.5</tspan>
+	<tspan x="308">0.0</tspan>
+	<tspan x="408">0.5</tspan>
+	<tspan x="508">1.0</tspan>
+	<tspan x="608">1.5</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
