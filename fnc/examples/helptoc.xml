@@ -28,10 +28,12 @@
             <tocitem target="examples.html#4">Chapter 4: Roots of nonlinear equations</tocitem>
             <tocitem target="examples.html#5">Chapter 5: Piecewise interpolation</tocitem>
             <tocitem target="examples.html#6">Chapter 6: Initial-value problems</tocitem>
+            <tocitem target="examples.html#7">Chapter 7: Matrix analysis</tocitem>
             <tocitem target="examples.html#8">Chapter 8: Krylov methods in linear algebra</tocitem>
             <tocitem target="examples.html#9">Chapter 9: Global function approximation</tocitem>
             <tocitem target="examples.html#10">Chapter 10: Boundary-value problems</tocitem>
             <tocitem target="examples.html#11">Chapter 11: Diffusion equations</tocitem>
+            <tocitem target="examples.html#12">Chapter 12: Advection equations</tocitem>
             <tocitem target="examples.html#13">Chapter 13: Two-dimensional problems</tocitem>
         
         </tocitem>
