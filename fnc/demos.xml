@@ -10,37 +10,37 @@
 		<label>1.1.2</label>
 		<type>other</type>
 		<source>accuracy</source>
-		<file>doc/examples/chapter01/html/accuracy.html</file>
+		<file>doc/html/chapter01/html/accuracy.html</file>
 	</demoitem>
 	<demoitem>
 		<label>1.1.3</label>
 		<type>other</type>
 		<source>arithmetic</source>
-		<file>doc/examples/chapter01/html/arithmetic.html</file>
+		<file>doc/html/chapter01/html/arithmetic.html</file>
 	</demoitem>
 	<demoitem>
 		<label>1.3.2</label>
 		<type>other</type>
 		<source>hornereval</source>
-		<file>doc/examples/chapter01/html/hornereval.html</file>
+		<file>doc/html/chapter01/html/hornereval.html</file>
 	</demoitem>
 	<demoitem>
 		<label>1.3.3</label>
 		<type>other</type>
 		<source>quadunstable</source>
-		<file>doc/examples/chapter01/html/quadunstable.html</file>
+		<file>doc/html/chapter01/html/quadunstable.html</file>
 	</demoitem>
 	<demoitem>
 		<label>1.3.4</label>
 		<type>other</type>
 		<source>quadstable</source>
-		<file>doc/examples/chapter01/html/quadstable.html</file>
+		<file>doc/html/chapter01/html/quadstable.html</file>
 	</demoitem>
 	<demoitem>
 		<label>1.3.5</label>
 		<type>other</type>
 		<source>polyroots</source>
-		<file>doc/examples/chapter01/html/polyroots.html</file>
+		<file>doc/html/chapter01/html/polyroots.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 2: Square linear systems</label>
@@ -48,115 +48,115 @@
 		<label>2.1.1</label>
 		<type>other</type>
 		<source>vanderinterp</source>
-		<file>doc/examples/chapter02/html/vanderinterp.html</file>
+		<file>doc/html/chapter02/html/vanderinterp.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.2.1</label>
 		<type>other</type>
 		<source>matlabdemo</source>
-		<file>doc/examples/chapter02/html/matlabdemo.html</file>
+		<file>doc/html/chapter02/html/matlabdemo.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.3.2</label>
 		<type>other</type>
 		<source>backslash_solve</source>
-		<file>doc/examples/chapter02/html/backslash_solve.html</file>
+		<file>doc/html/chapter02/html/backslash_solve.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.3.3</label>
 		<type>other</type>
 		<source>triangularsolve</source>
-		<file>doc/examples/chapter02/html/triangularsolve.html</file>
+		<file>doc/html/chapter02/html/triangularsolve.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.4.1</label>
 		<type>other</type>
 		<source>gausselim</source>
-		<file>doc/examples/chapter02/html/gausselim.html</file>
+		<file>doc/html/chapter02/html/gausselim.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.4.2</label>
 		<type>other</type>
 		<source>gausselim_Lfactors</source>
-		<file>doc/examples/chapter02/html/gausselim_Lfactors.html</file>
+		<file>doc/html/chapter02/html/gausselim_Lfactors.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.4.3</label>
 		<type>other</type>
 		<source>lufactfun</source>
-		<file>doc/examples/chapter02/html/lufactfun.html</file>
+		<file>doc/html/chapter02/html/lufactfun.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.5.3</label>
 		<type>other</type>
 		<source>flops_mvmult_numbers</source>
-		<file>doc/examples/chapter02/html/flops_mvmult_numbers.html</file>
+		<file>doc/html/chapter02/html/flops_mvmult_numbers.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.5.4</label>
 		<type>other</type>
 		<source>flops_mvmult_graph</source>
-		<file>doc/examples/chapter02/html/flops_mvmult_graph.html</file>
+		<file>doc/html/chapter02/html/flops_mvmult_graph.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.5.5</label>
 		<type>other</type>
 		<source>flops_lufact</source>
-		<file>doc/examples/chapter02/html/flops_lufact.html</file>
+		<file>doc/html/chapter02/html/flops_lufact.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.6.1</label>
 		<type>other</type>
 		<source>pivotfail</source>
-		<file>doc/examples/chapter02/html/pivotfail.html</file>
+		<file>doc/html/chapter02/html/pivotfail.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.6.2</label>
 		<type>other</type>
 		<source>pivotfix</source>
-		<file>doc/examples/chapter02/html/pivotfix.html</file>
+		<file>doc/html/chapter02/html/pivotfix.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.7.1</label>
 		<type>other</type>
 		<source>vectornorms</source>
-		<file>doc/examples/chapter02/html/vectornorms.html</file>
+		<file>doc/html/chapter02/html/vectornorms.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.7.2</label>
 		<type>other</type>
 		<source>matrixnorms</source>
-		<file>doc/examples/chapter02/html/matrixnorms.html</file>
+		<file>doc/html/chapter02/html/matrixnorms.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.8.1</label>
 		<type>other</type>
 		<source>condbound</source>
-		<file>doc/examples/chapter02/html/condbound.html</file>
+		<file>doc/html/chapter02/html/condbound.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.9.1</label>
 		<type>other</type>
 		<source>banded</source>
-		<file>doc/examples/chapter02/html/banded.html</file>
+		<file>doc/html/chapter02/html/banded.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.9.2</label>
 		<type>other</type>
 		<source>bandedtiming</source>
-		<file>doc/examples/chapter02/html/bandedtiming.html</file>
+		<file>doc/html/chapter02/html/bandedtiming.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.9.3</label>
 		<type>other</type>
 		<source>symmetricLU</source>
-		<file>doc/examples/chapter02/html/symmetricLU.html</file>
+		<file>doc/html/chapter02/html/symmetricLU.html</file>
 	</demoitem>
 	<demoitem>
 		<label>2.9.4</label>
 		<type>other</type>
 		<source>cholesky</source>
-		<file>doc/examples/chapter02/html/cholesky.html</file>
+		<file>doc/html/chapter02/html/cholesky.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 3: Overdetermined linear systems</label>
@@ -164,37 +164,37 @@
 		<label>3.1.1</label>
 		<type>other</type>
 		<source>worldtempinterp</source>
-		<file>doc/examples/chapter03/html/worldtempinterp.html</file>
+		<file>doc/html/chapter03/html/worldtempinterp.html</file>
 	</demoitem>
 	<demoitem>
 		<label>3.1.2</label>
 		<type>other</type>
 		<source>worldtempfit</source>
-		<file>doc/examples/chapter03/html/worldtempfit.html</file>
+		<file>doc/html/chapter03/html/worldtempfit.html</file>
 	</demoitem>
 	<demoitem>
 		<label>3.1.3</label>
 		<type>other</type>
 		<source>pirate</source>
-		<file>doc/examples/chapter03/html/pirate.html</file>
+		<file>doc/html/chapter03/html/pirate.html</file>
 	</demoitem>
 	<demoitem>
 		<label>3.2.1</label>
 		<type>other</type>
 		<source>normalinstab</source>
-		<file>doc/examples/chapter03/html/normalinstab.html</file>
+		<file>doc/html/chapter03/html/normalinstab.html</file>
 	</demoitem>
 	<demoitem>
 		<label>3.3.1</label>
 		<type>other</type>
 		<source>qrfact</source>
-		<file>doc/examples/chapter03/html/qrfact.html</file>
+		<file>doc/html/chapter03/html/qrfact.html</file>
 	</demoitem>
 	<demoitem>
 		<label>3.4.1</label>
 		<type>other</type>
 		<source>hhqrfact</source>
-		<file>doc/examples/chapter03/html/hhqrfact.html</file>
+		<file>doc/html/chapter03/html/hhqrfact.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 4: Roots of nonlinear equations</label>
@@ -202,85 +202,85 @@
 		<label>4.1.1</label>
 		<type>other</type>
 		<source>besselzeros</source>
-		<file>doc/examples/chapter04/html/besselzeros.html</file>
+		<file>doc/html/chapter04/html/besselzeros.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.1.2</label>
 		<type>other</type>
 		<source>rootcondnum</source>
-		<file>doc/examples/chapter04/html/rootcondnum.html</file>
+		<file>doc/html/chapter04/html/rootcondnum.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.2.1</label>
 		<type>other</type>
 		<source>fpspiral</source>
-		<file>doc/examples/chapter04/html/fpspiral.html</file>
+		<file>doc/html/chapter04/html/fpspiral.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.2.3</label>
 		<type>other</type>
 		<source>fpconverge</source>
-		<file>doc/examples/chapter04/html/fpconverge.html</file>
+		<file>doc/html/chapter04/html/fpconverge.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.3.1</label>
 		<type>other</type>
 		<source>newtonline</source>
-		<file>doc/examples/chapter04/html/newtonline.html</file>
+		<file>doc/html/chapter04/html/newtonline.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.3.2</label>
 		<type>other</type>
 		<source>newtonconverge</source>
-		<file>doc/examples/chapter04/html/newtonconverge.html</file>
+		<file>doc/html/chapter04/html/newtonconverge.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.3.3</label>
 		<type>other</type>
 		<source>newtonusage</source>
-		<file>doc/examples/chapter04/html/newtonusage.html</file>
+		<file>doc/html/chapter04/html/newtonusage.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.4.1</label>
 		<type>other</type>
 		<source>secantline</source>
-		<file>doc/examples/chapter04/html/secantline.html</file>
+		<file>doc/html/chapter04/html/secantline.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.4.2</label>
 		<type>other</type>
 		<source>secantconverge</source>
-		<file>doc/examples/chapter04/html/secantconverge.html</file>
+		<file>doc/html/chapter04/html/secantconverge.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.4.3</label>
 		<type>other</type>
 		<source>iqi</source>
-		<file>doc/examples/chapter04/html/iqi.html</file>
+		<file>doc/html/chapter04/html/iqi.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.5.2</label>
 		<type>other</type>
 		<source>newtonsystem</source>
-		<file>doc/examples/chapter04/html/newtonsystem.html</file>
+		<file>doc/html/chapter04/html/newtonsystem.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.5.3</label>
 		<type>other</type>
 		<source>newtonsysusage</source>
-		<file>doc/examples/chapter04/html/newtonsysusage.html</file>
+		<file>doc/html/chapter04/html/newtonsysusage.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.6.1</label>
 		<type>other</type>
 		<source>levenbergusage</source>
-		<file>doc/examples/chapter04/html/levenbergusage.html</file>
+		<file>doc/html/chapter04/html/levenbergusage.html</file>
 	</demoitem>
 	<demoitem>
 		<label>4.7.1</label>
 		<type>other</type>
 		<source>MMfit</source>
-		<file>doc/examples/chapter04/html/MMfit.html</file>
+		<file>doc/html/chapter04/html/MMfit.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 5: Piecewise interpolation</label>
@@ -288,97 +288,97 @@
 		<label>5.1.1</label>
 		<type>other</type>
 		<source>polyinterpbad</source>
-		<file>doc/examples/chapter05/html/polyinterpbad.html</file>
+		<file>doc/html/chapter05/html/polyinterpbad.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.1.3</label>
 		<type>other</type>
 		<source>ppinterp</source>
-		<file>doc/examples/chapter05/html/ppinterp.html</file>
+		<file>doc/html/chapter05/html/ppinterp.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.1.4</label>
 		<type>other</type>
 		<source>polyinterpcond</source>
-		<file>doc/examples/chapter05/html/polyinterpcond.html</file>
+		<file>doc/html/chapter05/html/polyinterpcond.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.2.1</label>
 		<type>other</type>
 		<source>hatfunctions</source>
-		<file>doc/examples/chapter05/html/hatfunctions.html</file>
+		<file>doc/html/chapter05/html/hatfunctions.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.2.2</label>
 		<type>other</type>
 		<source>plgraph</source>
-		<file>doc/examples/chapter05/html/plgraph.html</file>
+		<file>doc/html/chapter05/html/plgraph.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.2.3</label>
 		<type>other</type>
 		<source>plconverge</source>
-		<file>doc/examples/chapter05/html/plconverge.html</file>
+		<file>doc/html/chapter05/html/plconverge.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.3.1</label>
 		<type>other</type>
 		<source>cubicspline</source>
-		<file>doc/examples/chapter05/html/cubicspline.html</file>
+		<file>doc/html/chapter05/html/cubicspline.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.4.2</label>
 		<type>other</type>
 		<source>fornberg</source>
-		<file>doc/examples/chapter05/html/fornberg.html</file>
+		<file>doc/html/chapter05/html/fornberg.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.5.2</label>
 		<type>other</type>
 		<source>fdconverge1</source>
-		<file>doc/examples/chapter05/html/fdconverge1.html</file>
+		<file>doc/html/chapter05/html/fdconverge1.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.5.4</label>
 		<type>other</type>
 		<source>fdconverge2</source>
-		<file>doc/examples/chapter05/html/fdconverge2.html</file>
+		<file>doc/html/chapter05/html/fdconverge2.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.5.5</label>
 		<type>other</type>
 		<source>fdroundoff</source>
-		<file>doc/examples/chapter05/html/fdroundoff.html</file>
+		<file>doc/html/chapter05/html/fdroundoff.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.6.1</label>
 		<type>other</type>
 		<source>antideriv</source>
-		<file>doc/examples/chapter05/html/antideriv.html</file>
+		<file>doc/html/chapter05/html/antideriv.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.6.2</label>
 		<type>other</type>
 		<source>quadtrap</source>
-		<file>doc/examples/chapter05/html/quadtrap.html</file>
+		<file>doc/html/chapter05/html/quadtrap.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.6.3</label>
 		<type>other</type>
 		<source>quadextrap</source>
-		<file>doc/examples/chapter05/html/quadextrap.html</file>
+		<file>doc/html/chapter05/html/quadextrap.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.7.1</label>
 		<type>other</type>
 		<source>twohalves</source>
-		<file>doc/examples/chapter05/html/twohalves.html</file>
+		<file>doc/html/chapter05/html/twohalves.html</file>
 	</demoitem>
 	<demoitem>
 		<label>5.7.2</label>
 		<type>other</type>
 		<source>adaptive</source>
-		<file>doc/examples/chapter05/html/adaptive.html</file>
+		<file>doc/html/chapter05/html/adaptive.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 6: Initial-value problems</label>
@@ -386,79 +386,79 @@
 		<label>6.1.2</label>
 		<type>other</type>
 		<source>logisticnum</source>
-		<file>doc/examples/chapter06/html/logisticnum.html</file>
+		<file>doc/html/chapter06/html/logisticnum.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.1.3</label>
 		<type>other</type>
 		<source>denseoutput</source>
-		<file>doc/examples/chapter06/html/denseoutput.html</file>
+		<file>doc/html/chapter06/html/denseoutput.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.1.5</label>
 		<type>other</type>
 		<source>basicivp</source>
-		<file>doc/examples/chapter06/html/basicivp.html</file>
+		<file>doc/html/chapter06/html/basicivp.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.1.6</label>
 		<type>other</type>
 		<source>conditioning</source>
-		<file>doc/examples/chapter06/html/conditioning.html</file>
+		<file>doc/html/chapter06/html/conditioning.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.2.1</label>
 		<type>other</type>
 		<source>eulerconverge</source>
-		<file>doc/examples/chapter06/html/eulerconverge.html</file>
+		<file>doc/html/chapter06/html/eulerconverge.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.3.2</label>
 		<type>other</type>
 		<source>matrixexponential</source>
-		<file>doc/examples/chapter06/html/matrixexponential.html</file>
+		<file>doc/html/chapter06/html/matrixexponential.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.3.3</label>
 		<type>other</type>
 		<source>predator</source>
-		<file>doc/examples/chapter06/html/predator.html</file>
+		<file>doc/html/chapter06/html/predator.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.4.1</label>
 		<type>other</type>
 		<source>rkconverge</source>
-		<file>doc/examples/chapter06/html/rkconverge.html</file>
+		<file>doc/html/chapter06/html/rkconverge.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.5.1</label>
 		<type>other</type>
 		<source>rkadapt1</source>
-		<file>doc/examples/chapter06/html/rkadapt1.html</file>
+		<file>doc/html/chapter06/html/rkadapt1.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.5.2</label>
 		<type>other</type>
 		<source>rkadapt2</source>
-		<file>doc/examples/chapter06/html/rkadapt2.html</file>
+		<file>doc/html/chapter06/html/rkadapt2.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.7.1</label>
 		<type>other</type>
 		<source>ab4converge</source>
-		<file>doc/examples/chapter06/html/ab4converge.html</file>
+		<file>doc/html/chapter06/html/ab4converge.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.7.2</label>
 		<type>other</type>
 		<source>stiffode</source>
-		<file>doc/examples/chapter06/html/stiffode.html</file>
+		<file>doc/html/chapter06/html/stiffode.html</file>
 	</demoitem>
 	<demoitem>
 		<label>6.8.1</label>
 		<type>other</type>
 		<source>LIAF</source>
-		<file>doc/examples/chapter06/html/LIAF.html</file>
+		<file>doc/html/chapter06/html/LIAF.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 7: Matrix analysis</label>
@@ -466,67 +466,67 @@
 		<label>7.1.4</label>
 		<type>other</type>
 		<source>buckyplot</source>
-		<file>doc/examples/chapter07/html/buckyplot.html</file>
+		<file>doc/html/chapter07/html/buckyplot.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.1.5</label>
 		<type>other</type>
 		<source>imreaddemo</source>
-		<file>doc/examples/chapter07/html/imreaddemo.html</file>
+		<file>doc/html/chapter07/html/imreaddemo.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.2.1</label>
 		<type>other</type>
 		<source>eigintro</source>
-		<file>doc/examples/chapter07/html/eigintro.html</file>
+		<file>doc/html/chapter07/html/eigintro.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.2.2</label>
 		<type>other</type>
 		<source>bauerfike</source>
-		<file>doc/examples/chapter07/html/bauerfike.html</file>
+		<file>doc/html/chapter07/html/bauerfike.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.2.3</label>
 		<type>other</type>
 		<source>qriter</source>
-		<file>doc/examples/chapter07/html/qriter.html</file>
+		<file>doc/html/chapter07/html/qriter.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.3.2</label>
 		<type>other</type>
 		<source>svdproperties</source>
-		<file>doc/examples/chapter07/html/svdproperties.html</file>
+		<file>doc/html/chapter07/html/svdproperties.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.4.1</label>
 		<type>other</type>
 		<source>svdnormal</source>
-		<file>doc/examples/chapter07/html/svdnormal.html</file>
+		<file>doc/html/chapter07/html/svdnormal.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.4.2</label>
 		<type>other</type>
 		<source>normalperturb</source>
-		<file>doc/examples/chapter07/html/normalperturb.html</file>
+		<file>doc/html/chapter07/html/normalperturb.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.4.3</label>
 		<type>other</type>
 		<source>rayquo</source>
-		<file>doc/examples/chapter07/html/rayquo.html</file>
+		<file>doc/html/chapter07/html/rayquo.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.5.1</label>
 		<type>other</type>
 		<source>hellosvd</source>
-		<file>doc/examples/chapter07/html/hellosvd.html</file>
+		<file>doc/html/chapter07/html/hellosvd.html</file>
 	</demoitem>
 	<demoitem>
 		<label>7.5.2</label>
 		<type>other</type>
 		<source>voting</source>
-		<file>doc/examples/chapter07/html/voting.html</file>
+		<file>doc/html/chapter07/html/voting.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 8: Krylov methods in linear algebra</label>
@@ -534,103 +534,103 @@
 		<label>8.1.1</label>
 		<type>other</type>
 		<source>sparseroswell</source>
-		<file>doc/examples/chapter08/html/sparseroswell.html</file>
+		<file>doc/html/chapter08/html/sparseroswell.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.1.2</label>
 		<type>other</type>
 		<source>buckyfill</source>
-		<file>doc/examples/chapter08/html/buckyfill.html</file>
+		<file>doc/html/chapter08/html/buckyfill.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.1.3</label>
 		<type>other</type>
 		<source>sparsebanded</source>
-		<file>doc/examples/chapter08/html/sparsebanded.html</file>
+		<file>doc/html/chapter08/html/sparsebanded.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.1.4</label>
 		<type>other</type>
 		<source>sparselinalg</source>
-		<file>doc/examples/chapter08/html/sparselinalg.html</file>
+		<file>doc/html/chapter08/html/sparselinalg.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.2.1</label>
 		<type>other</type>
 		<source>magicpower</source>
-		<file>doc/examples/chapter08/html/magicpower.html</file>
+		<file>doc/html/chapter08/html/magicpower.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.2.2</label>
 		<type>other</type>
 		<source>poweriteration</source>
-		<file>doc/examples/chapter08/html/poweriteration.html</file>
+		<file>doc/html/chapter08/html/poweriteration.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.3.1</label>
 		<type>other</type>
 		<source>inverseiteration</source>
-		<file>doc/examples/chapter08/html/inverseiteration.html</file>
+		<file>doc/html/chapter08/html/inverseiteration.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.3.2</label>
 		<type>other</type>
 		<source>inversedynamic</source>
-		<file>doc/examples/chapter08/html/inversedynamic.html</file>
+		<file>doc/html/chapter08/html/inversedynamic.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.4.1</label>
 		<type>other</type>
 		<source>krylovunstable</source>
-		<file>doc/examples/chapter08/html/krylovunstable.html</file>
+		<file>doc/html/chapter08/html/krylovunstable.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.4.2</label>
 		<type>other</type>
 		<source>arnoldilong</source>
-		<file>doc/examples/chapter08/html/arnoldilong.html</file>
+		<file>doc/html/chapter08/html/arnoldilong.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.5.1</label>
 		<type>other</type>
 		<source>krylovstable</source>
-		<file>doc/examples/chapter08/html/krylovstable.html</file>
+		<file>doc/html/chapter08/html/krylovstable.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.5.2</label>
 		<type>other</type>
 		<source>gmresrest</source>
-		<file>doc/examples/chapter08/html/gmresrest.html</file>
+		<file>doc/html/chapter08/html/gmresrest.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.6.1</label>
 		<type>other</type>
 		<source>minrescg</source>
-		<file>doc/examples/chapter08/html/minrescg.html</file>
+		<file>doc/html/chapter08/html/minrescg.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.7.1</label>
 		<type>other</type>
 		<source>blurimage</source>
-		<file>doc/examples/chapter08/html/blurimage.html</file>
+		<file>doc/html/chapter08/html/blurimage.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.7.2</label>
 		<type>other</type>
 		<source>deblurimage</source>
-		<file>doc/examples/chapter08/html/deblurimage.html</file>
+		<file>doc/html/chapter08/html/deblurimage.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.8.1</label>
 		<type>other</type>
 		<source>precondilu</source>
-		<file>doc/examples/chapter08/html/precondilu.html</file>
+		<file>doc/html/chapter08/html/precondilu.html</file>
 	</demoitem>
 	<demoitem>
 		<label>8.8.2</label>
 		<type>other</type>
 		<source>precondsym</source>
-		<file>doc/examples/chapter08/html/precondsym.html</file>
+		<file>doc/html/chapter08/html/precondsym.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 9: Global function approximation</label>
@@ -638,103 +638,103 @@
 		<label>9.1.1</label>
 		<type>other</type>
 		<source>lagcard</source>
-		<file>doc/examples/chapter09/html/lagcard.html</file>
+		<file>doc/html/chapter09/html/lagcard.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.1.3</label>
 		<type>other</type>
 		<source>lagerror</source>
-		<file>doc/examples/chapter09/html/lagerror.html</file>
+		<file>doc/html/chapter09/html/lagerror.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.2.2</label>
 		<type>other</type>
 		<source>baryexample</source>
-		<file>doc/examples/chapter09/html/baryexample.html</file>
+		<file>doc/html/chapter09/html/baryexample.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.3.1</label>
 		<type>other</type>
 		<source>equiinterp1</source>
-		<file>doc/examples/chapter09/html/equiinterp1.html</file>
+		<file>doc/html/chapter09/html/equiinterp1.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.3.2</label>
 		<type>other</type>
 		<source>equiPhi</source>
-		<file>doc/examples/chapter09/html/equiPhi.html</file>
+		<file>doc/html/chapter09/html/equiPhi.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.3.3</label>
 		<type>other</type>
 		<source>Runge</source>
-		<file>doc/examples/chapter09/html/Runge.html</file>
+		<file>doc/html/chapter09/html/Runge.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.3.4</label>
 		<type>other</type>
 		<source>chebPhi</source>
-		<file>doc/examples/chapter09/html/chebPhi.html</file>
+		<file>doc/html/chapter09/html/chebPhi.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.3.5</label>
 		<type>other</type>
 		<source>chebRunge</source>
-		<file>doc/examples/chapter09/html/chebRunge.html</file>
+		<file>doc/html/chapter09/html/chebRunge.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.4.1</label>
 		<type>other</type>
 		<source>lsfitexp</source>
-		<file>doc/examples/chapter09/html/lsfitexp.html</file>
+		<file>doc/html/chapter09/html/lsfitexp.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.5.1</label>
 		<type>other</type>
 		<source>periodicinterp</source>
-		<file>doc/examples/chapter09/html/periodicinterp.html</file>
+		<file>doc/html/chapter09/html/periodicinterp.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.5.2</label>
 		<type>other</type>
 		<source>fft_ex</source>
-		<file>doc/examples/chapter09/html/fft_ex.html</file>
+		<file>doc/html/chapter09/html/fft_ex.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.6.1</label>
 		<type>other</type>
 		<source>integrate_ellipse</source>
-		<file>doc/examples/chapter09/html/integrate_ellipse.html</file>
+		<file>doc/html/chapter09/html/integrate_ellipse.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.6.3</label>
 		<type>other</type>
 		<source>quadcompare</source>
-		<file>doc/examples/chapter09/html/quadcompare.html</file>
+		<file>doc/html/chapter09/html/quadcompare.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.7.2</label>
 		<type>other</type>
 		<source>dedecay</source>
-		<file>doc/examples/chapter09/html/dedecay.html</file>
+		<file>doc/html/chapter09/html/dedecay.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.7.3</label>
 		<type>other</type>
 		<source>unboundint</source>
-		<file>doc/examples/chapter09/html/unboundint.html</file>
+		<file>doc/html/chapter09/html/unboundint.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.7.4</label>
 		<type>other</type>
 		<source>intsqrtadapt</source>
-		<file>doc/examples/chapter09/html/intsqrtadapt.html</file>
+		<file>doc/html/chapter09/html/intsqrtadapt.html</file>
 	</demoitem>
 	<demoitem>
 		<label>9.7.5</label>
 		<type>other</type>
 		<source>intsqrtde</source>
-		<file>doc/examples/chapter09/html/intsqrtde.html</file>
+		<file>doc/html/chapter09/html/intsqrtde.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 10: Boundary-value problems</label>
@@ -742,67 +742,67 @@
 		<label>10.1.2</label>
 		<type>other</type>
 		<source>naivemems</source>
-		<file>doc/examples/chapter10/html/naivemems.html</file>
+		<file>doc/html/chapter10/html/naivemems.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.1.3</label>
 		<type>other</type>
 		<source>shootmems</source>
-		<file>doc/examples/chapter10/html/shootmems.html</file>
+		<file>doc/html/chapter10/html/shootmems.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.1.4</label>
 		<type>other</type>
 		<source>shootbad</source>
-		<file>doc/examples/chapter10/html/shootbad.html</file>
+		<file>doc/html/chapter10/html/shootbad.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.2.1</label>
 		<type>other</type>
 		<source>diffmat_example</source>
-		<file>doc/examples/chapter10/html/diffmat_example.html</file>
+		<file>doc/html/chapter10/html/diffmat_example.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.2.2</label>
 		<type>other</type>
 		<source>chebspec</source>
-		<file>doc/examples/chapter10/html/chebspec.html</file>
+		<file>doc/html/chapter10/html/chebspec.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.3.1</label>
 		<type>other</type>
 		<source>fdlin_ex</source>
-		<file>doc/examples/chapter10/html/fdlin_ex.html</file>
+		<file>doc/html/chapter10/html/fdlin_ex.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.3.2</label>
 		<type>other</type>
 		<source>fdlinacc</source>
-		<file>doc/examples/chapter10/html/fdlinacc.html</file>
+		<file>doc/html/chapter10/html/fdlinacc.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.4.2</label>
 		<type>other</type>
 		<source>pendulum</source>
-		<file>doc/examples/chapter10/html/pendulum.html</file>
+		<file>doc/html/chapter10/html/pendulum.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.4.3</label>
 		<type>other</type>
 		<source>membranemulti</source>
-		<file>doc/examples/chapter10/html/membranemulti.html</file>
+		<file>doc/html/chapter10/html/membranemulti.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.4.4</label>
 		<type>other</type>
 		<source>allencahncont</source>
-		<file>doc/examples/chapter10/html/allencahncont.html</file>
+		<file>doc/html/chapter10/html/allencahncont.html</file>
 	</demoitem>
 	<demoitem>
 		<label>10.5.2</label>
 		<type>other</type>
 		<source>fem_example</source>
-		<file>doc/examples/chapter10/html/fem_example.html</file>
+		<file>doc/html/chapter10/html/fem_example.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 11: Diffusion equations</label>
@@ -810,49 +810,49 @@
 		<label>11.1.2</label>
 		<type>other</type>
 		<source>blackscholes</source>
-		<file>doc/examples/chapter11/html/blackscholes.html</file>
+		<file>doc/html/chapter11/html/blackscholes.html</file>
 	</demoitem>
 	<demoitem>
 		<label>11.2.1</label>
 		<type>other</type>
 		<source>eulerheat</source>
-		<file>doc/examples/chapter11/html/eulerheat.html</file>
+		<file>doc/html/chapter11/html/eulerheat.html</file>
 	</demoitem>
 	<demoitem>
 		<label>11.2.2</label>
 		<type>other</type>
 		<source>MOLheat</source>
-		<file>doc/examples/chapter11/html/MOLheat.html</file>
+		<file>doc/html/chapter11/html/MOLheat.html</file>
 	</demoitem>
 	<demoitem>
 		<label>11.3.3</label>
 		<type>other</type>
 		<source>eulerheatstab</source>
-		<file>doc/examples/chapter11/html/eulerheatstab.html</file>
+		<file>doc/html/chapter11/html/eulerheatstab.html</file>
 	</demoitem>
 	<demoitem>
 		<label>11.4.2</label>
 		<type>other</type>
 		<source>oregonator</source>
-		<file>doc/examples/chapter11/html/oregonator.html</file>
+		<file>doc/html/chapter11/html/oregonator.html</file>
 	</demoitem>
 	<demoitem>
 		<label>11.5.3</label>
 		<type>other</type>
 		<source>molheatbc</source>
-		<file>doc/examples/chapter11/html/molheatbc.html</file>
+		<file>doc/html/chapter11/html/molheatbc.html</file>
 	</demoitem>
 	<demoitem>
 		<label>11.5.4</label>
 		<type>other</type>
 		<source>molbratu</source>
-		<file>doc/examples/chapter11/html/molbratu.html</file>
+		<file>doc/html/chapter11/html/molbratu.html</file>
 	</demoitem>
 	<demoitem>
 		<label>11.5.5</label>
 		<type>other</type>
 		<source>molbsbc</source>
-		<file>doc/examples/chapter11/html/molbsbc.html</file>
+		<file>doc/html/chapter11/html/molbsbc.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 12: Advection equations</label>
@@ -860,55 +860,55 @@
 		<label>12.1.1</label>
 		<type>other</type>
 		<source>advection</source>
-		<file>doc/examples/chapter12/html/advection.html</file>
+		<file>doc/html/chapter12/html/advection.html</file>
 	</demoitem>
 	<demoitem>
 		<label>12.1.2</label>
 		<type>other</type>
 		<source>traffic</source>
-		<file>doc/examples/chapter12/html/traffic.html</file>
+		<file>doc/html/chapter12/html/traffic.html</file>
 	</demoitem>
 	<demoitem>
 		<label>12.2.1</label>
 		<type>other</type>
 		<source>cfl</source>
-		<file>doc/examples/chapter12/html/cfl.html</file>
+		<file>doc/html/chapter12/html/cfl.html</file>
 	</demoitem>
 	<demoitem>
 		<label>12.2.2</label>
 		<type>other</type>
 		<source>inflow</source>
-		<file>doc/examples/chapter12/html/inflow.html</file>
+		<file>doc/html/chapter12/html/inflow.html</file>
 	</demoitem>
 	<demoitem>
 		<label>12.3.1</label>
 		<type>other</type>
 		<source>advectstabreg</source>
-		<file>doc/examples/chapter12/html/advectstabreg.html</file>
+		<file>doc/html/chapter12/html/advectstabreg.html</file>
 	</demoitem>
 	<demoitem>
 		<label>12.3.2</label>
 		<type>other</type>
 		<source>advdiffeig</source>
-		<file>doc/examples/chapter12/html/advdiffeig.html</file>
+		<file>doc/html/chapter12/html/advdiffeig.html</file>
 	</demoitem>
 	<demoitem>
 		<label>12.3.3</label>
 		<type>other</type>
 		<source>advboundeig</source>
-		<file>doc/examples/chapter12/html/advboundeig.html</file>
+		<file>doc/html/chapter12/html/advboundeig.html</file>
 	</demoitem>
 	<demoitem>
 		<label>12.4.1</label>
 		<type>other</type>
 		<source>wave</source>
-		<file>doc/examples/chapter12/html/wave.html</file>
+		<file>doc/html/chapter12/html/wave.html</file>
 	</demoitem>
 	<demoitem>
 		<label>12.4.2</label>
 		<type>other</type>
 		<source>wavereflect</source>
-		<file>doc/examples/chapter12/html/wavereflect.html</file>
+		<file>doc/html/chapter12/html/wavereflect.html</file>
 	</demoitem>
 </demosection>
 <demosection><label>Chapter 13: Two-dimensional problems</label>
@@ -916,79 +916,79 @@
 		<label>13.1.2</label>
 		<type>other</type>
 		<source>grid2d</source>
-		<file>doc/examples/chapter13/html/grid2d.html</file>
+		<file>doc/html/chapter13/html/grid2d.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.1.3</label>
 		<type>other</type>
 		<source>disksphere</source>
-		<file>doc/examples/chapter13/html/disksphere.html</file>
+		<file>doc/html/chapter13/html/disksphere.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.1.4</label>
 		<type>other</type>
 		<source>grid2ddiff</source>
-		<file>doc/examples/chapter13/html/grid2ddiff.html</file>
+		<file>doc/html/chapter13/html/grid2ddiff.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.2.1</label>
 		<type>other</type>
 		<source>vecunvec</source>
-		<file>doc/examples/chapter13/html/vecunvec.html</file>
+		<file>doc/html/chapter13/html/vecunvec.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.2.2</label>
 		<type>other</type>
 		<source>heat2Dper</source>
-		<file>doc/examples/chapter13/html/heat2Dper.html</file>
+		<file>doc/html/chapter13/html/heat2Dper.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.2.3</label>
 		<type>other</type>
 		<source>advdiff2D</source>
-		<file>doc/examples/chapter13/html/advdiff2D.html</file>
+		<file>doc/html/chapter13/html/advdiff2D.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.2.4</label>
 		<type>other</type>
 		<source>wave2D</source>
-		<file>doc/examples/chapter13/html/wave2D.html</file>
+		<file>doc/html/chapter13/html/wave2D.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.3.1</label>
 		<type>other</type>
 		<source>krondef</source>
-		<file>doc/examples/chapter13/html/krondef.html</file>
+		<file>doc/html/chapter13/html/krondef.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.3.2</label>
 		<type>other</type>
 		<source>pois2ddemo</source>
-		<file>doc/examples/chapter13/html/pois2ddemo.html</file>
+		<file>doc/html/chapter13/html/pois2ddemo.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.3.3</label>
 		<type>other</type>
 		<source>pois2d</source>
-		<file>doc/examples/chapter13/html/pois2d.html</file>
+		<file>doc/html/chapter13/html/pois2d.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.4.3</label>
 		<type>other</type>
 		<source>mems2d</source>
-		<file>doc/examples/chapter13/html/mems2d.html</file>
+		<file>doc/html/chapter13/html/mems2d.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.4.4</label>
 		<type>other</type>
 		<source>allencahn2d</source>
-		<file>doc/examples/chapter13/html/allencahn2d.html</file>
+		<file>doc/html/chapter13/html/allencahn2d.html</file>
 	</demoitem>
 	<demoitem>
 		<label>13.4.5</label>
 		<type>other</type>
 		<source>advdiffsteady</source>
-		<file>doc/examples/chapter13/html/advdiffsteady.html</file>
+		<file>doc/html/chapter13/html/advdiffsteady.html</file>
 	</demoitem>
 </demosection>
 </demos>

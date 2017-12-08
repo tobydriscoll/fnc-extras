@@ -63,7 +63,7 @@ for i = 1:13
         if chap > i, break, end
         fprintf(fid,'\t<demoitem>\n\t\t<label>%s</label>\n',number(k));
         fprintf(fid,'\t\t<type>other</type>\n\t\t<source>%s</source>\n',label(k));
-        fprintf(fid,'\t\t<file>doc/examples/chapter%02d/html/%s.html</file>\n',i,label(k));
+        fprintf(fid,'\t\t<file>doc/html/chapter%02d/html/%s.html</file>\n',i,label(k));
         fprintf(fid,'\t</demoitem>\n');
         k = k+1;
     end
