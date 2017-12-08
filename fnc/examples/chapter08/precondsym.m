@@ -14,9 +14,9 @@ axis tight    % ignore this line
 
 %%
 % For an SPD matrix we can use an incomplete Cholesky factorization. (It
-% returns a lower triangular $\bm{L}=\bm{R}^T$ rather than an upper
-% triangular $\bm{R}$.) However, it can fail, so here we add a shift to the
-% eigenvalues of $\bm{A}$ to make it ``more positive.''
+% returns a lower triangular $\mathbf{L}=\mathbf{R}^T$ rather than an upper
+% triangular $\mathbf{R}$.) However, it can fail, so here we add a shift to the
+% eigenvalues of $\mathbf{A}$ to make it ``more positive.''
 L = ichol(A+0.05*speye(1000));
 [x,~,~,~,residPrec] = minres(A,b,1e-10,400,L,L');
 hold on, semilogy(residPrec,'-')

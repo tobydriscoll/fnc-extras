@@ -2,7 +2,7 @@ function allencahn2d   % ignore this line
 
 
 %% 
-% The following function defines the PDE, by way of $\bm{f}(\bm{u})$ and its
+% The following function defines the PDE, by way of $\mathbf{f}(\mathbf{u})$ and its
 % derivative.
     function [F,J] = pde(U,X,Y,d)
         LU = d.Dxx*U + U*d.Dyy';     % apply Laplacian

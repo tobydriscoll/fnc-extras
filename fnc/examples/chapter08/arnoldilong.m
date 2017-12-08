@@ -8,7 +8,7 @@ u = randn(6,1);
 Q = u/norm(u);
 
 %%
-% Multiplication by $\mA$ gives us a new vector in $\ck_2$. 
+% Multiplication by $\mathbf{A}$ gives us a new vector in $\ck_2$. 
 Aq = A*Q(:,1);
 
 %% 

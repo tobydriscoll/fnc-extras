@@ -6,7 +6,7 @@ function molheatbc     % ignore this line
 m = 100;  [x,Dx,Dxx] = diffcheb(m,[-1,1]);
 
 %%
-% Our next step is to write a function that defines $\bff$. Since the
+% Our next step is to write a function that defines $\mathbf{f}$. Since the
 % boundary values are given explicitly, there is no need to ``solve'' for
 % them---we just append them to each end of the vector.
 extend = @(v) [0;v;2];

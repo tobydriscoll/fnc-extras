@@ -2,7 +2,7 @@ function mems2d   % ignore this line
 
 
 %% 
-% This function defines the PDE, by way of $\bm{f}(\bm{u})$ and its
+% This function defines the PDE, by way of $\mathbf{f}(\mathbf{u})$ and its
 % derivative. Note that the function will have access to all of the
 % properties of a discretization, as if they were returned by |rectdisc|.
 lambda = 1.5;

@@ -1,3 +1,4 @@
+function newtonsysusage   % ignore this line
 %% 
 % We repeat @exarefbegin@newtonsystem@exarefend@. The system is again
 % defined by its residual and Jacobian, but this time we implement them as
@@ -33,3 +34,5 @@ log10( abs(x(1,1:end-1)-r(1)) )'
 %%
 % The exponents approximately double, as is expected of quadratic
 % convergence. 
+
+end   % ignore this line

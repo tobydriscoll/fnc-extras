@@ -6,13 +6,13 @@ load roswelladj   % get from the book's website
 a = whos('A')
 
 %%
-% We may define the density of $\mA$ as the number of nonzeros divided by the
+% We may define the density of $\mathbf{A}$ as the number of nonzeros divided by the
 % total number of entries.
 sz = size(A);  n = sz(1);
 density = nnz(A) / prod(sz)
 
 %%
-% We can compare the storage space needed for the sparse $\mA$ with the
+% We can compare the storage space needed for the sparse $\mathbf{A}$ with the
 % space needed for its dense or full counterpart. This ratio can never be
 % as small as the density of nonzeros, because of the need to store
 % locations as well as data. However, it's still quite small here, even

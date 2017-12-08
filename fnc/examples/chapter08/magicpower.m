@@ -1,5 +1,5 @@
 %%
-% Here we let $\mA$ be a $5\times 5$ matrix. We also choose a random
+% Here we let $\mathbf{A}$ be a $5\times 5$ matrix. We also choose a random
 % 5-vector.
 A = magic(5)/65;
 x = randn(5,1)
@@ -15,7 +15,7 @@ z = A*y
 
 %%
 % But if we keep repeating the matrix-vector multiplication,
-% something remarkable happens: $\mA\mathbf{x}\approx \mathbf{x}$. 
+% something remarkable happens: $\mathbf{A}\mathbf{x}\approx \mathbf{x}$. 
 for j = 1:8,  x = A*x;  end
 [x,A*x]
 

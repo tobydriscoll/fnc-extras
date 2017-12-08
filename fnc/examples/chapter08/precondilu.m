@@ -25,7 +25,7 @@ title('L')   % ignore this line
 norm( full(A - L*U) )  
 
 %%
-% The actual preconditioning matrix is $\bm{M}=\bm{L}\bm{U}$. However, the
+% The actual preconditioning matrix is $\mathbf{M}=\mathbf{L}\mathbf{U}$. However, the
 % |gmres| function allows setting the preconditioner by giving the factors
 % independently.
 [x,~,~,~,resid_prec] = gmres(A,b,[],1e-10,300,L,U);
