@@ -24,8 +24,8 @@ chaptitle = ["Numbers, problems, and algorithms"
     "Two-dimensional problems"
     ];
 
-%% index.html
-fid = fopen('index.html','w');
+%% examples.html
+fid = fopen('examples.html','w');
 fprintf(fid,'<head><title>FNC Examples</title></head>\n');
 fprintf(fid,'<body>\n');
 fprintf(fid,'<p>These are examples from the text <i>Fundamentals of Numerical Computation</i>, by Driscoll and Braun, 1st edition (2017).</p>\n');
@@ -63,7 +63,7 @@ for i = 1:13
         if chap > i, break, end
         fprintf(fid,'\t<demoitem>\n\t\t<label>%s</label>\n',number(k));
         fprintf(fid,'\t\t<type>other</type>\n\t\t<source>%s</source>\n',label(k));
-        fprintf(fid,'\t\t<file>doc/html/chapter%02d/html/%s.html</file>\n',i,label(k));
+        fprintf(fid,'\t\t<file>examples/chapter%02d/html/%s.html</file>\n',i,label(k));
         fprintf(fid,'\t</demoitem>\n');
         k = k+1;
     end
@@ -71,16 +71,3 @@ for i = 1:13
 end
 fprintf(fid,'</demos>\n');
 fclose(fid);
-
-%%
-% Copy files to where doc browser seems to expect them. Silly, but it
-% appears to be locked into looking only within its folder hierarchy.
-for i = 1:13
-    src = sprintf('chapter%02d/html/*',i);
-    dest = sprintf('../doc/html/chapter%02d/html',i);
-    copyfile(src,dest);
-    src = sprintf('chapter%02d/*',i);
-    dest = sprintf('../doc/html/chapter%02d',i);
-    copyfile(src,dest);
-end
-copyfile('index.html','../doc/html/examples.html');

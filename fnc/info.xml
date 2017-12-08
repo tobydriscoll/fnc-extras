@@ -10,7 +10,7 @@
    <!-- required to parse the file -->
    <icon/>
    <!-- (Required if you supply help) relative path to help (HTML) folder -->
-   <help_location>doc/html</help_location>
+   <help_location>examples</help_location>
    <!-- (Required if you supply help) icon used in the Help browser TOC -->
    <!-- Ignored in R2015a and later -->
    <help_contents_icon/>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<toc version="2.0">
+<!-- First tocitem specifies top level in Help browser Contents pane -->
+    <tocitem target="index.html">FNC Toolbox
+        <!-- First item is page describing function categories, if any -->
+        <tocitem target="functions.html" 
+                 image="HelpIcon.FUNCTION">
+            Functions
+            <tocitem target="functions.html#1">Chapter 1: Numbers, problems, and algorithms</tocitem>
+            <tocitem target="functions.html#2">Chapter 2: Square linear systems</tocitem>
+            <tocitem target="functions.html#3">Chapter 3: Overdetermined linear systems</tocitem>
+            <tocitem target="functions.html#4">Chapter 4: Roots of nonlinear equations</tocitem>
+            <tocitem target="functions.html#5">Chapter 5: Piecewise interpolation</tocitem>
+            <tocitem target="functions.html#6">Chapter 6: Initial-value problems</tocitem>
+            <tocitem target="functions.html#8">Chapter 8: Krylov methods in linear algebra</tocitem>
+            <tocitem target="functions.html#9">Chapter 9: Global function approximation</tocitem>
+            <tocitem target="functions.html#10">Chapter 10: Boundary-value problems</tocitem>
+            <tocitem target="functions.html#11">Chapter 11: Diffusion equations</tocitem>
+            <tocitem target="functions.html#13">Chapter 13: Two-dimensional problems</tocitem>
+        </tocitem>
+        <!-- Optional List of Examples, with hyperlinks to examples in other files -->
+        <tocitem target="examples.html" 
+                 image="HelpIcon.HelpIcon.EXAMPLES">Examples
+            <tocitem target="examples.html#1">Chapter 1: Numbers, problems, and algorithms</tocitem>
+            <tocitem target="examples.html#2">Chapter 2: Square linear systems</tocitem>
+            <tocitem target="examples.html#3">Chapter 3: Overdetermined linear systems</tocitem>
+            <tocitem target="examples.html#4">Chapter 4: Roots of nonlinear equations</tocitem>
+            <tocitem target="examples.html#5">Chapter 5: Piecewise interpolation</tocitem>
+            <tocitem target="examples.html#6">Chapter 6: Initial-value problems</tocitem>
+            <tocitem target="examples.html#8">Chapter 8: Krylov methods in linear algebra</tocitem>
+            <tocitem target="examples.html#9">Chapter 9: Global function approximation</tocitem>
+            <tocitem target="examples.html#10">Chapter 10: Boundary-value problems</tocitem>
+            <tocitem target="examples.html#11">Chapter 11: Diffusion equations</tocitem>
+            <tocitem target="examples.html#13">Chapter 13: Two-dimensional problems</tocitem>
+        
+        </tocitem>
+        <!-- Optional link or links to your or other Web sites -->
+        <tocitem target="http://www.tobydriscoll.net/fnc" 
+                 image="$toolbox/matlab/icons/webicon.gif">
+        FNC website 
+        </tocitem>
+    </tocitem>
+</toc>
