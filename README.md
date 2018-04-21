@@ -16,3 +16,5 @@ There are videos based on an older (pre-publication) version of the text at the 
 <https://www.youtube.com/playlist?list=PLvUvOH0OYx3AZ_WXhkLXo3JLSeGT2wLj3>
 
 The ordering has changed since the videos were made, but many still correspond to sections of the text. 
+
+[![Analytics](https://ga-beacon.appspot.com/UA-117968991-1/fnc-extras/README.md)](https://github.com/igrigorik/ga-beacon)
