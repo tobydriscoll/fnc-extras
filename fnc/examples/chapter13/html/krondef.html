@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="MATLAB R2016a"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><title>Untitled</title><style type="text/css">
+* {margin: 0; padding: 0;}
+body {text-align: start; line-height: 17.234px; min-height: 0px; white-space: normal; color: rgb(0, 0, 0); font-family: Consolas, Inconsolata, Menlo, monospace; font-style: normal; font-size: 14px; font-weight: normal; text-decoration: none; white-space: normal; }
+h1, h2 {font-weight: normal;}
+.content { padding: 30px; }
+
+.S0 { margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S1 { margin-left: 3px; margin-top: 4px; margin-bottom: 4px; margin-right: 3px;  }
+.S2 { line-height: 15.5927px; min-height: 18px; white-space: nowrap; font-size: 12.6667px; white-space: nowrap; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S3 { min-height: 0px; white-space: pre; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 45px;  }
+.S4 { line-height: 21px; min-height: 17px; white-space: pre-wrap; font-family: Helvetica, Arial, sans-serif; white-space: pre-wrap; margin-left: 4px; margin-top: 2px; margin-bottom: 9px; margin-right: 10px;  }
+.S5 { min-height: 0px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S6 { margin-left: 3px; margin-top: 10px; margin-bottom: 4px; margin-right: 3px;  }
+
+.LineNodeBlock {margin: 10px 0 10px 0; background-color: #F7F7F7;}
+.LineNodeBlock+.paragraphNode {margin-top: 10px;}
+.lineNode {padding-left: 10px; border-left: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.inlineWrapper:first-child .lineNode,.inlineWrapper.outputs+.inlineWrapper .lineNode {padding-top: 5px; border-top: 1px solid #E9E9E9;}
+.inlineWrapper:last-child .lineNode,.inlineWrapper.outputs .lineNode {padding-bottom: 5px; border-bottom: 1px solid #E9E9E9;}
+.lineNode .textBox {white-space: pre;}
+</style></head><body><div class = "content"><div class = 'SectionBlock containment active'><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3">A = [1 2; -2 0]</span></div></div><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3">B = [ 1 10 100; -5 5 3 ]</span></div></div></div></div><div class = "S0"></div><div class = 'SectionBlock containment'><div class = "S4"><span class = "S5">Applying the definition manually,</span></div><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3">AkronB = [ A(1,1)*B, A(1,2)*B;</span></div></div><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3">           A(2,1)*B, A(2,2)*B ]</span></div></div></div></div><div class = "S0"></div><div class = 'SectionBlock containment'><div class = "S4"><span class = "S5">But it's simpler to use the built-in @glsbegin@kron@glsend@. </span></div><div class = 'LineNodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3">kron(A,B)</span></div></div></div></div></div>
+<!-- 
+##### SOURCE BEGIN #####
+A = [1 2; -2 0]
+B = [ 1 10 100; -5 5 3 ]
+%% 
+% Applying the definition manually,
+%%
+AkronB = [ A(1,1)*B, A(1,2)*B;
+           A(2,1)*B, A(2,2)*B ]
+%% 
+% But it's simpler to use the built-in @glsbegin@kron@glsend@. 
+%%
+kron(A,B)
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,168 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>heat2Dper</title><meta name="generator" content="MATLAB 9.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-12-07"><meta name="DC.source" content="heat2Dper.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> heat2Dper    <span class="comment">% ignore this line</span>
+</pre><p>We will solve a 2D heat equation <img src="heat2Dper_eq06229614204241892043.png" alt="$u_t = 0.1(u_{xx} + u_{yy})$" style="width:90px;height:12px;"> on the square <img src="heat2Dper_eq17037223233626123983.png" alt="$[-1,1]\times[-1,1]$" style="width:72px;height:11px;">. We'll assume periodic behavior in both directions.</p><pre class="codeinput">m = 60;  n = 40;
+[x,Dx,Dxx] = diffper(m,[-1,1]);
+[y,Dy,Dyy] = diffper(n,[-1,1]);
+[X,Y] = ndgrid(x,y);
+</pre><p>Note that the initial condition must also be periodic on the domain.</p><pre class="codeinput">U0 = sin(4*pi*X).*exp(cos(pi*Y));
+pcolor(X,Y,U0)
+caxis([-1 1]), axis <span class="string">equal</span>, shading <span class="string">flat</span>    <span class="comment">% ignore this line</span>
+title(<span class="string">'Initial condition'</span>)    <span class="comment">% ignore this line</span>
+xlabel(<span class="string">'x'</span>), ylabel(<span class="string">'y'</span>)    <span class="comment">% ignore this line</span>
+</pre><img vspace="5" hspace="5" src="heat2Dper_01.png" style="width:560px;height:420px;" alt=""> <p>The next two functions map between the natural matrix shape of the unknowns and the vector shape demanded by the ODE solvers.</p><pre class="codeinput">    <span class="keyword">function</span> U = unpack(u)
+        U = reshape(u,m,n);
+    <span class="keyword">end</span>
+
+    <span class="keyword">function</span> u = pack(U)
+        u = U(:);
+    <span class="keyword">end</span>
+</pre><p>This function computes the time derivative for the unknowns. The actual calculations take place using the matrix shape.</p><pre class="codeinput">    <span class="keyword">function</span> dudt = timederiv(t,u)
+        U = unpack(u);
+        Uxx = Dxx*U;  Uyy = U*Dyy';     <span class="comment">% 2nd partials</span>
+        dUdt = 0.1*(Uxx + Uyy);  <span class="comment">% PDE</span>
+        dudt = pack(dUdt);
+    <span class="keyword">end</span>
+</pre><p>Since this problem is parabolic, a stiff integrator like <tt>ode15s</tt> is a good choice.</p><pre class="codeinput">t = linspace(0,.2,3);
+[t,W] = ode15s(@timederiv,t,pack(U0));
+W = W.';      <span class="comment">% each column is one time instant</span>
+</pre><p>Here we plot the solution at two different times. (The results are best viewed using an animation.)</p><pre class="codeinput"><span class="keyword">for</span> k = 1:2
+    subplot(1,2,k)
+    pcolor(X,Y,unpack(W(:,k+1)))
+    axis <span class="string">equal</span>, shading <span class="string">flat</span>     <span class="comment">% ignore this line</span>
+    caxis([-1 1])     <span class="comment">% ignore this line</span>
+    title(sprintf(<span class="string">'t = %.2f'</span>,t(k+1)))     <span class="comment">% ignore this line</span>
+    xlabel(<span class="string">'x'</span>), ylabel(<span class="string">'y'</span>)    <span class="comment">% ignore this line</span>
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="heat2Dper_02.png" style="width:560px;height:420px;" alt=""> <pre class="codeinput"><span class="keyword">end</span>    <span class="comment">% ignore this line</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function heat2Dper    % ignore this line
+
+%%
+% We will solve a 2D heat equation $u_t = 0.1(u_{xx} + u_{yy})$ on the
+% square $[-1,1]\times[-1,1]$. We'll assume periodic behavior in both
+% directions.
+m = 60;  n = 40;
+[x,Dx,Dxx] = diffper(m,[-1,1]);
+[y,Dy,Dyy] = diffper(n,[-1,1]);
+[X,Y] = ndgrid(x,y);
+
+%% 
+% Note that the initial condition must also be periodic on the domain. 
+U0 = sin(4*pi*X).*exp(cos(pi*Y));
+pcolor(X,Y,U0)
+caxis([-1 1]), axis equal, shading flat    % ignore this line
+title('Initial condition')    % ignore this line
+xlabel('x'), ylabel('y')    % ignore this line
+
+%%
+% The next two functions map between the natural matrix shape of the
+% unknowns and the vector shape demanded by the ODE solvers. 
+    function U = unpack(u)
+        U = reshape(u,m,n);
+    end
+
+    function u = pack(U)
+        u = U(:);
+    end
+
+%%
+% This function computes the time derivative for the unknowns. The actual
+% calculations take place using the matrix shape. 
+    function dudt = timederiv(t,u)
+        U = unpack(u);
+        Uxx = Dxx*U;  Uyy = U*Dyy';     % 2nd partials
+        dUdt = 0.1*(Uxx + Uyy);  % PDE
+        dudt = pack(dUdt);
+    end
+
+%%
+% Since this problem is parabolic, a stiff integrator like |ode15s| is a
+% good choice.
+t = linspace(0,.2,3);
+[t,W] = ode15s(@timederiv,t,pack(U0));
+W = W.';      % each column is one time instant
+
+%%
+% Here we plot the solution at two different times. (The results are best
+% viewed using an animation.)
+for k = 1:2
+    subplot(1,2,k)
+    pcolor(X,Y,unpack(W(:,k+1)))
+    axis equal, shading flat     % ignore this line
+    caxis([-1 1])     % ignore this line
+    title(sprintf('t = %.2f',t(k+1)))     % ignore this line
+    xlabel('x'), ylabel('y')    % ignore this line
+end
+
+end    % ignore this line
+
+##### SOURCE END #####
+--></body></html>

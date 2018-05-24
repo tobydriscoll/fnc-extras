@@ -1,0 +1,198 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>wave2D</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-12-07"><meta name="DC.source" content="wave2D.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> wave2D    <span class="comment">% ignore this line</span>
+</pre><pre class="codeinput">m = 60;  n = 60;
+[X,Y,d] = rectdisc(m,[-2,2],n,[-2,2]);
+</pre><p>Here is the initial condition. The boundary values of <img src="wave2D_eq11776305044305525613.png" alt="$u$" style="width:6px;height:6px;"> will remain constant.</p><pre class="codeinput">U0 = (X+.2).*exp(-12*(X.^2+Y.^2));
+V0 = 0*U0;
+pcolor(X,Y,U0)
+caxis([-.12 .12]), axis <span class="string">equal</span>, shading <span class="string">flat</span>    <span class="comment">% ignore this line</span>
+title(<span class="string">'Initial condition'</span>)    <span class="comment">% ignore this line</span>
+xlabel(<span class="string">'x'</span>), ylabel(<span class="string">'y'</span>)    <span class="comment">% ignore this line</span>
+</pre><img vspace="5" hspace="5" src="wave2D_01.png" alt=""> <p>The <tt>unpack</tt> function separates the unknowns for <img src="wave2D_eq11776305044305525613.png" alt="$u$" style="width:6px;height:6px;"> and <img src="wave2D_eq03158747792916826732.png" alt="$v$" style="width:5px;height:6px;">, applies the boundary conditions on <img src="wave2D_eq11776305044305525613.png" alt="$u$" style="width:6px;height:6px;">, and returns two functions on the grid.</p><pre class="codeinput">    <span class="keyword">function</span> [U,V] = unpack(w)
+        numU = (m-1)*(n-1);  <span class="comment">% number of unknowns for U</span>
+        U = U0;
+        U(~d.isbndy) = w(1:numU); <span class="comment">% overwrite the interior</span>
+        V = d.unvec( w(numU+1:end) );     <span class="comment">% use all values</span>
+    <span class="keyword">end</span>
+</pre><p>The next function drops the boundary values of <img src="wave2D_eq11776305044305525613.png" alt="$u$" style="width:6px;height:6px;"> and returns a vector of all the unknowns for both components of the solution. It's the inverse of the <tt>unpack</tt> function.</p><pre class="codeinput">    <span class="keyword">function</span> w = pack(U,V)
+        w = U(~d.isbndy);
+        w = [ w; V(:) ];
+    <span class="keyword">end</span>
+</pre><p>The following function computes the time derivative of the unknowns. Besides the translation between vector and matrix shapes, it's quite straightforward.</p><pre class="codeinput">    <span class="keyword">function</span> dwdt = timederiv(t,w)
+        [U,V] = unpack(w);
+        dUdt = V;
+        dWdt = d.Dxx*U + U*d.Dyy';
+        dwdt = pack(dUdt,dWdt);
+    <span class="keyword">end</span>
+</pre><p>Since this problem is hyperbolic, not parabolic, a nonstiff integrator like <tt>ode45</tt> is fine and faster than a stiff integrator.</p><pre class="codeinput">t = linspace(0,3,5);
+v0 = pack(U0,V0);
+[t,W] = ode45(@timederiv,t,v0);
+W = W';  <span class="comment">% each column is one time instant</span>
+</pre><p>We plot the solution at four different times.</p><pre class="codeinput"><span class="keyword">for</span> k = 1:2
+    subplot(1,2,k)
+    [U,~] = unpack(W(:,k+1));
+    pcolor(X,Y,U)
+    axis <span class="string">equal</span>, shading <span class="string">flat</span>     <span class="comment">% ignore this line</span>
+    caxis([-.1 .1])     <span class="comment">% ignore this line</span>
+    title(sprintf(<span class="string">'t = %.2f'</span>,t(k+1)))     <span class="comment">% ignore this line</span>
+    xlabel(<span class="string">'x'</span>), ylabel(<span class="string">'y'</span>)    <span class="comment">% ignore this line</span>
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="wave2D_02.png" alt=""> <pre class="codeinput"><span class="keyword">for</span> k = 1:2
+    subplot(1,2,k)
+    [U,~] = unpack(W(:,k+3));
+    pcolor(X,Y,U)
+    axis <span class="string">equal</span>, shading <span class="string">flat</span>     <span class="comment">% ignore this line</span>
+    caxis([-.1 .1])     <span class="comment">% ignore this line</span>
+    title(sprintf(<span class="string">'t = %.2f'</span>,t(k+3)))     <span class="comment">% ignore this line</span>
+    xlabel(<span class="string">'x'</span>), ylabel(<span class="string">'y'</span>)    <span class="comment">% ignore this line</span>
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="wave2D_03.png" alt=""> <pre class="codeinput"><span class="keyword">end</span>    <span class="comment">% ignore this line</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function wave2D    % ignore this line
+
+%%
+m = 60;  n = 60;
+[X,Y,d] = rectdisc(m,[-2,2],n,[-2,2]);
+
+%%
+% Here is the initial condition. The boundary values of $u$ will remain
+% constant.
+U0 = (X+.2).*exp(-12*(X.^2+Y.^2));
+V0 = 0*U0;
+pcolor(X,Y,U0)
+caxis([-.12 .12]), axis equal, shading flat    % ignore this line
+title('Initial condition')    % ignore this line
+xlabel('x'), ylabel('y')    % ignore this line
+
+%%
+% The |unpack| function separates the unknowns for $u$ and $v$, applies
+% the boundary conditions on $u$, and returns two functions on the grid.
+    function [U,V] = unpack(w)
+        numU = (m-1)*(n-1);  % number of unknowns for U
+        U = U0;               
+        U(~d.isbndy) = w(1:numU); % overwrite the interior
+        V = d.unvec( w(numU+1:end) );     % use all values
+    end
+
+%%
+% The next function drops the boundary values of $u$ and returns a vector
+% of all the unknowns for both components of the solution. It's the inverse
+% of the |unpack| function.
+    function w = pack(U,V)
+        w = U(~d.isbndy);
+        w = [ w; V(:) ];
+    end
+
+%%
+% The following function computes the time derivative of the unknowns. Besides the
+% translation between vector and matrix shapes, it's quite straightforward.
+    function dwdt = timederiv(t,w)
+        [U,V] = unpack(w); 
+        dUdt = V;
+        dWdt = d.Dxx*U + U*d.Dyy';
+        dwdt = pack(dUdt,dWdt);
+    end
+
+%%
+% Since this problem is hyperbolic, not parabolic, a nonstiff integrator
+% like |ode45| is fine and faster than a stiff integrator.
+t = linspace(0,3,5);
+v0 = pack(U0,V0);
+[t,W] = ode45(@timederiv,t,v0);
+W = W';  % each column is one time instant
+
+%%
+% We plot the solution at four different times. 
+for k = 1:2
+    subplot(1,2,k)
+    [U,~] = unpack(W(:,k+1));
+    pcolor(X,Y,U)
+    axis equal, shading flat     % ignore this line
+    caxis([-.1 .1])     % ignore this line
+    title(sprintf('t = %.2f',t(k+1)))     % ignore this line
+    xlabel('x'), ylabel('y')    % ignore this line
+end
+
+%%
+for k = 1:2
+    subplot(1,2,k)
+    [U,~] = unpack(W(:,k+3));
+    pcolor(X,Y,U)
+    axis equal, shading flat     % ignore this line
+    caxis([-.1 .1])     % ignore this line
+    title(sprintf('t = %.2f',t(k+3)))     % ignore this line
+    xlabel('x'), ylabel('y')    % ignore this line
+end
+
+end    % ignore this line
+
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="MATLAB R2017b"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><title>Untitled</title><style type="text/css">
+* {margin: 0; padding: 0;}
+body {text-align: start; line-height: 17.234001159668px; min-height: 0px; white-space: normal; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-style: normal; font-size: 14px; font-weight: normal; text-decoration: none; white-space: normal; }
+h1, h2 {font-weight: normal;}
+.content { padding: 30px; }
+
+.S0 { margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S1 { text-align: left; line-height: 21px; min-height: 17px; white-space: pre-wrap; font-family: Helvetica, Arial, sans-serif; white-space: pre-wrap; margin-left: 4px; margin-top: 2px; margin-bottom: 9px; margin-right: 10px;  }
+.S2 { min-height: 0px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S3 { margin-left: 3px; margin-top: 10px; margin-bottom: 4px; margin-right: 3px;  }
+.S4 { min-height: 18px; white-space: nowrap; white-space: nowrap; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S5 { min-height: 0px; white-space: pre; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 45px;  }
+.S6 { color: rgb(64, 64, 64); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+
+.CodeBlock {margin: 10px 0 10px 0; background-color: #F7F7F7;}
+.CodeBlock+.paragraphNode {margin-top: 10px;}
+.lineNode {padding-left: 10px; border-left: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.inlineWrapper:first-child .lineNode,.inlineWrapper.outputs+.inlineWrapper .lineNode {padding-top: 5px; border-top: 1px solid #E9E9E9;}
+.inlineWrapper:last-child .lineNode,.inlineWrapper.outputs .lineNode {padding-bottom: 5px; border-bottom: 1px solid #E9E9E9;}
+.lineNode .textBox {white-space: pre;}
+.outputGroup {margin: 2px 0 2px 0; padding: 2px 2px 2px 4px;}
+.outputRegion {}
+.outputParagraph {color: rgba(64, 64, 64, 1); padding: 10px 0 6px 17px; background: white; overflow-x: hidden;}
+.inlineWrapper:last-child .outputParagraph {border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;}
+.outputParagraph:empty {margin: 0;}
+.inlineElement .symbolicElement {margin-top: 1px; margin-bottom: 1px;}
+.embeddedOutputsSymbolicElement .MathEquation {margin-top: 4px; margin-bottom: 4px;}
+.embeddedOutputsSymbolicElement .MathEquation.displaySymbolicElement {margin-left: 15px;}
+.embeddedOutputsSymbolicElement .MathEquation.inlineSymbolicElement {}
+.embeddedOutputsSymbolicElement {overflow-x: auto; overflow-y: auto;}
+.embeddedOutputsSymbolicElement { overflow: initial !important;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement { max-height: none !important; overflow: initial !important;}
+.veSpecifier {}
+.veContainer {}
+.veSpecifierBox {height: 400px; width: 500px;}
+.veSpecifier .veTable {padding-top: 3px; padding-bottom: 4px;}
+.veSpecifierBox .veSpecifier .veContainer {position: relative; width: 100%; height: 370px;}
+.veSpecifierBox .dijitDialogPaneContent {width: 97% !important; height: 88% !important;}
+.veSpecifier .veTable .rowHeadersWrapper {padding-bottom: 0;}
+.veSpecifier .veTable .scroller .variableEditorRenderers {padding-right: 3px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;}
+.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {visibility: hidden; z-index: 0;}
+.veMetaSummary {font-style: italic;}
+.veSpecifier .veTable .scroller {overflow: hidden;}
+.veSpecifier .veTable:hover .scroller {overflow: auto;}
+.veSpecifier .veVariableName,.veSpecifier .veDimensionFont {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.veSpecifier .veVariableName {padding-top: 2px;}
+.veSpecifier .veDimensionFont {font-style: italic; color: #9A9A9A;}
+.veSpecifier .scroller::-webkit-scrollbar-track {background-color: white;}
+.veSpecifier .scroller::-webkit-scrollbar-corner {background-color: white;}
+.veSpecifier .veTable .topRowHeaderWrapper {border: none; background-color: #F8F9FA;}
+.veSpecifier .mw_type_ListBase.showCellBorders,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper,.veSpecifier .veTable .verticalScrollSpacer,.veSpecifier .veTable .horizontalScrollSpacer {border: none;}
+.veSpecifier .veTable .dataScrollerNode {border: 1px solid #BFBFBF;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode,.veSpecifier .veTable .dataBody {font-family: Arial; font-size: 13px;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode {color: #7F7F7F;}
+.veSpecifier .veTable .dataBody {color: #000000;}
+.veSpecifier .veTable .columnHeaderNode .cell .drag,.veSpecifier .veTable .columnHeaderNode .cell .header,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {background-color: #F8F9FA;}
+.veSpecifier .veTable .columnHeaderNode .cell .dragBorder {border-right: 1px solid #F8F9FA;}
+.veSpecifier .veTable .rowHeaderNode .cell {padding-top: 3px; text-align: center; border-bottom: 1px solid #F8F9FA;}
+.veSpecifier .veTable .dataBody .cell .plainText {text-align: right;}
+.veSpecifier .veTable .dataBody .row .cell {border-bottom: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.embeddedOutputsVariableElement {white-space: pre-wrap; word-wrap: break-word; min-height: 18px; max-height: 250px; overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.variableNameElement {margin-bottom: 3px; display: inline-block;}
+.variableValue { width: 100% !important; }
+.embeddedOutputsMatrixElement {min-height: 18px; box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.rtcDataTipElement .matrixElement {position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {white-space: pre; display: inline-block; vertical-align: top; overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {padding-top: 0 !important; max-height: 100px;}
+.inlineElement .matrixElement {max-height: 300px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {white-space: nowrap; margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {display: none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis {margin-bottom: -3px;}
+.matrixElement { max-height: none !important; }
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr {height: 22px; white-space: nowrap;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table thead tr th {border-width: 1px 0px 1px 1px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table {border-spacing: 0px; border: 1px solid #bfbfbf; border-width: 0px 1px 0px 0px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr td,.embeddedOutputsVariableTableElement .ClientViewDiv table tr th {min-width : 75px; max-width : 75px; background-color:white; border: 1px solid #bfbfbf; text-overflow: ellipsis; border-width: 0px 0px 1px 1px; font-family: 'Arial', sans-serif; font-size: 12px; overflow : hidden;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tbody tr th {width: 34px; max-width: 100px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr span {text-overflow: ellipsis; padding: 3px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr th {background: #f5f5f5; color: rgba(0,0,0,0.5); padding: 3px; font-size: 9px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr th:first-child {min-width: 28px; max-width: 250px;}
+.dijitTooltipDialog .dijitTooltipContainer .dijitTooltipContents .alertPlugin-alertMessage {min-width: 12px; max-width: 400px; max-height: 300px; overflow: auto;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar {width: 11px; height: 11px;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-track {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-corner {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {border-radius: 7px; background-color: rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0); background-clip: padding-box;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0.1);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.alertPlugin-alertLine {position: absolute; display: initial; width: 40px; text-align: right; cursor: text;}
+.alertPlugin-onTextLine {visibility: hidden;}
+.alertPlugin-hasTooltip .alertPlugin-warningImg,.alertPlugin-hasTooltip .alertPlugin-errorImg {cursor: pointer;}
+.alertPlugin-alertLine .alertPlugin-warningElement,.alertPlugin-alertLine .alertPlugin-errorElement {display: inline-block; margin-right: 4px;}
+.alertPlugin-isStale {-webkit-filter: opacity(0.4) grayscale(80%); filter: opacity(0.4) grayscale(80%);}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.variableNameElement .headerElement {color: rgb(179, 179, 179); font-style: italic;}
+.variableNameElement .headerElement .headerDataType {color: rgb(147, 176, 230);}
+.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {display: inline-block; margin-top: 3px; content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {margin-left: 35px; content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+</style></head><body><div class = "content"><div class = 'SectionBlock containment active'><div class = "S1"><span class = "S2"><span class="S0">Here we evaluate the polynomial</span></span><span class = "S2"><span class="S0"> </span></span><span style="vertical-align:-5px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAb0AAAAoCAYAAABq8iQAAAAQ80lEQVR4Xu2dBcw+ORHGn0OCuxPc3d01WJBDgzsc7u4Q3OXgcHd3CBrc3SG4w+EEl/yOTjJZVtpuV9532+Tyh+/tdtvZdvSZ6QGqrVKgUqBSoFKgUmAjFDhgI+usy6wUqBSoFKgUqBRQFXp1E1QKVApUClQKbIYCVeht5lPXhVYKVApUClQKVKFX90ClQKVApUClwGYoUIXeZj51XWilQKVApUClQBV6dQ9shQJXlHR/SUeW9FFJz5b0jQ0sfqvrTvm0x5R0kKQDJf0+7I/nSPpFyiC1725QYEmhdwxJf5L0nwKkYtP+ocA4ax7iaJL+vOYJzji3o0r6S8LeeYykm0t6lKRzS7ppmOtpJH1vxnnP/aqtrjuFzieT9FlJJ5T0y/Avz/O/zyvpxymD1b7rp8BSQu8mkp4h6ZSSfjuSTEeU9AVJ75J0H0n/HDne2h4/saR3S3qZpMevbXILzQct/LKSLiDp0IE5nEfSUyRdxu2N60h6jaRbS3reQmuY+rVbXXcqXZ8c9tBjJf1D0qklvUnSOSQ9IChKqWPW/iumwBJC726SniTpfEHDKkGek0h6r6SvSLrhHgm+k0v6TGDQ0G3fBHrbt0c4IdAeJOnfHZsDFyWC7wqSzinp5z2bCAsPJuaVKxjbdyXdQdIzS2zAFY6xy+s+gqTLSbqapOOEffAJSW8P360UuY8l6WNhD/mzddbAS3jf1SX9q9QLC4+Dh+ua4bxAMzxBH5D0jgLGROGpTj5cDN84bBJzC71bSHq+pEtI+nBhMmARfTEIiLv0MMzCr51sOA77RyT9IBz+fRd4F5d0iKSzSHpriK/0MRsO+XsknULSuST9MeFLXCTEbfA0/DDhuV3vugvrPlUQbuyDtnYtSW8o9CGOH9yZX2uMh1L1ySD4brxSXnJpSe/voANn4YKSvl6ITmseJpVvzCr0zi7pS5IeLukhE1ER7RBGeH1Jr5roHXMMizLywqDFoXX+aI6XLvSOC0l6uSTia9YQeteIYDbEY6DN0yWh6MTEh+0Zxn/zQmte4rW7sG4UPTwb7AXcjZzlk0p6aGN/nEnSNyckonkC7ijp4Anfkzs0cenPhYfxVgDIwuOBB80anoyzhdh37nvW/Fw235jL0kMr/6Ck00tiw46N43V9DNbzWklIf7T/n635q/XMDfce7tq1HrpSZAWQ8qIQcyOe8rageccKPeYB6u5ZwcXTpfnSDxf4bZ3CBUCBffL9UotZ6Ti7tG5i8oBvsFI+5ejJuUb43C78DSDSSyak9yWDt+GMK+Qhh5P0vuDhwHL3CFMsV34jHklD6H11QjotNfQovjGX0MMvTlxljhjK+cOBAfRx76W+yoj3mmsFd+2UCsKIKU7yKIAktHwObIrQM+sA9y+HHOHZ1oiP4grFinhCEK642D3AZZKFLTzorqyb7/ibntDH6SR9O9BySj4CQ/10iCmXcqOSKvPIQjgGFIK39MSyrx0Uf0gFL+RM7XNL5htzCD1v5cGUfjXxFzBNiJjALlp7aJlYxfdouCsmJtviw5uwTxV6TPyukkDhQbsPRawEBgsilpjeHHsyYkqzdFnzunG/4uF4cY/SYvHXKVG3WJrwEKzOGHd5zIfDSr19ISHEHkfBI9e0rV0pAFn4Df4HzmGfWzLfmEPomYYGgIXNWmoj9X3IG4Q4Ucmg91wb52mS7iSJWF4zwD7XHJZ4T/LmdZPEIiZoD+2I7cU004i3oA17euzqug0TwFpOWxjFafS5paQLS7pNRDw5Zo9ZHzvTc+w1ULsvCPTZ55ie0TaZbwwJvaMEN9CJJIGqgohfDuYzGjkHCDccggz35TtbdsLNAigjFlxyeEn40jHjed9fA/jlb2FsLMfrSqLSBH59Yl/NZkyQj4+g7YK+p2zcOfoCQf54qBoSu2FxX5FEy398o/tK+ombLO478tLQ+ID5r5UWyZvXrZHEfWJA0A8LPwbJCU3IFd0VF3KJcwHJdm3dzNnH9OAnXdYgfeFZWDjkKXKGcFXCB6ydIBQqAKzyREnfCT/AU4ihN93dJQpfzCX0DPHNGQDYAnCwq22WbwwJPRBub2xQDU2CjfDUFmo+MPiu7ScDlmBxxZjaMD6qIzThyqAyCdDyXoQcGhONmAzQ3Sa0nX6fl3T0DKYGc+G5sY2cmdQ0A0NlvUJSDFTaDpOf68MC2g3ag4C7V/iRChNnDnGTsWub4vkxQs/QrgAcYrVp3FdX6dg/XetjXw2dmSHaoLyhyKW0UueCd+asO2Wupfui5D44xNhw+3Peu5qP+1kfFCBDQMNXPLDjnkHwXTkoi02BZ4IR5X6MsjiH0EPgvVrS5SVhsXpB36TXpvlG7AE2d6ERD+QbxAU2TFUMEkdpbDC0K/O9W1AYVFGsRo0mRtzPb2AqI+BrR/Dx98eFOA6aOrGcZmNdCGtcFWz4XyecRLMSEx5p7frcgBZMcecanWMD9Wx0aA5jIJYFw8fXj9+fAw3NiHfx/wF4IBRSGe5YOsQ+P0bo8Q6QfSSa881tP9rfgbxTtMC8ApdyYIDYMmTsZbwcPrUidm2+H1BytHBK8KW01HPBdy6x7pQ5lux7pGB1ccY9zUl3AhTSlsOJwkrCOYAYr7Cz/wkVwFdeGlzhlKRDyP095MNiFZH+wlmyRvEDEJJ4X8a0KYXecYPHjVqyvpG03jRY7PdN841YocdGw/xHU0Lg4dr0aQdec/Ca9hgkogkukJ+kIVBqDA2GSi4xKQ+5G62U0OOQQaeUag4Wb4kVen6T3zlY31h09wtFAIZcHGMOculnxwq9LtqZMGS+KAggAPECABSiuHBsw4UKYxwr9JjDmPJ7seei1Lpj6VOyH3sBi6yL1jG5vijajEFNTfpzrqG9j9fh4usrToACiWXZhQiOXXMuLxoav82y9c8QAgKw1dc2xzdihB6QUD6+uRSb7iPGID8K7Znmf7dYC5s4NkblPxApB7jorKWAO3I3Gi4sYoopwqptU3FQsAxS2hgAjqE+7X2xMVQ/P6wZvveYluPW5X1TCT3GRrPlu6LFY/WnCDujBc/ioh/j5mIsrBEUuDGMNPZclFh3CZduDr3ZD9AK4YU3iVqp1poepbb9aihu40u5FnbsWcDCbGuEOCi+gPKOZUmll64zlnN2oBP/gbsAuek9X98aSONhvpvjGzFCz6oTQKCuyhe4Gy125AWTWU2xMarmprEKK/yd2pMUDo5tu4aC5FtQ/JhSbTHxzyYdrOIGf4dB5NQgBWHL+8e0XHdQKaGXI+zHrHeJZ8eci5T5lnDp4nmIDW30zQ2mjnJt8f4hQAtjUb8VK482RelDmy/gsUenELajb+7Z8cMBAPTu/aEE9c3xjRih533jbUWivSXY3OCWOAyaMCcJGGSoVVWh+CxJy7Et19KLHX+KflablHylvuoibe+2fMiLBuuYg5jaSgg9tHIQc6mtlNDLcQ2nznXp/mPORcrch9yMMWOVEnq8C2UQ1zQt5jubcoBliKs/Nn4bsy7rAw+l5CHhn7EtFoQ19B7jI/QbGnNzfCNG6Jnw6Krl5v3KzQoXY2J6fDDGxrWKXz4lB4tnc4XekuhNi0vllB9DKwfdxibPrbuH1ketw1TUqR1CaEdqBOCA1FZK6OXQLnauJVx9OejN5vzGnIvYtVo/EL+kAeQ23LjcfpIC6Op6l98jMULPK+xT5uz20YizBBAPoQiQDKHd5t4s4fY2unmePCT0Nsc3hoSeoS9xKXSV9QLkAkqM1rRQ7HmYBW7PlIte2eCg7bBcaPin0fS4PHSoGYQdH3dqVZZSQJYc9CYHA9hxTsUJ/x2m1GyHaJ/7+1ihZ/mgOVZyzJxLuPp4z9jY0phzEbPONfdJEXrkrHrLbsmyhKaA54Qtcr5HitDbHN8YEnpoMFYVpM296P3B3D2FZuWtBG86p1ZGxz2HNkdBYvL/Uhi5AWhSUiVsc5USejnoTQsqp9wawLwJ1nOP1t1d6bJUd3DO4Sr5zBih5+OhQ5pt7pzXgt4ccy5y176W53y+Yp8AMb6DggHwCAsrBtQx1TpzvU658zGh14a092Nukm8MCT3TnhE4bDI2kTXQURRkBZXUJ5CsLmIMfNbGtnu/CMKCaDKNzcZAi3tE2MxtaDr76DmXQC6J3jSYNbD6WKi0PUPSMTlIwOqxzA3WjSuF/Ea+U0yqR+5BG/ucF3rESADixCIlvRs9NS8zdt5rQG+OPRexa11rP27FIB8VAcZ37nLDA8MHWAcKG2/P6wKPsiR1ktHhIXNdIDy30DN0rxWqaPuem+UbfUKP3yj3Q2WQZoyI3zCL7V68vlvQ7daDvtwaAvNUx+DSVGIAJINi3eEi9C5WLCD84zBxSpCRuNrWLDY29RUkpZmD5WAB+um6Rw8GT+IpibSkRJCAys3hNwpCAppQ3JZvRmkyalHy74EF0jBKr9ePZ1V0yM1K1cqXqO86JS1s7NLnYo45576DtXKuSapHoaWsoW8k5xOzRqFrWvNUMqI2Jzlp/A4IzPp4zw3IXm5K52LmZhGD3HnHPFdS6JniQ8lHeKEBe2wexm+x8qCLFeaofCNQqE/o+QsdAZOAhGJD8ncqfZDkCWGxSKx+XdsGMKHVl6vXLIuDpg8TJ1eOORojt/H7roQxYY2r1VeHidmca+hDbURSDsjZe2XLhJql4ZrouGb1HH4HuYZgXGMjgA9QCc2ctBRr1ws3aGPpDzVDq+2aS3doXSXPxdC7lv4d6wvPjDUKUpAKhXIH87a6vlh7KMfW2kq0wZtQmGleabZn5r7BpKTQg/fi1bGGNUdKGBV+rirpkKDwkqLha/BWvhEo1if0TGPwh4HbeinkijsTC4KkyxiknmX9dzElqwzOu9jcADp8mSafQNn2u5/j2NzApQ8/SgU3If8uaK9N+vpq8wg0aEN/ax7Ozu8Xc/eQLb22tve31QH0/WB8xLG60H8eLBVbbHqNdGibU8lzsfY1+2LJbXMlTIISyJ72rZkyAKgOS9G7xn0yP3fbUfAi1nVegm4lhZ6/Nb05N2gDnV7fwpcr34gQeiaoEHBczc6/BPP596eJEGR/0SfEbzJytH1AMcRNcMu1MThKBtGv76ZrbxWmVG8psbFLjjFkuXAbNt8CTa4NzYq//tjBjTOm8kfJNU01llnG+5iUXupcTEX70uOyXkq0HS/cacfe5mZwfzt42ztJqSDVBk+Ut2583zME9PgSHg8Q2SjypUBWrJcLkTnj8EpQ8awLRbmvVb7RUzHel/AZChrHbnxzX8RUUogds9nPtCC0uRIVEnLnMfY5S/jn8AMgirkqZ+w7d/H5scUPdnHNdc67RwGKQnOmscRK5CvuHgVWNOMu96Z3kcUUd41dEq6qgyaqjoCby+6iI4a11tsEYmll4Iwl84ti57pUvyn301Jrqu+tFKgUmJACXUKPBF+7hiUl1WBoqrgvgQ+DJgTxOeS2GBrPfmdc7o8CVFNy3Nj3T9WPxHyC9jnJ6lPNaS3j3iqAFeZE4a1l7XUelQKVApkUaBN6WEygB0khoOGWbLsRPfOVh8XtDg5o0JybF5rvtURU/NUUW025Oy93DXM+ZwVkiV2hMNT2P2AL7uu+VJlKp0qBSoFKgf+jQFPodd3PRMoCl8bGlACLJTNCiksdc+s8+veA2iOhe19BG8SuiAUMBapjab/r/dinh6482X7XaVznXymwlxRoCj3QU+S9NBv5crseI9vLD1gXVSlQKVApUCkQT4GhMmTxI9WelQKVApUClQKVAiunQBV6K/9AdXqVApUClQKVAuUoUIVeOVrWkSoFKgUqBSoFVk6B/wK7k5plL7R2XgAAAABJRU5ErkJggg==" width="222.5" height="20" /></span><span class = "S2"><span class="S0">. First, we define a vector of its coefficients in descending degree order.</span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S4 lineNode"><span class = "S5"><span class="S0">c = [ 1 -3 3 -1];</span></span></div></div></div></div><div class = "S0"></div><div class = 'SectionBlock containment'><div class = "S1"><span class = "S2"><span class="S0">Here is the evaluation of</span></span><span class = "S2"><span class="S0"> </span></span><span style="vertical-align:-5px"><img src="data:image/png;base64,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" width="42.5" height="18.5" /></span><span class = "S2"><span class="S0">.</span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper outputs'><div class = "S4 lineNode"><span class = "S5"><span class="S0">horner(c,1.6)</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="011D21A4" data-scroll-top="null" data-scroll-left="null" data-width="902" data-height="34" data-testid="output_0" style="max-height: 261px; width: 932px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">ans = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">   2.1600e-01
+</div></div></div></div></div></div></div></div>
+<!-- 
+##### SOURCE BEGIN #####
+%% 
+% Here we evaluate the polynomial $p(x)=(x-1)^3=x^3-3x^2+3x-1$. First, we 
+% define a vector of its coefficients in descending degree order.
+
+c = [ 1 -3 3 -1];
+%% 
+% Here is the evaluation of $p(1.6)$.
+%%
+horner(c,1.6)
+##### SOURCE END #####
+--></body></html>

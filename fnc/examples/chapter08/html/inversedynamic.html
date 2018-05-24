@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="MATLAB R2017b"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><title>Untitled</title><style type="text/css">
+* {margin: 0; padding: 0;}
+body {text-align: start; line-height: 17.234px; min-height: 0px; white-space: normal; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-style: normal; font-size: 14px; font-weight: normal; text-decoration: none; white-space: normal; }
+h1, h2 {font-weight: normal;}
+.content { padding: 30px; }
+
+.S0 { margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S1 { margin-left: 3px; margin-top: 4px; margin-bottom: 4px; margin-right: 3px;  }
+.S2 { min-height: 18px; white-space: nowrap; white-space: nowrap; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S3 { min-height: 0px; white-space: pre; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 45px;  }
+.S4 { color: rgb(160, 32, 240); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S5 { text-align: left; line-height: 21px; min-height: 17px; white-space: pre-wrap; font-family: Helvetica, Arial, sans-serif; white-space: pre-wrap; margin-left: 4px; margin-top: 2px; margin-bottom: 9px; margin-right: 10px;  }
+.S6 { min-height: 0px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S7 { margin-left: 3px; margin-top: 10px; margin-bottom: 4px; margin-right: 3px;  }
+.S8 { color: rgb(64, 64, 64); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S9 { color: rgb(0, 0, 255); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+
+.CodeBlock {margin: 10px 0 10px 0; background-color: #F7F7F7;}
+.CodeBlock+.paragraphNode {margin-top: 10px;}
+.lineNode {padding-left: 10px; border-left: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.inlineWrapper:first-child .lineNode,.inlineWrapper.outputs+.inlineWrapper .lineNode {padding-top: 5px; border-top: 1px solid #E9E9E9;}
+.inlineWrapper:last-child .lineNode,.inlineWrapper.outputs .lineNode {padding-bottom: 5px; border-bottom: 1px solid #E9E9E9;}
+.lineNode .textBox {white-space: pre;}
+.outputGroup {margin: 2px 0 2px 0; padding: 2px 2px 2px 4px;}
+.outputRegion {}
+.outputParagraph {color: rgba(64, 64, 64, 1); padding: 10px 0 6px 17px; background: white; overflow-x: hidden;}
+.inlineWrapper:last-child .outputParagraph {border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;}
+.outputParagraph:empty {margin: 0;}
+.inlineElement .symbolicElement {margin-top: 1px; margin-bottom: 1px;}
+.embeddedOutputsSymbolicElement .MathEquation {margin-top: 4px; margin-bottom: 4px;}
+.embeddedOutputsSymbolicElement .MathEquation.displaySymbolicElement {margin-left: 15px;}
+.embeddedOutputsSymbolicElement .MathEquation.inlineSymbolicElement {}
+.embeddedOutputsSymbolicElement {overflow-x: auto; overflow-y: auto;}
+.embeddedOutputsSymbolicElement { overflow: initial !important;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement { max-height: none !important; overflow: initial !important;}
+.veSpecifier {}
+.veContainer {}
+.veSpecifierBox {height: 400px; width: 500px;}
+.veSpecifier .veTable {padding-top: 3px; padding-bottom: 4px;}
+.veSpecifierBox .veSpecifier .veContainer {position: relative; width: 100%; height: 370px;}
+.veSpecifierBox .dijitDialogPaneContent {width: 97% !important; height: 88% !important;}
+.veSpecifier .veTable .rowHeadersWrapper {padding-bottom: 0;}
+.veSpecifier .veTable .scroller .variableEditorRenderers {padding-right: 3px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;}
+.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {visibility: hidden; z-index: 0;}
+.veMetaSummary {font-style: italic;}
+.veSpecifier .veTable .scroller {overflow: hidden;}
+.veSpecifier .veTable:hover .scroller {overflow: auto;}
+.veSpecifier .veVariableName,.veSpecifier .veDimensionFont {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.veSpecifier .veVariableName {padding-top: 2px;}
+.veSpecifier .veDimensionFont {font-style: italic; color: #9A9A9A;}
+.veSpecifier .scroller::-webkit-scrollbar-track {background-color: white;}
+.veSpecifier .scroller::-webkit-scrollbar-corner {background-color: white;}
+.veSpecifier .veTable .topRowHeaderWrapper {border: none; background-color: #F8F9FA;}
+.veSpecifier .mw_type_ListBase.showCellBorders,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper,.veSpecifier .veTable .verticalScrollSpacer,.veSpecifier .veTable .horizontalScrollSpacer {border: none;}
+.veSpecifier .veTable .dataScrollerNode {border: 1px solid #BFBFBF;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode,.veSpecifier .veTable .dataBody {font-family: Arial; font-size: 13px;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode {color: #7F7F7F;}
+.veSpecifier .veTable .dataBody {color: #000000;}
+.veSpecifier .veTable .columnHeaderNode .cell .drag,.veSpecifier .veTable .columnHeaderNode .cell .header,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {background-color: #F8F9FA;}
+.veSpecifier .veTable .columnHeaderNode .cell .dragBorder {border-right: 1px solid #F8F9FA;}
+.veSpecifier .veTable .rowHeaderNode .cell {padding-top: 3px; text-align: center; border-bottom: 1px solid #F8F9FA;}
+.veSpecifier .veTable .dataBody .cell .plainText {text-align: right;}
+.veSpecifier .veTable .dataBody .row .cell {border-bottom: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.embeddedOutputsVariableElement {white-space: pre-wrap; word-wrap: break-word; min-height: 18px; max-height: 250px; overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.variableNameElement {margin-bottom: 3px; display: inline-block;}
+.variableValue { width: 100% !important; }
+.embeddedOutputsMatrixElement {min-height: 18px; box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.rtcDataTipElement .matrixElement {position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {white-space: pre; display: inline-block; vertical-align: top; overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {padding-top: 0 !important; max-height: 100px;}
+.inlineElement .matrixElement {max-height: 300px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {white-space: nowrap; margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {display: none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis {margin-bottom: -3px;}
+.matrixElement { max-height: none !important; }
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr {height: 22px; white-space: nowrap;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table thead tr th {border-width: 1px 0px 1px 1px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table {border-spacing: 0px; border: 1px solid #bfbfbf; border-width: 0px 1px 0px 0px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr td,.embeddedOutputsVariableTableElement .ClientViewDiv table tr th {min-width : 75px; max-width : 75px; background-color:white; border: 1px solid #bfbfbf; text-overflow: ellipsis; border-width: 0px 0px 1px 1px; font-family: 'Arial', sans-serif; font-size: 12px; overflow : hidden;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tbody tr th {width: 34px; max-width: 100px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr span {text-overflow: ellipsis; padding: 3px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr th {background: #f5f5f5; color: rgba(0,0,0,0.5); padding: 3px; font-size: 9px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr th:first-child {min-width: 28px; max-width: 250px;}
+.dijitTooltipDialog .dijitTooltipContainer .dijitTooltipContents .alertPlugin-alertMessage {min-width: 12px; max-width: 400px; max-height: 300px; overflow: auto;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar {width: 11px; height: 11px;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-track {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-corner {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {border-radius: 7px; background-color: rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0); background-clip: padding-box;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0.1);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.alertPlugin-alertLine {position: absolute; display: initial; width: 40px; text-align: right; cursor: text;}
+.alertPlugin-onTextLine {visibility: hidden;}
+.alertPlugin-hasTooltip .alertPlugin-warningImg,.alertPlugin-hasTooltip .alertPlugin-errorImg {cursor: pointer;}
+.alertPlugin-alertLine .alertPlugin-warningElement,.alertPlugin-alertLine .alertPlugin-errorElement {display: inline-block; margin-right: 4px;}
+.alertPlugin-isStale {-webkit-filter: opacity(0.4) grayscale(80%); filter: opacity(0.4) grayscale(80%);}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.variableNameElement .headerElement {color: rgb(179, 179, 179); font-style: italic;}
+.variableNameElement .headerElement .headerDataType {color: rgb(147, 176, 230);}
+.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {display: inline-block; margin-top: 3px; content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {margin-left: 35px; content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+</style></head><body><div class = "content"><div class = 'SectionBlock containment active'><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S0">lambda = [1 -0.75 0.6 -0.4 0];</span></span></div></div><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S0">A = triu(ones(5),1) + diag(lambda); </span></span></div></div><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S0">format </span><span class="S4">long</span></span></div></div></div></div><div class = "S0"></div><div class = 'SectionBlock containment'><div class = "S5"><span class = "S6"><span class="S0">We begin with a shift</span></span><span class = "S6"><span class="S0"> </span></span><span style="vertical-align:-5px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAAkCAYAAAAEnl30AAAEvklEQVRoQ+2ZW8gWVRSGH9NKsIKiIsWLlIooyw5YaJJm3hRR0QEPFQYdqKjIwMOd2I1a5EVkEGmBFkSlXUQRdBKitBRF8RAmClYWJmhlaAc13lgbNvub2bO+/x/G+JoN4sfM2qdn1n7X2usfQNsaJTCg0dnayWiBN+wELfAWeMMEGp6u9fAWeO0EhgO32L+hwA/Am8A7wJ99mG0EMAz429F3ILA+nqfXPfwxYImBeRr4GngJuBzYBVwL7HeACyaDgC+BMc4++4ALgN+CfS8DvxdYYRu9D3jdfg8BPjNogn5FDKQC5JXABidsmS0C5sb2vQpcXvWtbfR94PZEAgR5o71/EXgSOO4A+SwwC5gPvAGcBB2ptSTsIxtrLLD2/wB8QeRZk4FPEphytHeB28y7RwF7KoBL//cCj0cyVdRlHPAF8D1wSXp6etHDJRnSam1WGnqZ/Z/CuR94zR4+BCytAC7PnQM8BRzN2L4APAE8B8xO7XoRePAw7VXH+XrgrwJAsd3nwCRn5pH7LmeYVI0EbgQ+7Ra4vqqCj4KF2sfAV8BUQHp20KF7TZtMN33VvO+Zfh8rWMSFwA57rpNwMXCgn4udAKw2OVEm1DFezsPjiCy4iuzPR0dVuvezY4GnW3BxmGZNfnd6YAz8GWBeyajn2AmQN0pvCwF1uegQVEsDcQ648lflsbGXSB+Vh54GjAYOORYkbXzAYVdl0hHxSzqEdet1TpsH22kVaDVlLpuqFpF5H8vJTcCHRbZlwOPFpPr2CDDFNKroqKbz1AX8GmCdA0gIWjLNZRRyns2APFwXk6ujVNIxTYdJkBPJ06VlF6oy4Hr+KqBIrnarebp+65Z1Z5rQZ1aoOKCrcFHg8m5MN7wtwGFHh9jDvcA1rIB3c6lJlxLkZJmdrMK8PicpsRbKA64Cdjo2fKJNZgKLbRFeSemvh8dyEjtnB4sc8LOBrcC51qvba/CJAn8X8LZNnvM2nbzvzE5BUzLwax8XHctJNpmoysOlm0oDQ8tF/bK1Np2l6GYZrtZvAdOAqrSwv1nKQrsUqQp5T8l8//KpAi6bR63Cpt86evKE4Bkeh6graHqzlHAF19pyp1KZxAeOk1C1x1hOFNtW5TqkwM8HVOxRyhfqvSdbDn6dDaSgqRqvt9UF3JulqKCk2slEcxClewKfNlXxVHNRu8NqK949xXaxnIjbT90AV5VNkfqipGOsi90CbzpL0X7vBiQnag8C0vK4xWlvURqn+os+1HaHcwU50XxKNHJ1lg5Judk8XIBXRiuMgUtStvXFFRrscyqg+4OcQ0DTQBYXrmYAy6O1xcFUj3P7jeVEsUIanm2ppASw0urxdjE40zRc9ZNsjlk1WcPv05q4gtkvti99DDXdNR5OvFI1FXl2aLkbaCiAuWNbCly3NN0i11itOGakors074+GwfVnOnmrcnJJTNqUDLxSIAFysG8sHRbIshig8V62D6YPeEOVnKhDClw15B+tyqXizlk2iP7u91+sDHo/hjKX84BTLNfeDRzJdJZUqI/kKFdBFB8lFRpLp6eyedLCykFaAz+BFrifVS2WLfBaMPoHaYH7WdVi2QKvBaN/kBa4n1Utli3wWjD6B2mB+1nVYvkPtGsGNCFfFtkAAAAASUVORK5CYII=" width="46" height="18" /></span><span class = "S6"><span class="S0">, which is closest to the eigenvalue 0.6.</span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S0">I = eye(5);  s = 0.7;</span></span></div></div><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S0">x = ones(5,1);</span></span></div></div><div class = 'inlineWrapper outputs'><div class = "S2 lineNode"><span class = "S3"><span class="S0">y = (A-s*I)\x;  gamma = x(1)/y(1) + s</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="B7447567" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_0" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">gamma = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">   0.703481392557023
+</div></div></div></div></div></div></div><div class = "S0"></div><div class = 'SectionBlock containment'><div class = "S5"><span class = "S6"><span class="S0">Note that the result is not yet any closer to the targeted</span></span><span class = "S6"><span class="S0"> </span></span><span style="vertical-align:-5px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAkCAYAAADy19hsAAADpklEQVRYR+2YScjOURTGf2QWZYEMC0Mk84IImVJYmIdMSZmFlXEhw8aUFAkZUlIiNmYSGQoZIlGUIVMhEpJZj85fx33/08drod67+b73veece+5zpue+5fjPVrn/zF9KDv/riJUQLiLClYGPob0shGsCfYEBQCvgBXAS2Aa8KqJzMtUc6Ar0BsYBz4EWwGt/TprDUj5nwjuAzcBoYDbwFugJXC2C00OBjUAds7Ua0Hl3gc95EW4D3DBhoTkF+AY/u8pKYK7tCfVbf+h0LWAX0N/0jwDTgYdp9uIQrgJcBNpaWFpbKkR2lCbXgCbAPUD7H8rodD2LnmxoLQRWGSippuIc1o0Pm9YyYHGMhanAJvt+IHCgDA4L2ct24cjZFXn1Q4f1eQsw0Qz0AM7EGGtvKGtrNzA2DzqWUt7+eauFL3/qcG3gphWACqsdcD/GmJdTNesCz3Ic2hG45OSkdz2H3i+REGG1kdu2G9tWbE95fgVoaZ87W95n1cteYJgJbQdmAE2BGsAn6z4PgETE0xxWuHrFtRagPLAfGGSH50FKhfY0uJFAidpZtKXv1Op0fsEKHR4OCAWtPdZ31c7i1jpglm1MsmGShnAf4EQgoH6ri1cFlrtClJiG1cHQYJrDqvzBCcUkPRXbSDOoMOvgtOXBkJwm6HGnUAFYD0xzKak+/9IbDR0eYchKJsth5eAEMzYZ2Jrh8AJDUWLSVVS+BzrVrSij2tAl96U57MdxWVIiC+GwXaZd0F+sYA6ECDcD7tiNNMXU1t7FIFcROGVkRdt5im6MjWLJzwQ2JETEp46iPAT4GsmGDjcEHrkcKmBLtufHd16HfbqlOaxhddrOyXRYiS9hpYZWErnxF0uLhAfRp1uBI06wi2tp4hfz03JYe/OMken/JJ7gUVBli3JmLV9QaUPJp0RBJOLIj592STxBN48oZjjlNCBEwiOy/yv/gCWOTIlkHY25pYhQhGpBhJMIvFfqDpx1hpO4skRUjGJioqZa44GdTrcB8Ng+66/k/ItC+3oUaPqJh6ub/Nb6khyuZrkssqLwdbMXgHL3mHEI5W6H4MCwj8ZNQE9fLwCjjLTL9iG7hL7vB7wJI5D2RJLTc4ClMWFT3i6KMSh7nuDEjlegE7DGFbc/Qn14rZGhgqOzHqFS0AujMaBWplesnjC/PQwDq5WARsB74ElGJdYH6gLS0ftNVDbNdumXn6zW9tf7eVLirw8ppoGSw8VEM85WCeESwgECPwAGedAlGXywvgAAAABJRU5ErkJggg==" width="22" height="18" /></span><span class = "S6"><span class="S0">. But we proceed (without being too picky about normalization here).</span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S0">s = gamma;</span></span></div></div><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S0">x = y/y(1);</span></span></div></div><div class = 'inlineWrapper outputs'><div class = "S2 lineNode"><span class = "S3"><span class="S0">y = (A-s*I)\x;  gamma = x(1)/y(1) + s</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="4BFC8EA3" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_1" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">gamma = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">   0.561276140617300
+</div></div></div></div></div></div></div><div class = "S0"></div><div class = 'SectionBlock containment'><div class = "S5"><span class = "S6"><span class="S0">Still not much apparent progress. However, in just a few more iterations the results are dramatically better.</span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S9">for </span><span class="S0">k = 1:4</span></span></div></div><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S0">    s = gamma;  x = y/y(1);</span></span></div></div><div class = 'inlineWrapper'><div class = "S2 lineNode"><span class = "S3"><span class="S0">    y = (A-s*I)\x;  gamma = x(1)/y(1) + s</span></span></div></div><div class = 'inlineWrapper outputs'><div class = "S2 lineNode"><span class = "S3"><span class="S9">end</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="C8BC69DC" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_2" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">gamma = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">   0.596431288475387
+</div></div></div><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="05C94A6D" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_3" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">gamma = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">   0.599971709182010
+</div></div></div><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="CA7254C7" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_4" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">gamma = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">   0.599999997855635
+</div></div></div><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="A1446399" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_5" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">gamma = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">   0.600000000000000
+</div></div></div></div></div></div></div></div>
+<!-- 
+##### SOURCE BEGIN #####
+lambda = [1 -0.75 0.6 -0.4 0];
+A = triu(ones(5),1) + diag(lambda); 
+format long
+%% 
+% We begin with a shift $s=0.7$, which is closest to the eigenvalue 0.6.
+%%
+I = eye(5);  s = 0.7;
+x = ones(5,1);
+y = (A-s*I)\x;  gamma = x(1)/y(1) + s
+%% 
+% Note that the result is not yet any closer to the targeted $0.6$. But 
+% we proceed (without being too picky about normalization here).
+%%
+s = gamma;
+x = y/y(1);
+y = (A-s*I)\x;  gamma = x(1)/y(1) + s
+%% 
+% Still not much apparent progress. However, in just a few more iterations 
+% the results are dramatically better.
+%%
+for k = 1:4
+    s = gamma;  x = y/y(1);
+    y = (A-s*I)\x;  gamma = x(1)/y(1) + s
+end
+##### SOURCE END #####
+--></body></html>

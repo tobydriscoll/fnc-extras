@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="MATLAB R2017b"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><title>Untitled</title><style type="text/css">
+* {margin: 0; padding: 0;}
+body {text-align: start; line-height: 17.234001159668px; min-height: 0px; white-space: normal; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-style: normal; font-size: 14px; font-weight: normal; text-decoration: none; white-space: normal; }
+h1, h2 {font-weight: normal;}
+.content { padding: 30px; }
+
+.S0 { margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S1 { text-align: left; line-height: 21px; min-height: 17px; white-space: pre-wrap; font-family: Helvetica, Arial, sans-serif; white-space: pre-wrap; margin-left: 4px; margin-top: 2px; margin-bottom: 9px; margin-right: 10px;  }
+.S2 { min-height: 0px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S3 { margin-left: 3px; margin-top: 10px; margin-bottom: 4px; margin-right: 3px;  }
+.S4 { min-height: 18px; white-space: nowrap; white-space: nowrap; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S5 { min-height: 0px; white-space: pre; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 45px;  }
+.S6 { color: rgb(64, 64, 64); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S7 { margin-left: 3px; margin-top: 10px; margin-bottom: 10px; margin-right: 3px;  }
+.S8 { text-align: left; line-height: 21px; min-height: 17px; white-space: pre-wrap; font-family: Helvetica, Arial, sans-serif; white-space: pre-wrap; margin-left: 4px; margin-top: 10px; margin-bottom: 9px; margin-right: 10px;  }
+
+.CodeBlock {margin: 10px 0 10px 0; background-color: #F7F7F7;}
+.CodeBlock+.paragraphNode {margin-top: 10px;}
+.lineNode {padding-left: 10px; border-left: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.inlineWrapper:first-child .lineNode,.inlineWrapper.outputs+.inlineWrapper .lineNode {padding-top: 5px; border-top: 1px solid #E9E9E9;}
+.inlineWrapper:last-child .lineNode,.inlineWrapper.outputs .lineNode {padding-bottom: 5px; border-bottom: 1px solid #E9E9E9;}
+.lineNode .textBox {white-space: pre;}
+.outputGroup {margin: 2px 0 2px 0; padding: 2px 2px 2px 4px;}
+.outputRegion {}
+.outputParagraph {color: rgba(64, 64, 64, 1); padding: 10px 0 6px 17px; background: white; overflow-x: hidden;}
+.inlineWrapper:last-child .outputParagraph {border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;}
+.outputParagraph:empty {margin: 0;}
+.inlineElement .symbolicElement {margin-top: 1px; margin-bottom: 1px;}
+.embeddedOutputsSymbolicElement .MathEquation {margin-top: 4px; margin-bottom: 4px;}
+.embeddedOutputsSymbolicElement .MathEquation.displaySymbolicElement {margin-left: 15px;}
+.embeddedOutputsSymbolicElement .MathEquation.inlineSymbolicElement {}
+.embeddedOutputsSymbolicElement {overflow-x: auto; overflow-y: auto;}
+.embeddedOutputsSymbolicElement { overflow: initial !important;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement { max-height: none !important; overflow: initial !important;}
+.veSpecifier {}
+.veContainer {}
+.veSpecifierBox {height: 400px; width: 500px;}
+.veSpecifier .veTable {padding-top: 3px; padding-bottom: 4px;}
+.veSpecifierBox .veSpecifier .veContainer {position: relative; width: 100%; height: 370px;}
+.veSpecifierBox .dijitDialogPaneContent {width: 97% !important; height: 88% !important;}
+.veSpecifier .veTable .rowHeadersWrapper {padding-bottom: 0;}
+.veSpecifier .veTable .scroller .variableEditorRenderers {padding-right: 3px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;}
+.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {visibility: hidden; z-index: 0;}
+.veMetaSummary {font-style: italic;}
+.veSpecifier .veTable .scroller {overflow: hidden;}
+.veSpecifier .veTable:hover .scroller {overflow: auto;}
+.veSpecifier .veVariableName,.veSpecifier .veDimensionFont {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.veSpecifier .veVariableName {padding-top: 2px;}
+.veSpecifier .veDimensionFont {font-style: italic; color: #9A9A9A;}
+.veSpecifier .scroller::-webkit-scrollbar-track {background-color: white;}
+.veSpecifier .scroller::-webkit-scrollbar-corner {background-color: white;}
+.veSpecifier .veTable .topRowHeaderWrapper {border: none; background-color: #F8F9FA;}
+.veSpecifier .mw_type_ListBase.showCellBorders,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper,.veSpecifier .veTable .verticalScrollSpacer,.veSpecifier .veTable .horizontalScrollSpacer {border: none;}
+.veSpecifier .veTable .dataScrollerNode {border: 1px solid #BFBFBF;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode,.veSpecifier .veTable .dataBody {font-family: Arial; font-size: 13px;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode {color: #7F7F7F;}
+.veSpecifier .veTable .dataBody {color: #000000;}
+.veSpecifier .veTable .columnHeaderNode .cell .drag,.veSpecifier .veTable .columnHeaderNode .cell .header,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {background-color: #F8F9FA;}
+.veSpecifier .veTable .columnHeaderNode .cell .dragBorder {border-right: 1px solid #F8F9FA;}
+.veSpecifier .veTable .rowHeaderNode .cell {padding-top: 3px; text-align: center; border-bottom: 1px solid #F8F9FA;}
+.veSpecifier .veTable .dataBody .cell .plainText {text-align: right;}
+.veSpecifier .veTable .dataBody .row .cell {border-bottom: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.embeddedOutputsVariableElement {white-space: pre-wrap; word-wrap: break-word; min-height: 18px; max-height: 250px; overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.variableNameElement {margin-bottom: 3px; display: inline-block;}
+.variableValue { width: 100% !important; }
+.embeddedOutputsMatrixElement {min-height: 18px; box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.rtcDataTipElement .matrixElement {position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {white-space: pre; display: inline-block; vertical-align: top; overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {padding-top: 0 !important; max-height: 100px;}
+.inlineElement .matrixElement {max-height: 300px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {white-space: nowrap; margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {display: none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis {margin-bottom: -3px;}
+.matrixElement { max-height: none !important; }
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr {height: 22px; white-space: nowrap;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table thead tr th {border-width: 1px 0px 1px 1px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table {border-spacing: 0px; border: 1px solid #bfbfbf; border-width: 0px 1px 0px 0px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr td,.embeddedOutputsVariableTableElement .ClientViewDiv table tr th {min-width : 75px; max-width : 75px; background-color:white; border: 1px solid #bfbfbf; text-overflow: ellipsis; border-width: 0px 0px 1px 1px; font-family: 'Arial', sans-serif; font-size: 12px; overflow : hidden;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tbody tr th {width: 34px; max-width: 100px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr span {text-overflow: ellipsis; padding: 3px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr th {background: #f5f5f5; color: rgba(0,0,0,0.5); padding: 3px; font-size: 9px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr th:first-child {min-width: 28px; max-width: 250px;}
+.dijitTooltipDialog .dijitTooltipContainer .dijitTooltipContents .alertPlugin-alertMessage {min-width: 12px; max-width: 400px; max-height: 300px; overflow: auto;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar {width: 11px; height: 11px;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-track {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-corner {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {border-radius: 7px; background-color: rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0); background-clip: padding-box;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0.1);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.alertPlugin-alertLine {position: absolute; display: initial; width: 40px; text-align: right; cursor: text;}
+.alertPlugin-onTextLine {visibility: hidden;}
+.alertPlugin-hasTooltip .alertPlugin-warningImg,.alertPlugin-hasTooltip .alertPlugin-errorImg {cursor: pointer;}
+.alertPlugin-alertLine .alertPlugin-warningElement,.alertPlugin-alertLine .alertPlugin-errorElement {display: inline-block; margin-right: 4px;}
+.alertPlugin-isStale {-webkit-filter: opacity(0.4) grayscale(80%); filter: opacity(0.4) grayscale(80%);}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.variableNameElement .headerElement {color: rgb(179, 179, 179); font-style: italic;}
+.variableNameElement .headerElement .headerDataType {color: rgb(147, 176, 230);}
+.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {display: inline-block; margin-top: 3px; content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {margin-left: 35px; content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+</style></head><body><div class = "content"><div class = 'SectionBlock containment active'><div class = "S1"><span class = "S2"><span class="S0">There is no double precision number between</span></span><span class = "S2"><span class="S0"> </span></span><span style="font-family:STIXGeneral, STIXGeneral-webfont, serif; font-style: normal; font-weight: normal">1</span><span class = "S2"><span class="S0"> and</span></span><span class = "S2"><span class="S0"> </span></span><span style="vertical-align:-6px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHAAAAAlCAYAAACao20PAAAFYUlEQVR4Xu2aV4gtRRCGv2vOYlZQzAGzgllEUQyYE2JEBB+MmLMIiogBEVExYEAxYBYxYkTFiBkF44NixKyoGPm0Wtq55+zOYWZnZ/ZOveyy21NTXX9X1V/VM41eOu2BaZ22vjeeHsCOH4IewB7Ajnug4+b3ETgDAbgScAJwHPBtx/c9ZcwvE4ErAicBBwFfAKsA30wZD3R8I2MBuBxwHrB7tscewJYBPhaAhwBfAS8DNwHr9RHYMvSgdB94MXDEBAI4K/A4sDSwZp+iyx+UMjVQbRMN4FzAi8DCfY0tD54r2wLgHMDzwOI9gD2AgzwwC7A2sBmwDrAQ8CrwAPDUaC5r1+oZIQK3AG4BFo00LbP+ELgm6u3hwKXtgqW8NVMdwD2BW8MdBwA3xO/u+y5gZ+C++PlHebe1Z+VUBnCRYM1626g7MXP73MDrgL2uKXRz4M/2wFLekiYBnA2Yc4BpvwPzAU8D8wAbAF8C1q1B8l3J7TkxejvWngacXXhuk6iL1sEPSups3bKmABSMJwCdVkVGmQTlAJpGDwa+B2xZjLZfqhjSlmebAtCU5SmXSFSRUQB0b7YmTpAGyWrAW1WMqfnZ2SP7bBWZYVdg3LrcFICJxg+qM39FVFwfKXQvwDQ5yLbfgDdKOM5njwXOz9aeG6nZdmIm4Bjg8xK6mlriEON04MhgzfuWqctNATieExylvRSNvLcfproq4hz3slBwXYD5dRWFDT2rH+xPJVidArDOSYyE6JVgmO9EOvq5IQCqvib5wdS+30Sk0I8Ba0fVCClutE4Ac/LiLcr+Q1LRGsBPBQZq9M8f2WBDYGXgU+CR0LEUsBFgvbo/bmvyvdiWSNQ8REaRzNoSkYvlZGNgdeB94DXgs1iQ/PBm2K0udeY2/E9ZmRTqmtviXvCHAPCjqket8HydAK4AvBv6JU46qhiBuwF3xGjNPlBH3Rkk68K4FdkamDf02IbY2lwBPAcIrrrXAn6MNV56Hw3sFAA/CVwCHJVF0jLAozFEuDb0+e5tgIeB3A8SsB0zP1nP/SJiJAA9SZKKK7OnzgQuqvnKp04AJSg6yeZceQjQZhms11WC4f8EQSclWSLqj72q4AmU+xdgr7hOBc6JiEo1VoZr7V4S8FAb8aY+o07gTo4DJPgy8RfCd1fFS80CRqrvcORnDdQm37dDTIm0wQyg7dN9DTFWBO4RkTcs2OqsL3UCqL0LALJOe7+iOAM9ZQADzdNXAsFnvUrzEOfkartIoXsHY7S3vB24ORvXqcPRXQLZsZ4RmYOg/41aQRSk8WwYCcCas+SY6tJoy0lMnd/cOE6zps0crYNtwzA2mhOInAEmAHO7lgfeAw7L2G7a4LbAGRHh/i0BqB7rmfPXYf3dKDb8874yNbApIG3y3ZifcUyGjOK8VGdzANeN66nLgbOA7YG7CwDanK8KyCUGySg2tA7AyQAtf+cozisCuGyQmuOBC0JpKkEpAq+OL/scJMg8c1HfJ8F0rYG2EeNlgR7AghOH9WCDamARwH2AG4EtgcdC74GATDMBlmriM0FQ0re1gv9gkB1T/TAAjd7pWrg2pdDJjsDFgkzoQOtU6t8EUDBsGbwIVmwV7slqYAJQxuu1laA5AVK8MH42aqY/UwqVDUt+ZLZpLpvY7L3ALln/6oXzodGXSh7/kx7Af12xPmD/l25LbJOsYzJEHa3YhviNrITLiFGsZf5f9imLlP4rthxGmjcwisRGcAVIZppaHHX6PydHtjHqEGDFlOs8V0KkHcmGTbM+t1UkJj9YXf19QeDXmPC4B9sZB/Cp2U/7MvJM2ZXns30EdvWohN09gD2AHfdAx83/G7OedjWOGEoWAAAAAElFTkSuQmCC" width="56" height="18.5" /></span><span class = "S2"><span class="S0">. Thus the following difference is zero despite its appearance.</span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper outputs'><div class = "S4 lineNode"><span class = "S5"><span class="S0">( 1 + eps/2 ) </span><span class="S0">-</span><span class="S0"> 1</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="A586E298" data-scroll-top="null" data-scroll-left="null" data-width="902" data-height="34" data-testid="output_0" style="max-height: 261px; width: 932px; opacity: 1; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">ans = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">     0
+</div></div></div></div></div></div></div><div class = "S0"></div><div class = 'SectionBlock containment'><div class = "S1"><span class = "S2"><span class="S0">However,</span></span><span class = "S2"><span class="S0"> </span></span><span style="vertical-align:-6px"><img src="data:image/png;base64,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" width="93" height="18.5" /></span><span class = "S2"><span class="S0"> is a double precision number, so it is represented exactly:</span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper outputs'><div class = "S4 lineNode"><span class = "S5"><span class="S0">1 + ( eps/2 - 1 )</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="31421569" data-scroll-top="null" data-scroll-left="null" data-width="902" data-height="34" data-testid="output_1" style="max-height: 261px; width: 932px; opacity: 1; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">ans = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">   1.1102e-16
+</div></div></div></div></div></div><div class = "S8"><span class = "S2"><span class="S0">This is now the "correct'' result. But we have found a rather shocking breakdown of the associative law of addition!</span></span></div></div></div>
+<!-- 
+##### SOURCE BEGIN #####
+%% 
+% There is no double precision number between $1$ and $1+\varepsilon_{\rm 
+% mach}$. Thus the following difference is zero despite its appearance.
+
+( 1 + eps/2 ) - 1
+%% 
+% However, $-(1-\varepsilon_{\rm mach}/2)$ is a double precision number, 
+% so it is represented exactly:
+%%
+1 + ( eps/2 - 1 )
+%% 
+% This is now the "correct'' result. But we have found a rather shocking 
+% breakdown of the associative law of addition!
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,169 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>advdiff2D</title><meta name="generator" content="MATLAB 9.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-12-07"><meta name="DC.source" content="advdiff2D.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> advdiff2D    <span class="comment">% ignore this line</span>
+</pre><p>We will solve an advection-diffusion problem, <img src="advdiff2D_eq04504126120409367834.png" alt="$u_t + u_x = 1 + 0.05(u_{xx} + u_{yy})$" style="width:139px;height:12px;">, where <img src="advdiff2D_eq05722455336418904729.png" alt="$u=0$" style="width:26px;height:8px;"> on the boundary of the square <img src="advdiff2D_eq04712238727479698605.png" alt="$[-1,1]^2$" style="width:33px;height:12px;">.</p><pre class="codeinput">m = 50;  n = 50;
+[X,Y,d] = rectdisc(m,[-1,1],n,[-1,1]);
+</pre><p>The initial condition we specify here is used to impose its boundary values on the solution at all times.</p><pre class="codeinput">U0 = (1-X.^4).*(1-Y.^4);
+pcolor(X,Y,U0)
+caxis([0 1]), axis <span class="string">equal</span>, shading <span class="string">flat</span>    <span class="comment">% ignore this line</span>
+title(<span class="string">'Initial condition'</span>)    <span class="comment">% ignore this line</span>
+xlabel(<span class="string">'x'</span>), ylabel(<span class="string">'y'</span>)    <span class="comment">% ignore this line</span>
+</pre><img vspace="5" hspace="5" src="advdiff2D_01.png" style="width:560px;height:420px;" alt=""> <p>This next function maps the unknowns, given in a vector shape, to a matrix of values including the boundaries.</p><pre class="codeinput">    <span class="keyword">function</span> U = unpack(w)
+        U = U0;          <span class="comment">% get the boundary right</span>
+        U(~d.isbndy) = w;  <span class="comment">% overwrite the interior</span>
+    <span class="keyword">end</span>
+</pre><p>The next function drops the boundary values and returns a vector of the interior values. It's the inverse of the <tt>unpack</tt> function.</p><pre class="codeinput">    <span class="keyword">function</span> w = pack(U)
+        w = U(~d.isbndy);
+    <span class="keyword">end</span>
+</pre><p>This function computes the time derivative at the interior nodes only.</p><pre class="codeinput">    <span class="keyword">function</span> dwdt = timederiv(t,w)
+        U = unpack(w);
+        Uxx = d.Dxx*U;  Uyy = U*d.Dyy';   <span class="comment">% 2nd partials</span>
+        dUdt = 1 - d.Dx*U + 0.05*(Uxx + Uyy);  <span class="comment">% PDE</span>
+        dwdt = pack(dUdt);
+    <span class="keyword">end</span>
+</pre><p>Since this problem is parabolic, a stiff integrator like <tt>ode15s</tt> is a good choice.</p><pre class="codeinput">t = linspace(0,1,3);
+[t,W] = ode15s(@timederiv,t,pack(U0));
+W = W.';      <span class="comment">% each column is one time instant</span>
+</pre><p>We plot the solution at two different times. Observe that the boundary values are identical to those of the initial condition.</p><pre class="codeinput"><span class="keyword">for</span> k = 1:2
+    subplot(1,2,k)
+    U = unpack(W(:,k+1));
+    pcolor(X,Y,U)
+    axis <span class="string">equal</span>, shading <span class="string">flat</span>     <span class="comment">% ignore this line</span>
+    caxis([0 1.9])     <span class="comment">% ignore this line</span>
+    title(sprintf(<span class="string">'t = %.2f'</span>,t(k+1)))     <span class="comment">% ignore this line</span>
+    xlabel(<span class="string">'x'</span>), ylabel(<span class="string">'y'</span>)    <span class="comment">% ignore this line</span>
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="advdiff2D_02.png" style="width:560px;height:420px;" alt=""> <pre class="codeinput"><span class="keyword">end</span>    <span class="comment">% ignore this line</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function advdiff2D    % ignore this line
+
+%%
+% We will solve an advection-diffusion problem, $u_t + u_x = 1 + 0.05(u_{xx} +
+% u_{yy})$, where $u=0$ on the boundary of the square $[-1,1]^2$.
+m = 50;  n = 50;
+[X,Y,d] = rectdisc(m,[-1,1],n,[-1,1]);
+
+%% 
+% The initial condition we specify here is used to impose its boundary
+% values on the solution at all times.
+U0 = (1-X.^4).*(1-Y.^4);
+pcolor(X,Y,U0)
+caxis([0 1]), axis equal, shading flat    % ignore this line
+title('Initial condition')    % ignore this line
+xlabel('x'), ylabel('y')    % ignore this line
+
+%%
+% This next function maps the unknowns, given in a vector shape, to a
+% matrix of values including the boundaries.
+    function U = unpack(w)
+        U = U0;          % get the boundary right
+        U(~d.isbndy) = w;  % overwrite the interior
+    end
+
+%%
+% The next function drops the boundary values and returns a vector of the
+% interior values. It's the inverse of the |unpack| function.
+    function w = pack(U)
+        w = U(~d.isbndy);
+    end
+
+%%
+% This function computes the time derivative at the interior nodes only.
+    function dwdt = timederiv(t,w)
+        U = unpack(w);
+        Uxx = d.Dxx*U;  Uyy = U*d.Dyy';   % 2nd partials
+        dUdt = 1 - d.Dx*U + 0.05*(Uxx + Uyy);  % PDE
+        dwdt = pack(dUdt);
+    end
+
+%%
+% Since this problem is parabolic, a stiff integrator like |ode15s| is a
+% good choice.
+t = linspace(0,1,3);
+[t,W] = ode15s(@timederiv,t,pack(U0));
+W = W.';      % each column is one time instant
+
+%%
+% We plot the solution at two different times. Observe that the boundary
+% values are identical to those of the initial condition.
+for k = 1:2
+    subplot(1,2,k)
+    U = unpack(W(:,k+1));
+    pcolor(X,Y,U)
+    axis equal, shading flat     % ignore this line
+    caxis([0 1.9])     % ignore this line
+    title(sprintf('t = %.2f',t(k+1)))     % ignore this line
+    xlabel('x'), ylabel('y')    % ignore this line
+end
+
+end    % ignore this line
+
+##### SOURCE END #####
+--></body></html>

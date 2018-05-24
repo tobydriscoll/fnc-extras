@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="MATLAB R2017b"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><title>Untitled</title><style type="text/css">
+* {margin: 0; padding: 0;}
+body {text-align: start; line-height: 17.234px; min-height: 0px; white-space: normal; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-style: normal; font-size: 14px; font-weight: normal; text-decoration: none; white-space: normal; }
+h1, h2 {font-weight: normal;}
+.content { padding: 30px; }
+
+.S0 { margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S1 { text-align: left; line-height: 21px; min-height: 17px; white-space: pre-wrap; font-family: Helvetica, Arial, sans-serif; white-space: pre-wrap; margin-left: 4px; margin-top: 2px; margin-bottom: 9px; margin-right: 10px;  }
+.S2 { min-height: 0px; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S3 { margin-left: 3px; margin-top: 10px; margin-bottom: 4px; margin-right: 3px;  }
+.S4 { min-height: 18px; white-space: nowrap; white-space: nowrap; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S5 { min-height: 0px; white-space: pre; white-space: pre; margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 45px;  }
+.S6 { color: rgb(34, 139, 34); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S7 { color: rgb(64, 64, 64); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+.S8 { color: rgb(160, 32, 240); margin-left: 0px; margin-top: 0px; margin-bottom: 0px; margin-right: 0px;  }
+
+.CodeBlock {margin: 10px 0 10px 0; background-color: #F7F7F7;}
+.CodeBlock+.paragraphNode {margin-top: 10px;}
+.lineNode {padding-left: 10px; border-left: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.inlineWrapper:first-child .lineNode,.inlineWrapper.outputs+.inlineWrapper .lineNode {padding-top: 5px; border-top: 1px solid #E9E9E9;}
+.inlineWrapper:last-child .lineNode,.inlineWrapper.outputs .lineNode {padding-bottom: 5px; border-bottom: 1px solid #E9E9E9;}
+.lineNode .textBox {white-space: pre;}
+.outputGroup {margin: 2px 0 2px 0; padding: 2px 2px 2px 4px;}
+.outputRegion {}
+.outputParagraph {color: rgba(64, 64, 64, 1); padding: 10px 0 6px 17px; background: white; overflow-x: hidden;}
+.inlineWrapper:last-child .outputParagraph {border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;}
+.outputParagraph:empty {margin: 0;}
+.inlineElement .symbolicElement {margin-top: 1px; margin-bottom: 1px;}
+.embeddedOutputsSymbolicElement .MathEquation {margin-top: 4px; margin-bottom: 4px;}
+.embeddedOutputsSymbolicElement .MathEquation.displaySymbolicElement {margin-left: 15px;}
+.embeddedOutputsSymbolicElement .MathEquation.inlineSymbolicElement {}
+.embeddedOutputsSymbolicElement {overflow-x: auto; overflow-y: auto;}
+.embeddedOutputsSymbolicElement { overflow: initial !important;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement { max-height: none !important; overflow: initial !important;}
+.veSpecifier {}
+.veContainer {}
+.veSpecifierBox {height: 400px; width: 500px;}
+.veSpecifier .veTable {padding-top: 3px; padding-bottom: 4px;}
+.veSpecifierBox .veSpecifier .veContainer {position: relative; width: 100%; height: 370px;}
+.veSpecifierBox .dijitDialogPaneContent {width: 97% !important; height: 88% !important;}
+.veSpecifier .veTable .rowHeadersWrapper {padding-bottom: 0;}
+.veSpecifier .veTable .scroller .variableEditorRenderers {padding-right: 3px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;}
+.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {visibility: hidden; z-index: 0;}
+.veMetaSummary {font-style: italic;}
+.veSpecifier .veTable .scroller {overflow: hidden;}
+.veSpecifier .veTable:hover .scroller {overflow: auto;}
+.veSpecifier .veVariableName,.veSpecifier .veDimensionFont {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.veSpecifier .veVariableName {padding-top: 2px;}
+.veSpecifier .veDimensionFont {font-style: italic; color: #9A9A9A;}
+.veSpecifier .scroller::-webkit-scrollbar-track {background-color: white;}
+.veSpecifier .scroller::-webkit-scrollbar-corner {background-color: white;}
+.veSpecifier .veTable .topRowHeaderWrapper {border: none; background-color: #F8F9FA;}
+.veSpecifier .mw_type_ListBase.showCellBorders,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper,.veSpecifier .veTable .verticalScrollSpacer,.veSpecifier .veTable .horizontalScrollSpacer {border: none;}
+.veSpecifier .veTable .dataScrollerNode {border: 1px solid #BFBFBF;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode,.veSpecifier .veTable .dataBody {font-family: Arial; font-size: 13px;}
+.veSpecifier .veTable .columnHeaderNode,.veSpecifier .veTable .rowHeaderNode {color: #7F7F7F;}
+.veSpecifier .veTable .dataBody {color: #000000;}
+.veSpecifier .veTable .columnHeaderNode .cell .drag,.veSpecifier .veTable .columnHeaderNode .cell .header,.veSpecifier .veTable .topHeaderWrapper,.veSpecifier .veTable .bottomRowHeaderWrapper {background-color: #F8F9FA;}
+.veSpecifier .veTable .columnHeaderNode .cell .dragBorder {border-right: 1px solid #F8F9FA;}
+.veSpecifier .veTable .rowHeaderNode .cell {padding-top: 3px; text-align: center; border-bottom: 1px solid #F8F9FA;}
+.veSpecifier .veTable .dataBody .cell .plainText {text-align: right;}
+.veSpecifier .veTable .dataBody .row .cell {border-bottom: 1px solid #E9E9E9; border-right: 1px solid #E9E9E9;}
+.embeddedOutputsVariableElement {white-space: pre-wrap; word-wrap: break-word; min-height: 18px; max-height: 250px; overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.variableNameElement {margin-bottom: 3px; display: inline-block;}
+.variableValue { width: 100% !important; }
+.embeddedOutputsMatrixElement {min-height: 18px; box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.rtcDataTipElement .matrixElement {position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {white-space: pre; display: inline-block; vertical-align: top; overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {padding-top: 0 !important; max-height: 100px;}
+.inlineElement .matrixElement {max-height: 300px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {white-space: nowrap; margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {display: none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis {margin-bottom: -3px;}
+.matrixElement { max-height: none !important; }
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr {height: 22px; white-space: nowrap;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table thead tr th {border-width: 1px 0px 1px 1px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table {border-spacing: 0px; border: 1px solid #bfbfbf; border-width: 0px 1px 0px 0px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr td,.embeddedOutputsVariableTableElement .ClientViewDiv table tr th {min-width : 75px; max-width : 75px; background-color:white; border: 1px solid #bfbfbf; text-overflow: ellipsis; border-width: 0px 0px 1px 1px; font-family: 'Arial', sans-serif; font-size: 12px; overflow : hidden;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tbody tr th {width: 34px; max-width: 100px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr span {text-overflow: ellipsis; padding: 3px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr th {background: #f5f5f5; color: rgba(0,0,0,0.5); padding: 3px; font-size: 9px;}
+.embeddedOutputsVariableTableElement .ClientViewDiv table tr th:first-child {min-width: 28px; max-width: 250px;}
+.dijitTooltipDialog .dijitTooltipContainer .dijitTooltipContents .alertPlugin-alertMessage {min-width: 12px; max-width: 400px; max-height: 300px; overflow: auto;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar {width: 11px; height: 11px;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-track {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-corner {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {border-radius: 7px; background-color: rgba(0, 0, 0, 0.1); border: 2px solid rgba(0, 0, 0, 0); background-clip: padding-box;}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.dijitTooltipDialog .alertPlugin-alertMessage::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb {background-color: rgba(0, 0, 0, 0.1);}
+.dijitTooltipDialog .alertPlugin-alertMessage:hover::-webkit-scrollbar-thumb:hover {background-color: rgba(0, 0, 0, 0.2);}
+.alertPlugin-alertLine {position: absolute; display: initial; width: 40px; text-align: right; cursor: text;}
+.alertPlugin-onTextLine {visibility: hidden;}
+.alertPlugin-hasTooltip .alertPlugin-warningImg,.alertPlugin-hasTooltip .alertPlugin-errorImg {cursor: pointer;}
+.alertPlugin-alertLine .alertPlugin-warningElement,.alertPlugin-alertLine .alertPlugin-errorElement {display: inline-block; margin-right: 4px;}
+.alertPlugin-isStale {-webkit-filter: opacity(0.4) grayscale(80%); filter: opacity(0.4) grayscale(80%);}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.variableNameElement .headerElement {color: rgb(179, 179, 179); font-style: italic;}
+.variableNameElement .headerElement .headerDataType {color: rgb(147, 176, 230);}
+.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {display: inline-block; margin-top: 3px; content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {margin-left: 35px; content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+</style></head><body><div class = "content"><div class = 'SectionBlock containment active'><div class = "S1"><span class = "S2"><span class="S0">We try to estimate the derivative of</span></span><span class = "S2"><span class="S0"> </span></span><span style="vertical-align:-5px"><img src="data:image/png;base64,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" width="48" height="20" /></span><span class = "S2"><span class="S0"> at</span></span><span class = "S2"><span class="S0"> </span></span><span style="vertical-align:-5px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAAkCAYAAAB2UT9CAAAFBElEQVRoQ+2ZachuUxTHf9ccIQqJDyiZpwyZp5IoQxnKmMwfEDIl8ycUyhAyRIRMH0wlicxkiAxFpswUmTIP/d7WqX33e85zznmmU/c5+8t773P2Xmvv9V/Df6+9gH50aoEFnWrvldMD0LET9AD0AHRsgY7V9xEwPQBWBH7M1c0aACsAewL7ABsB3wFPArcA34+IxVrAGsDfmZy/gG2Ak4FNgX/S77MEwA7Ac3H424AbgUOAU4CfgV2B14cEYTHgGUAdVUNd98xqBGwCvBWH19uPB/6FORZ4GXBmfDMq3h0ChK2BVwas+xZYH/hhFgFYBng5wl9DbBypp7CFaekNYB3go/j+WwsQBPF2YH/gmJI8vxTwGfBmmcxZSEF7AY/F4S8BLiwxxAnADfH7vsDDLQDQs98DqmQPFLWoA+D5bgrP1BC7RK7OjbJ5RIG/m6cPixTVBIfLI4WdBNwPfNNkUTFnUQdgFeBtYNUotJsBH5cYKJ1nmhKQrxoYcs1IL+lUC/r5wEMVuhYSWweAeXFLwCIjxboA+DCRIKUz95k7ryqhYA3OMNEpRXpQSWUhBKwTrwEbxm62jbpRt7mLKlJasc4Cf94guwwC4OYkdAuB1wafXQK4BjgxPgw6XHqIpeOwdQer+y7X/rVuUjAP87PjeWA3QF6eD2nkg8B+8cEIKC2a2UKdbzVgXeCIiLRc9r3AoTn/b5KCVoqw1WhSLL1DT98AODeQ968RogcdBNSxB3PrnQ0MVzflDOCKuknAgcB9MU9DyMWln2Xj6nAuvx0bl7MGKhaaIo11b0dlC0+PDDFPXl0KKhYUoWZ+ux44C9gOeKnlDjXAXS3XlE0fBgCZjR5bBoB2sPgeHMoOiIgYdqs7ZcW+jP7OyW4KwN7Ao8luhvUQOfd6I9YK098nGZevMpRRqec76gC4NfHc4wBT8CgjrT/K2Rl4NhfYFAD7HAV70Ot3b5BuRtn8uNam7Yc2KWjUCCj2f3SSyqSp1w0LQHqbbMuTx2XMYeRYHN+PhdYvaegvJYKWBJ5KejlNi3DdnlLHHQkAU8eLUYg/j7/Wg7Zj2iwo5el1NLRoV3imcQGwXEJghgYgb1i5Qfsp77S1ftwwp8mCrBdPJ55d1WxLgRoUKW2PnAIwdA0oCrBdRJtNDnnt3W13EzRwmizILcrYvBA5qvo8tigEyuH9xhb1OMYW0eI2+kx/X7etAd5+TTmGjwDo9d6O/bdMYVnghTBskzbutFmQ503ZSFX9Kvo5zs9vwasH6Sgeb9IHFc8jrS2rK2aOglkV9vqvDoDlw0vsg2jsB0KBrEfFXmpkCIJie+LUeF0S3fwlaBweNC4ZlwJnh7A8FVS9FTjd4vxqtLL9/5HAHSHnNODKJGpsOfyUbLhgQJV3AOfmNDS/qeahk7ZtXW8hrmpwjct445BjpJpidBrPtCPwAWDufzy55W+VPZqkOdx9pPefvFWj3MOjW+C8c8JRBbysATh3rhyA7aNnUhjXjRYvSf6W0ioV7pF9H4exJiVDELxBX1yiwLxvBzN/NNc+RdS7zLfkR2K977tPVPR/dEz7ZLan/xx0oLKLmDnPF/xPKy5btm5Xju+/T8paE5Rr3l47+ld/xDnmPRUm+n3R0vFs/n2R7WvxiCLb3Tb0zPFfxrx5+b7sTE1vwhO0x2yL7gHoGP8egB6Aji3Qsfo+AnoAOrZAx+r7COgB6NgCHav/H9N3EjSvxAwGAAAAAElFTkSuQmCC" width="48" height="18" /></span><span class = "S2"><span class="S0"> using five nodes. </span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S4 lineNode"><span class = "S5"><span class="S0">t = [ 0.35 0.5 0.57 0.6 0.75 ]';   </span><span class="S6">% nodes</span></span></div></div><div class = 'inlineWrapper'><div class = "S4 lineNode"><span class = "S5"><span class="S0">f = @(x) cos(x.^2);</span></span></div></div><div class = 'inlineWrapper'><div class = "S4 lineNode"><span class = "S5"><span class="S0">dfdx = @(x) -2*x.*sin(x.^2);</span></span></div></div><div class = 'inlineWrapper outputs'><div class = "S4 lineNode"><span class = "S5"><span class="S0">exact_value = dfdx(0.5)</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="DD85CEDE" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_0" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">exact_value = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  -2.4740e-01
+</div></div></div></div></div></div></div><div class = "S0"></div><div class = 'SectionBlock containment'><div class = "S1"><span class = "S2"><span class="S0">We have to shift the nodes so that the point of estimation for the derivative is at</span></span><span class = "S2"><span class="S0"> </span></span><span style="vertical-align:-5px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAAkCAYAAADFGRdYAAADpklEQVRoQ+2YWahNURjHf1dEClGUeEDJPBTKlKkkylCGwosyPiAPhlLGJ5QUChnyIES8iPIgMlOIDEWmKKJICBnS//ZtrXPO2u21z71nd3P2erndvb699lq/8/+mVUM+EgnUJFrkBuSQAkSQQ8ohBRAIMMmVlEMqIdASGAdMBHoB74FzwH7gQxyvalLSMOCygTgI7AFmAkuBz8Ao4LYPVLVA6gPcMwBSzQLgD9Rm983ACpuTuh4Wg6oGSM2AG0Bf4B3Q29wsYiEXvAN0AZ7Z/DcXVDVAGg+csUNvBNZ5XGohsNueTwJOVRMkiWAvMNcOPRK46IHU39SkqaPAbHPHWtP/XUltgftAOwvO/YDnHkiunVxS0N5EdkmQ5KcDgEFAB2At8NT5iNLpFPPlbcCvgLIjS5PuwCP7oA6v/z96NqC4dQvoaXODLY4lKmmfI9No3Z3AEqAxsANYFLABd09NAW2orkM/xteARVxIV4DRwE/Pe42Ak8Bkm5OS7oYoqbVJVAe7aZQV/XsAqy0A6q+UpoNPBwqygmcz8vVDAYdLMlkObE0yAqYBx83umNVFSv2+sd0EoLl5VmAmKsldaL1BUdG1C1gJDAGuB2zUNVHxdjjlOz7zciApYyk0+CAp7Chgz7CPTTVlpYI0ATjt7LaAdIpDqybpVsfYJVd/UVTrxG1B6paCNJIgHQDmmO18QOEmFaROTlaQesYEuFYKdhUzdVuRNO5WlpLcqrWkjqjYEeu+cFfgsS2jeKoS4Itn2SbAeUBQNYIDt7uW3OSaBe/X9lfxKe3IOrt1BF7ZJpNKgKh1KQtScROoRdT/PEhLyCrZLLOb4tcFRyHeBhZwYZYoLqmYFIcoaKt7jsr7WcCRMiBlnd20RWVidfoaJX2ZPVe7Ipgaqv90ffJvJEFSlS33Wmx1g9SjKlzAlAGaA1et/ii5YvBAzDq7aQtuQRkXT7c41yUF1bYWKIbUwmirbxGQE1ZXKJv9tsJMkV/g1Koss1s+BcSG1pK4v9EmYJU9GAFccibj7ppilVRcESvYCcBbe8O9UtAjBe+4prEMb6zYK1K83Ek/rM40HHhiseis000M9PV2xUoaCqjHiQBosehGT8/cekkfG1s0X7FT1sPCAqVKfYNnLcWhNcAn33d8Mak90Ap4GVMw6lqhjc1/r4fNZ72E4mJn6zd/2Dl8NwPBgTvrAzTI7yVltwa56aw3lUMKIJ5DyiEFEAgwyZWUQwogEGCSKykA0l/O6b8lu+4ENQAAAABJRU5ErkJggg==" width="36.5" height="18" /></span><span class = "S2"><span class="S0">. </span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S4 lineNode"><span class = "S5"><span class="S0">w = fdweights(t-0.5,1);</span></span></div></div><div class = 'inlineWrapper outputs'><div class = "S4 lineNode"><span class = "S5"><span class="S0">fd_value = w'*f(t)</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="98EB622D" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_1" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">fd_value = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">  -2.4731e-01
+</div></div></div></div></div></div></div><div class = "S0"></div><div class = 'SectionBlock containment'><div class = "S1"><span class = "S2"><span class="S0">We can reproduce the weights in the finite difference tables by using equally spaced nodes with</span></span><span class = "S2"><span class="S0"> </span></span><span style="vertical-align:-5px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAAkCAYAAADFGRdYAAAC6UlEQVRoQ+3YT6hVRRzA8Y+hFQSCmKK2ERETkxL/oaIkJGgbDRJCixaBhCCComIrFReKorYocWFutBAzxU1JGLiRbJFFIIaLSpQQC1pIuFBKfjAPpsO7747vXHidy5nNvefM78zM7zu/fzOjtK0rgVFdJVoBLaQCI2ghtZAKCBSItJZUE9KLmITpmIeNeBcnC8ZtgsgUbMY1nBlqwZ0s6Vl8jFlYlA0Q4G42gcAQa5yM97EryWxKunb8pJu7PYdfMDH9zsaDhkIahx3YWVl/bUjP43qCdDBN0lBG3sQMnMV2bOiVJb2GS2mw13GxqYQq616NC72CtDv57n28hNt9AmktPu8FpDG4ggXpdzketZD+S2Aqfk2vPsD+9D+ywxrMTZZ1GH83DF7PLCn328W4irdw+kmzQyb/DKK8qNvCoutsTM8gHUhZ4E6ql97Dh9iLH/FFqU9nRN7GqbqEsA2HaozTE0ix29/hZXyEb/EpVuJrRFH58zAgrcNnNZQb+PR/AWkmblSUyUuAsKpPUv+AK5boPjYBrpMARuM3/FEyYQeZnljS+mQ5A3NsxZH0EFV6pM8ozu7hFdytseCR+LQ2pIBwAgtTLIqzWtRIA7sf5X24WhxVokRoYmlQG1K4xA+YlrY4LOWnbLuXJDjxKi8NSiyib7LbnAQplI4rhAi2/2QEtiBqo2hVgN1A9U12i2uEY0nb6nntKXyTXCzcMG4FHiKCaUkw7ovsFvHofKqooz6KEuCvzDxeQLyPtgdxttuHPwvrlr7IbnlQjhQf1wn/ZpBexeX0vALjcbyBh9+4ZT2a9AgdQ4eOrXrplgflSPHnKl9WS4PoXpoF8m4xaaT74xJxGb7KFhLHrXdwq1PIqEJ6I7lb1D/zB7kaiRj1ZZogZFZlQX6kAXSbP0/7nWRD5++rnd2ubwcbbAKexu8VV+y2yMb2DwdSY5Ud7sJbSAXkWkgtpAICBSKtJbWQCggUiLSW1EIqIFAg8hidr5wlFTbjigAAAABJRU5ErkJggg==" width="36.5" height="18" /></span><span class = "S2"><span class="S0">. For example, here are two one-sided formulas.</span></span></div><div class = 'CodeBlock contiguous'><div class = 'inlineWrapper'><div class = "S4 lineNode"><span class = "S5"><span class="S0">format </span><span class="S8">rat</span></span></div></div><div class = 'inlineWrapper outputs'><div class = "S4 lineNode"><span class = "S5"><span class="S0">fdweights(0:2,1)</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="9B47A9E2" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_2" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">ans = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">      -3/2            2             -1/2     
+</div></div></div></div></div><div class = 'inlineWrapper outputs'><div class = "S4 lineNode"><span class = "S5"><span class="S0">fdweights(-3:0,1)</span></span></div><div class="outputParagraph" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 14px;"><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="BFB30A23" data-scroll-top="null" data-scroll-left="null" data-width="442" data-height="34" data-testid="output_3" style="max-height: 261px; width: 472px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span class="variableNameElement" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">ans = </span></div><div style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">      -1/3            3/2           -3             11/6     
+</div></div></div></div></div></div></div></div>
+<!-- 
+##### SOURCE BEGIN #####
+%% 
+% We try to estimate the derivative of $\cos(x^2)$ at $x=0.5$ using five 
+% nodes. 
+
+t = [ 0.35 0.5 0.57 0.6 0.75 ]';   % nodes
+f = @(x) cos(x.^2);
+dfdx = @(x) -2*x.*sin(x.^2);
+exact_value = dfdx(0.5)
+%% 
+% We have to shift the nodes so that the point of estimation for the derivative 
+% is at $x=0$. 
+%%
+w = fdweights(t-0.5,1);
+fd_value = w'*f(t)
+%% 
+% We can reproduce the weights in the finite difference tables by using 
+% equally spaced nodes with $h=1$. For example, here are two one-sided formulas.
+%%
+format rat
+fdweights(0:2,1)
+fdweights(-3:0,1)
+##### SOURCE END #####
+--></body></html>
