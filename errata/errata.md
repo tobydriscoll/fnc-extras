@@ -4,6 +4,7 @@
 (Thanks to Claudio Torres.)
 
 ## Chapter 5
+* **Page 190 / (5.3.5) and (5.3.6)** The right-hand sides of both equations should be vectors, not diagonal matrices. (Thanks to Wei Cai.) 
 * **Page 215 / Example 5.5.3** The first expression in the last line of the formula should have a negative sign in front. (Thanks to Peter Monk.) 
 
 ## Chapter 7
@@ -11,6 +12,7 @@
 
 ## Chapter 9
 * **Page 387 / Figure in example 9.1.1** The y-axis label was not rendered correctly; it is the cardinal polynomial l_2.
+* **Page 390 / (9.6.2)** The last expression needs to be multiplied by 2. (Thanks to Wei Cai.) 
 * **Page 423 / Example 9.6.2** In the last line, the results "x_1" and "x_2" should be named "t_1" and "t_2". 
 
 ## Chapter 10
