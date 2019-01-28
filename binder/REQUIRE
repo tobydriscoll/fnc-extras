@@ -1,3 +1,4 @@
+julia 1.0
 Arpack
 DataFrames
 DifferentialEquations
