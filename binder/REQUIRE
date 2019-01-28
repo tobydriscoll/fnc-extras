@@ -8,7 +8,6 @@ IncompleteLU
 IterativeSolvers
 LinearAlgebra
 LinearMaps
-MAT
 MatrixDepot
 NLsolve
 Optim
