@@ -2,7 +2,7 @@ module FNC
 
 using LinearAlgebra, SparseArrays
 using Polynomials
-using DifferentialEquations
+using NLsolve, DifferentialEquations
 
 include("functions/chapter01.jl")
 include("functions/chapter02.jl")
