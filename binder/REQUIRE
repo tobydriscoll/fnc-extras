@@ -5,6 +5,7 @@ DifferentialEquations
 FFTW
 Images
 IncompleteLU
+Interpolations
 IterativeSolvers
 LinearAlgebra
 LinearMaps
