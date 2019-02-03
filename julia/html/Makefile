@@ -3,10 +3,7 @@ chapter06 chapter07 chapter08 chapter09 chapter10 \
 chapter11 chapter12 chapter13
 
 CONVERT=jupyter nbconvert
-NBFLAGS=--ExecutePreprocessor.allow_errors=True \
---ExecutePreprocessor.timeout=180 \
---to html --execute
-#--ExecutePreprocessor.kernel_name='julia-1.1' 
+NBFLAGS=--to html
 
 NOTEBOOKS = $(foreach ch,$(CHAPS),$(wildcard ../$(ch)/*.ipynb))
 OBJS = $(foreach nb,$(NOTEBOOKS),$(patsubst ../%.ipynb,%.html,$(nb)))
@@ -20,4 +17,5 @@ all: $(OBJS)
 
 %.html: %.ipynb
 	-$(CONVERT) $(NBFLAGS) --output ../html/$@ $^
-	-mv $(patsubst %.ipynb,%*.gif,$^) $(dir $@)
+	-cp $(patsubst %.ipynb,%*.gif,$^) $(dir $@)
+ 

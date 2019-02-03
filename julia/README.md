@@ -12,6 +12,8 @@ The functions are not bundled as a Julia package, as they are for pedagogical ra
 
 You can see the example results as static HTML files from the links in [examples.html](examples.html).  There are links to corresponding Julia scripts as well. As of February 2019, everything here runs in Julia 1.0 and 1.1. 
 
+You can also [view the examples as notebooks](https://nbviewer.jupyter.org/github/tobydriscoll/fnc-extras/tree/master/julia/) using nbviewer. 
+
 ## Running examples in the browser
 
 You should be able to run the examples without installing anything by visiting this binder:

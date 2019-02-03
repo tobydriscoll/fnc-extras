@@ -11996,7 +11996,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.031786729</pre>
+<pre>0.047325839</pre>
 </div>
 
 </div>
@@ -12029,7 +12029,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.390563649</pre>
+<pre>1.165482995</pre>
 </div>
 
 </div>
@@ -12042,7 +12042,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>However, the sparse storage format is column-oriented. Operations on rows may take a lot longer than similar ones on columns. (Note: This behavior is seen here for MATLAB, but not Julia.)</p>
+<p>However, the sparse storage format is column-oriented. Operations on rows may take a lot longer than similar ones on columns. (Note: Such behavior is dramatic here for MATLAB, but not Julia.)</p>
 
 </div>
 </div>
@@ -12054,6 +12054,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1000</span><span class="p">]</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;time for replacing columns:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="p">;</span> <span class="n">A</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">v</span><span class="p">;</span> <span class="k">end</span>  <span class="c"># discard, improves timing accuracy</span>
 <span class="nd">@elapsed</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="p">;</span> <span class="n">A</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">v</span><span class="p">;</span> <span class="k">end</span>
 </pre></div>
 
@@ -12084,7 +12085,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.50126944</pre>
+<pre>0.19418728</pre>
 </div>
 
 </div>
@@ -12100,6 +12101,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">v</span><span class="o">&#39;</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;time for replacing rows:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="p">;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="o">=</span><span class="n">r</span><span class="p">;</span> <span class="k">end</span>  <span class="c"># discard, improves timing accuracy</span>
 <span class="nd">@elapsed</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="p">;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="o">=</span><span class="n">r</span><span class="p">;</span> <span class="k">end</span>
 </pre></div>
 
@@ -12130,7 +12132,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.418143567</pre>
+<pre>0.241511209</pre>
 </div>
 
 </div>
