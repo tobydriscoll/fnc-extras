@@ -18,9 +18,8 @@
 * **Page 423 / Example 9.6.2** In the last line, the results "x_1" and "x_2" should be named "t_1" and "t_2". 
 
 ## Chapter 10
-* **Page 416 / Exercise 10.1.2** In part (d), the Legendre equation should start with (1-x^2)u'' as the first term. (Thanks to Shahrokh Esmaeili.)
-* **Page 447 / Exercise 10.1.1** The boundary conditions were left out of the problem statements. Suggestions: (a) u(0) = 2, u(1) = 3; (b) u'(0) = -1, u(4) = 2; (c) u(-1) = 2, u(1) = 3.
-* **Page 447 / Exercise 10.1.2** (c) Typo in boundary conditions; they should be u(-1) = -1, u(1) = 1. (d) Typo in the ODE, use (1-x^2)u'' rather than (1-u^2)u''. 
+* **Page 415 / Exercise 10.1.1** The boundary conditions were left out of the problem statements. Suggestions: (a) u(0) = 2, u(1) = 3; (b) u'(0) = -1, u(4) = 2; (c) u(-1) = 2, u(1) = 3.
+* **Page 416 / Exercise 10.1.2** (c) Typo in boundary conditions; they should be u(-1) = -1, u(1) = 1. (d) Typo in the ODE, use (1-x^2)u'' rather than (1-u^2)u''. 
 * **Page 467 / Equation (10.4.6a)** The beta in this equation should be gamma. 
 * **Page 468 / Function 10.4.1** Line 15 in the function documentation should be deleted, as it references a nonexistent output argument. 
 
