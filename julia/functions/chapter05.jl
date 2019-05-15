@@ -8,14 +8,19 @@ where the hat function equals one.
 
 function hatfun(x,t,k)
     n = length(t)-1
-    k = k+1  # adjust for starting with index=1
+    # Return correct node given mathematical index k, including fictitious choices.   
+    function node(k)
+        if k < 0
+            2*t[1]-t[2]
+        elseif k > n 
+            2*t[n+1]-t[n] 
+        else
+            t[k+1]
+        end
+    end
 
-    # Fictitious nodes to deal with first/last funcs.
-    tt = [ 2*t[1]-t[2]; t; 2*t[n+1]-t[n] ]
-    k = k+1   # adjust index for the fictitious first node
-
-    H1 = (x-tt[k-1])/(tt[k]-tt[k-1])   # upward slope
-    H2 = (tt[k+1]-x)/(tt[k+1]-tt[k])   # downward slope
+    H1 = (x-node(k-1))/(node(k)-node(k-1))   # upward slope
+    H2 = (node(k+1)-x)/(node(k+1)-node(k))   # downward slope
 
     H = min(H1,H2)
     return max(0,H)
