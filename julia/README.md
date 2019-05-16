@@ -10,7 +10,7 @@ The functions are not bundled as a Julia package, as they are for pedagogical ra
 
 ## Viewing examples
 
-You can see the example results as static HTML files from the links in [examples.html](examples.html).  There are links to corresponding Julia scripts as well. As of February 2019, everything here runs in Julia 1.0 and 1.1. 
+You can see the example results as static HTML files from the links in [examples.html](examples.html).  As of February 2019, everything here runs in Julia 1.0 and 1.1. 
 
 You can also [view the examples as notebooks](https://nbviewer.jupyter.org/github/tobydriscoll/fnc-extras/tree/master/julia/) using nbviewer. 
 
@@ -24,7 +24,7 @@ Be patient with this option, as performance does not appear to be very good, esp
 
 ## Running examples locally 
 
-*Advanced users:* If you don't want to change your default Julia environment, you can `Pkg.instantiate` this directory to cleanly get the necessary packages. However, you will need to do so anew for every Julia session, including each notebook. 
+*Advanced users:* If you don't want to change your default Julia environment, you can `Pkg.instantiate` this directory to cleanly get the necessary packages. However, you will need to do so anew for every Julia session. 
 
 The examples and (to a lesser extent) functions are dependent on Julia packages that do not ship with the standard distribution. You must use `Pkg.add` once to add each of them to a Julia environment. You can find which ones are needed in the [Project.toml](Project.toml) file of this directory, or you can just add them as you get error messages about them. 
 
