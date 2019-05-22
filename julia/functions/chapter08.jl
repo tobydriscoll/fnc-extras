@@ -75,30 +75,30 @@ Do `m` iterations of GMRES for the linear system `A`*x=`b`. Return the final sol
 estimate x and a vector with the history of residual norms. (This function is for
 demo only, not practical use.)
 """
-function arngmres(A,b,M)
+function arngmres(A,b,m)
     n = length(b)
-    Q = zeros(n,M)
+    Q = zeros(n,m+1)
     Q[:,1] = b/norm(b)
-    H = zeros(M,M-1)
+    H = zeros(m+1,m)
 
     # Initial "solution" is zero.
-    residual = [norm(b);zeros(M)]
-
-    for m = 1:M
+    residual = [norm(b);zeros(m)]
+    
+    for j = 1:m
       # Next step of Arnoldi iteration.
-      v = A*Q[:,m]
-      for i = 1:m
-          H[i,m] = dot(Q[:,i],v)
-          v -= H[i,m]*Q[:,i]
+      v = A*Q[:,j]
+      for i = 1:j
+          H[i,j] = dot(Q[:,i],v)
+          v -= H[i,j]*Q[:,i]
       end
-      H[m+1,m] = norm(v)
-      Q[:,m+1] = v/H[m+1,m]
+      H[j+1,j] = norm(v)
+      Q[:,j+1] = v/H[j+1,j]
 
       # Solve the minimum residual problem.
-      r = [norm(b); zeros(m)]
-      z = H[1:m+1,1:m] \ r
-      x = Q[:,1:m]*z
-      residual[m+1] = norm( A*x - b )
+      r = [norm(b); zeros(j)]
+      z = H[1:j+1,1:j] \ r
+      x = Q[:,1:j]*z
+      residual[j+1] = norm( A*x - b )
     end
 
     return x,residual
