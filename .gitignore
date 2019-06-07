@@ -7,3 +7,4 @@ Stability.fls
 *.fls
 WormMotion.rel
 *-eps-converted-to.pdf
+python/__pycache__
