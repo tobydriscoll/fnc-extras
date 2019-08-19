@@ -11,6 +11,16 @@ The easiest way to obtain the functions and code examples that appear in the boo
 
 ## Videos
 
+### Added August 2019
+
+There is a new playlist of videos based on the textbook at 
+
+<https://www.youtube.com/playlist?list=PLvUvOH0OYx3BcZivtXMIwP6hKoYv0YvGn>
+
+The plan is to populate it with videos throughout the fall, for chapters 1-6. 
+
+### From 2012
+
 There are videos based on an older (pre-publication) version of the text at the youtube channel
 
 <https://www.youtube.com/playlist?list=PLvUvOH0OYx3AZ_WXhkLXo3JLSeGT2wLj3>
