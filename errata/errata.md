@@ -1,3 +1,6 @@
+## Chapter 1
+* **Page 19/Exercise 1.2.7.** The polynomial in part (a) should be `x^2 - (2+ep)*x + 1`, not `x^2 + (2+ep)*x + 1`. (Thanks to Nicholas Harty.)
+
 ## Chapter 4
 * **Page 165 / Exercise 4.6.4.** The Sherman-Morrison formula is given incorrectly (specifically, the denominator). It should read:  
 ![formula](Sherman-Morrison.svg).  
