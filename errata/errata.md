@@ -1,4 +1,8 @@
+## Chapter 1
+* **Page 27 / Exercise 1.3.4** The wording in this problem could be clearer. Here is an [alternate version](alt134.pdf).
+
 ## Chapter 4
+* **Page 161** In the formula between (4.6.3) and (4.6.4), all the variable names should be in bold, as they are all vectors and matrices.
 * **Page 165 / Exercise 4.6.4.** The Sherman-Morrison formula is given incorrectly (specifically, the denominator). It should read:  
 ![formula](Sherman-Morrison.svg).  
 (Thanks to Claudio Torres.)
