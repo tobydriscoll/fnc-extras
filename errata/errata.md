@@ -15,6 +15,9 @@
 * **Page 201 / Exercise 5.4.5** The nodes in part (a) are given by t_j = 0.3 + jh. (Thanks to Shahrokh Esmaeili.)
 * **Page 215 / Example 5.5.3** The first expression in the last line of the formula should have a negative sign in front. (Thanks to Peter Monk.) 
 
+## Chapter 6
+* **Page 241 / Exercise 6.2.3** Finding the constant C that is required to apply the bound in (6.2.7) isn't easy without application of the mean value theorem or the remainder form of Taylor's theorem. These were cut from an earlier version of the text, so this problem no longer makes sense. 
+
 ## Chapter 7
 * **Page 305 / Theorem 7.2.2** Replace "an nonsingular" with "a nonsingular".
 
