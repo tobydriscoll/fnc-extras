@@ -2,18 +2,25 @@
 * **Page 19/Exercise 1.2.7.** The polynomial in part (a) should be `x^2 - (2+ep)*x + 1`, not `x^2 + (2+ep)*x + 1`. (Thanks to Nicholas Harty.)
 * **Page 27 / Exercise 1.3.4** The wording in this problem could be clearer. Here is an [alternate version](alt134.pdf).
 
+## Chapter 2
+* **Page 65** After (2.5.1), the text should read, "Hence, a graph of log t as a function of log n...." (Thanks to Tae Eun.)
+* **Page 78** Fornula (2.7.1a) should read, "all x in C^n" rather than "all x in R^n".(Thanks to Tae Eun.)
+
 ## Chapter 4
 * **Page 161** In the formula between (4.6.3) and (4.6.4), all the variable names should be in bold, as they are all vectors and matrices.
 * **Page 165 / Exercise 4.6.4.** The Sherman-Morrison formula is given incorrectly (specifically, the denominator). It should read:  
 ![formula](Sherman-Morrison.svg).  
 (Thanks to Claudio Torres.)
 * **Page 166 / Exercise 4.6.7.** Rather than J_k, the matrix in the expression should be A_k.
+* **Page 179 / Example 4.7.1** Second sentence under the graph should be, "Rewrite the model as (1/v) = (alpha/x) + beta..." instead of using "a" and "b". (Thanks to Tae Eun.)
 
 ## Chapter 5
 * **Page 190 / (5.3.5) and (5.3.6)** The right-hand sides of both equations should be vectors, not diagonal matrices. (Thanks to Wei Cai.) 
 * **Page 199 / (5.4.11)** The sum should start at k=0 to be in sync with the code (this formula is not needed elsewhere). (Thanks to Shahrokh Esmaeili.)
 * **Page 201 / Exercise 5.4.5** The nodes in part (a) are given by t_j = 0.3 + jh. (Thanks to Shahrokh Esmaeili.)
-* **Page 215 / Example 5.5.3** The first expression in the last line of the formula should have a negative sign in front. (Thanks to Peter Monk.) 
+* **Page 215 / Example 5.5.3** The first expression in the last line of the formula should have a negative sign in front. (Thanks to Peter Monk.)
+* **Page 223 / (5.6.5)** The summand in the last line is missing a factor of h^(2k). (Thanks to Tae Eun.)
+* **Page 226** The next-to-last entry in the last line on the page should be (2N-1)/(2N), not (2N-3)/(2N), and the summations of the "odd nodes" in (5.6.12) on the next page should be from 1 to N, not from 1 to N-1. (Thanks to Tae Eun.)
 
 ## Chapter 6
 * **Page 241 / Exercise 6.2.3** Finding the constant C that is required to apply the bound in (6.2.7) isn't easy without application of the mean value theorem or the remainder form of Taylor's theorem. These were cut from an earlier version of the text, so this problem no longer makes sense. 
