@@ -6,12 +6,12 @@ at the point `x`, using Horner's rule.
 """
 function horner(c,x)
 
-n = length(c)
-y = c[1]
-for k = 2:n
-    y = x*y + c[k]
-end
+    n = length(c)
+    y = c[1]
+    for k = 2:n
+        y = x*y + c[k]
+    end
 
-return y
+    return y
 
 end
