@@ -1,6 +1,7 @@
 ## Chapter 1
 * **Page 19/Exercise 1.2.7.** The polynomial in part (a) should be `x^2 - (2+ep)*x + 1`, not `x^2 + (2+ep)*x + 1`. (Thanks to Nicholas Harty.)
 * **Page 27 / Exercise 1.3.4** The wording in this problem could be clearer. Here is an [alternate version](alt134.pdf).
+* **Page 27 / Exercise 1.3.5** Part (c) is missing the hand/keyboard icon. It is meant to be done by computer.
 
 ## Chapter 2
 * **Page 65** After (2.5.1), the text should read, "Hence, a graph of log t as a function of log n...." (Thanks to Tae Eun.)
