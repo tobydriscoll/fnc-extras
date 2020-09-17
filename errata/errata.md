@@ -4,6 +4,7 @@
 * **Page 27 / Exercise 1.3.5** Part (c) is missing the hand/keyboard icon. It is meant to be done by computer.
 
 ## Chapter 2
+* **Page 51** Exercise (2.3.3) is limited to the systems (a) and (b) of the preceding problem.
 * **Page 65** After (2.5.1), the text should read, "Hence, a graph of log t as a function of log n...." (Thanks to Tae Eun.)
 * **Page 78** Fornula (2.7.1a) should read, "all x in C^n" rather than "all x in R^n".(Thanks to Tae Eun.)
 
