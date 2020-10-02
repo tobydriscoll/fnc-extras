@@ -7,6 +7,7 @@
 * **Page 51** Exercise 2.3.3 is limited to the systems (a) and (b) of the preceding problem.
 * **Page 65** After (2.5.1), the text should read, "Hence, a graph of log t as a function of log n...." (Thanks to Tae Eun.)
 * **Page 78** Fornula (2.7.1a) should read, "all x in C^n" rather than "all x in R^n".(Thanks to Tae Eun.)
+* **Exercise 2.8.4** Part (b) is to be done by hand, not numerically.
 
 ## Chapter 3
 * **Page 97** In equation (3.1.2), the vector element "c_m" should be "c_n". (Thanks to Shahrokh Esmaeili.)
