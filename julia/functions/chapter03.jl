@@ -25,7 +25,7 @@ function lsqrfact(A,b)
 
     Q,R = qr(A)
     c = Q'*b
-    x = backsub(R,c)
+    x = backsub(R,c)  # solve Rx=c
 
     return x
 end
