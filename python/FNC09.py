@@ -93,6 +93,7 @@ def glint(f,n):
     beta = 0.5/sqrt(1-(2.0*arange(1,n))**(-2))
     T = diag(beta,1) + diag(beta,-1)
     ev,V = eig(T)
+    ev = real_if_close(ev)
     p = argsort(ev)
     x = ev[p]               # nodes
     c = 2*V[0,p]**2         # weights
