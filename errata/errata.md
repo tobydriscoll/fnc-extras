@@ -14,6 +14,7 @@
 * **Page 102** In exercise 3.1.3 part (a), the last term in the sum should be "c_7t^6" and not "c_7t^7". (Thanks to Shahrokh Esmaeili.)
 
 ## Chapter 4
+* **Page 142 / Exercise 4.2.3(c)** The function should be g(x) = –sqrt(1+x).
 * **Page 161** In the formula between (4.6.3) and (4.6.4), all the variable names should be in bold, as they are all vectors and matrices.
 * **Page 165 / Exercise 4.6.4.** The Sherman-Morrison formula is given incorrectly (specifically, the denominator). It should read:  
 ![formula](Sherman-Morrison.svg).  
