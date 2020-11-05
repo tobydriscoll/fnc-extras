@@ -12,6 +12,7 @@
 ## Chapter 3
 * **Page 97** In equation (3.1.2), the vector element "c_m" should be "c_n". (Thanks to Shahrokh Esmaeili.)
 * **Page 102** In exercise 3.1.3 part (a), the last term in the sum should be "c_7t^6" and not "c_7t^7". (Thanks to Shahrokh Esmaeili.)
+* **Page 124 / Exercise 3.4.8** The first entry in the vector on the right-hand side of the formula should be square-rooted. (Thanks to Juan David Gonzalez Cobas.) 
 
 ## Chapter 4
 * **Page 142 / Exercise 4.2.3(c)** The function should be g(x) = –sqrt(1+x).
