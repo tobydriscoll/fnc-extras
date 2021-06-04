@@ -15,6 +15,9 @@
 * **Page 215 / Example 5.5.3** The first expression in the last line of the formula should have a negative sign in front. (Thanks to Peter Monk.) 
 * **Page 237, Exercise 5.7.6** The definition of erf should have sqrt(pi) in the denominator, not pi.
 
+## Chapter 6
+* **Page 255, Exercise 6.2.2** The exact solution of the IVP in part (e) is exp((x^3+3x-4)/3), and the exact solution in part (f) is 6/(2x^3+6x+3).
+
 ## Chapter 7
 * **Page 305 / Theorem 7.2.2** Replace "an nonsingular" with "a nonsingular".
 
