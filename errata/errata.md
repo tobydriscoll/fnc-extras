@@ -1,39 +1,19 @@
 ## Chapter 1
 * **Page 19/Exercise 1.2.7.** The polynomial in part (a) should be `x^2 - (2+ep)*x + 1`, not `x^2 + (2+ep)*x + 1`. (Thanks to Nicholas Harty.)
 * **Page 27 / Exercise 1.3.4** The wording in this problem could be clearer. Here is an [alternate version](alt134.pdf).
-* **Page 27 / Exercise 1.3.5** Part (c) is missing the hand/keyboard icon. It is meant to be done by computer.
-
-## Chapter 2
-* **Page 51** Exercise 2.3.3 is limited to the systems (a) and (b) of the preceding problem.
-* **Page 65** After (2.5.1), the text should read, "Hence, a graph of log t as a function of log n...." (Thanks to Tae Eun.)
-* **Page 78** Fornula (2.7.1a) should read, "all x in C^n" rather than "all x in R^n".(Thanks to Tae Eun.)
-* **Exercise 2.8.4** Part (b) is to be done by hand, not numerically.
-
-## Chapter 3
-* **Page 97** In equation (3.1.2), the vector element "c_m" should be "c_n". (Thanks to Shahrokh Esmaeili.)
-* **Page 102** In exercise 3.1.3 part (a), the last term in the sum should be "c_7t^6" and not "c_7t^7". (Thanks to Shahrokh Esmaeili.)
-* **Page 124 / Exercise 3.4.8** The first entry in the vector on the right-hand side of the formula should be square-rooted. (Thanks to Juan David Gonzalez Cobas.) 
 
 ## Chapter 4
-* **Page 142 / Exercise 4.2.3(c)** The function should be g(x) = –sqrt(1+x).
 * **Page 161** In the formula between (4.6.3) and (4.6.4), all the variable names should be in bold, as they are all vectors and matrices.
 * **Page 165 / Exercise 4.6.4.** The Sherman-Morrison formula is given incorrectly (specifically, the denominator). It should read:  
 ![formula](Sherman-Morrison.svg).  
 (Thanks to Claudio Torres.)
-* **Page 166 / Exercise 4.6.7.** Rather than J_k, the matrix in the expression should be A_k.
-* **Page 179 / Example 4.7.1** Second sentence under the graph should be, "Rewrite the model as (1/v) = (alpha/x) + beta..." instead of using "a" and "b". (Thanks to Tae Eun.)
 
 ## Chapter 5
 * **Page 190 / (5.3.5) and (5.3.6)** The right-hand sides of both equations should be vectors, not diagonal matrices. (Thanks to Wei Cai.) 
 * **Page 199 / (5.4.11)** The sum should start at k=0 to be in sync with the code (this formula is not needed elsewhere). (Thanks to Shahrokh Esmaeili.)
 * **Page 201 / Exercise 5.4.5** The nodes in part (a) are given by t_j = 0.3 + jh. (Thanks to Shahrokh Esmaeili.)
-* **Page 215 / Example 5.5.3** The first expression in the last line of the formula should have a negative sign in front. (Thanks to Peter Monk.)
-* **Page 223 / (5.6.5)** The summand in the last line is missing a factor of h^(2k). (Thanks to Tae Eun.)
-* **Page 226** The next-to-last entry in the last line on the page should be (2N-1)/(2N), not (2N-3)/(2N), and the summations of the "odd nodes" in (5.6.12) on the next page should be from 1 to N, not from 1 to N-1. (Thanks to Tae Eun.)
-* **Exercise 5.7.3** There is no value specified for gamma in the experiment; a good choice is 2/3. Take the requested error to be 1e-15.
-
-## Chapter 6
-* **Page 241 / Exercise 6.2.3** Finding the constant C that is required to apply the bound in (6.2.7) isn't easy without application of the mean value theorem or the remainder form of Taylor's theorem. These were cut from an earlier version of the text, so this problem no longer makes sense. 
+* **Page 215 / Example 5.5.3** The first expression in the last line of the formula should have a negative sign in front. (Thanks to Peter Monk.) 
+* **Page 237, Exercise 5.7.6** The definition of erf should have sqrt(pi) in the denominator, not pi.
 
 ## Chapter 7
 * **Page 305 / Theorem 7.2.2** Replace "an nonsingular" with "a nonsingular".
