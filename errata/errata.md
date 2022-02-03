@@ -22,6 +22,8 @@
 * **Page 305 / Theorem 7.2.2** Replace "an nonsingular" with "a nonsingular".
 
 ## Chapter 8
+* **Page 326 / Proof of Theorem 8.3.1** In the fourth line of the proof the first term `(A-sI)` should be replaced with `(A-sI)⁻¹`.
+* **Page 332 / sentence before or actually containing (8.4.1)** should have `n×m` instead of `m×n`.
 * **Page 362 / Function 8.5.1** The function runs correctly as printed. However, the `H` and `Q` matrices there are initially allocated smaller than their final sizes. (MATLAB expands them anyway.) Also, to be consistent with the earlier arnoldi.m function, replace `M` with `m` and `m` with `j`. 
 
 ## Chapter 9
