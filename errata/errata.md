@@ -8,6 +8,7 @@
 * **Page 118 / Exercise 3.4.8.** The RHS should be `\begin{bmatrix} \sqrt{\alpha^2 + \beta^2} \\ 0 \end{bmatrix}`. (Thanks Chris Reynolds and Franklin Dyer.)
 
 ## Chapter 4
+* **Page 127 / Exercise 4.1.9.** In part (a), the plus sign in the definition of $\tilde{f}_\epsilon$ should be a minus sign, i.e., $\tilde{f}_\epsilon(x) = f_\epsilon(x)/(x-1.01)$. (Thanks Andrew Geyko and Franklin Dyer.)
 * **Page 161** In the formula between (4.6.3) and (4.6.4), all the variable names should be in bold, as they are all vectors and matrices.
 * **Page 165 / Exercise 4.6.4.** The Sherman-Morrison formula is given incorrectly (specifically, the denominator). It should read:  
 ![formula](Sherman-Morrison.svg).  
