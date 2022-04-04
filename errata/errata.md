@@ -1,8 +1,14 @@
 ## Chapter 1
 * **Page 19/Exercise 1.2.7.** The polynomial in part (a) should be `x^2 - (2+ep)*x + 1`, not `x^2 + (2+ep)*x + 1`. (Thanks to Nicholas Harty.)
+* **Page 23 / Example 1.3.3** "Using (1.2.8)" should be "using (1.2.9)."
 * **Page 27 / Exercise 1.3.4** The wording in this problem could be clearer. Here is an [alternate version](alt134.pdf).
 
+## Chapter 3
+* **Page 102 / Exercise 3.1.3.** (a) The last coefficient should be `c_8`. (Thanks John Tran.)
+* **Page 118 / Exercise 3.4.8.** The RHS should be `\begin{bmatrix} \sqrt{\alpha^2 + \beta^2} \\ 0 \end{bmatrix}`. (Thanks Chris Reynolds and Franklin Dyer.)
+
 ## Chapter 4
+* **Page 127 / Exercise 4.1.9.** In part (a), the plus sign in the definition of $\tilde{f}_\epsilon$ should be a minus sign, i.e., $\tilde{f}_\epsilon(x) = f_\epsilon(x)/(x-1.01)$. (Thanks Andrew Geyko and Franklin Dyer.)
 * **Page 161** In the formula between (4.6.3) and (4.6.4), all the variable names should be in bold, as they are all vectors and matrices.
 * **Page 165 / Exercise 4.6.4.** The Sherman-Morrison formula is given incorrectly (specifically, the denominator). It should read:  
 ![formula](Sherman-Morrison.svg).  
