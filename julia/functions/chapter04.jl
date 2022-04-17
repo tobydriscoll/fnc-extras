@@ -141,6 +141,7 @@ while (norm(s) > xtol) && (norm(fk) > ftol) && (k < maxiter)
 
     # Do we accept the result?
     if norm(fnew) < norm(fk)    # accept
+            println("Good step: ", lambda)
         y = fnew - fk
         x[:,k+1] = xnew;  fk = fnew;
         k = k+1
@@ -150,6 +151,7 @@ while (norm(s) > xtol) && (norm(fk) > ftol) && (k < maxiter)
         Ak = Ak + (y-Ak*s)*(s'/(s'*s))
         jac_is_new = false
     else                       # don't accept
+            println("Bad step: ", lambda)
         # Get closer to steepest descent.
         lambda = lambda*4
         # Re-initialize the Jacobian if it's out of date.

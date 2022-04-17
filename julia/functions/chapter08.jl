@@ -110,8 +110,10 @@ function sprandsym(n,density,lambda::Vector)
         theta = 2pi*rand()
         c,s = cos(theta),sin(theta)
         i,j = rand(1:n,2)
-        A[[i,j],:] = [c s;-s c]*A[[i,j],:]
-        A[:,[i,j]] = A[:,[i,j]]*[c -s;s c]
+        if i != j
+            A[[i,j],:] = [c s;-s c]*A[[i,j],:]
+            A[:,[i,j]] = A[:,[i,j]]*[c -s;s c]
+        end
         return A
     end
 

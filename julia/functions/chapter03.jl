@@ -6,12 +6,12 @@ minimizer of ||b-Ax||.
 """
 function lsnormal(A,b)
 
-N = A'*A;  z = A'*b;
-R = cholesky(N).U
-w = forwardsub(R',z)                   # solve R'z=c
-x = backsub(R,w)                       # solve Rx=z
+    N = A'*A;  z = A'*b;
+    R = cholesky(N).U
+    w = forwardsub(R',z) # solve R'z=c
+    x = backsub(R,w)     # solve Rx=z
 
-return x
+    return x
 end
 
 
@@ -23,9 +23,9 @@ minimizer of ||b-Ax||.
 """
 function lsqrfact(A,b)
 
-Q,R = qr(A)
-c = Q'*b
-x = backsub(R,c)
+    Q,R = qr(A)
+    c = Q'*b
+    x = backsub(R,c)  # solve Rx=c
 
-return x
+    return x
 end
