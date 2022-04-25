@@ -33,7 +33,7 @@
 * **Page 362 / Function 8.5.1** The function runs correctly as printed. However, the `H` and `Q` matrices there are initially allocated smaller than their final sizes. (MATLAB expands them anyway.) Also, to be consistent with the earlier arnoldi.m function, replace `M` with `m` and `m` with `j`. 
 
 ## Chapter 9
-* **Page 363 / Thm 9.1.3** "Suppose `t_i = ih` ..." should be "Suppose `t_i = t_0 + ih`" (or `a + ih`).
+* **Page 363 / Thm 9.1.3** "Suppose `t_i = ih` ..." should be "Suppose `t_i = t_0 + ih`".
 * **Page 387 / Figure in example 9.1.1** The y-axis label was not rendered correctly; it is the cardinal polynomial l_2.
 * **Page 390 / (9.6.2)** The last expression needs to be multiplied by 2. (Thanks to Wei Cai.) 
 * **Page 423 / Example 9.6.2** In the last line, the results "x_1" and "x_2" should be named "t_1" and "t_2". 
