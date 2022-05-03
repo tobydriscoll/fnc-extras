@@ -23,6 +23,7 @@
 
 ## Chapter 6
 * **Page 255, Exercise 6.2.2** The exact solution of the IVP in part (e) is exp((x^3+3x-4)/3), and the exact solution in part (f) is 6/(2x^3+6x+3).
+* **Function 6.5.1** In line 30, the variable `unew2` is the 3rd-order solution, not the 2nd-order solution as the variable name and comment imply. (Thanks to Tom Hagstrom.)
 
 ## Chapter 7
 * **Page 305 / Theorem 7.2.2** Replace "an nonsingular" with "a nonsingular".
@@ -48,4 +49,5 @@
 
 ## Chapter 13
 * **Page 547 / Example 13.1.2** The example function should read f(x,y) = sin(xy-y).
+* **Page 554 / Exercise 13.3.3(b)** The solution of the PDE is u(x,y) = sinh(4xy-x). (Thanks to Tom Hagstrom.)
 * **Page 573 / Example 13.4.2** After the reference to (13.3.6), the next sentence should start, "The second term," not "The first term." 
