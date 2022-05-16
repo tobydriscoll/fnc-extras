@@ -1,7 +1,5 @@
 ## Chapter 1
 * **Page 19/Exercise 1.2.7.** The polynomial in part (a) should be `x^2 - (2+ep)*x + 1`, not `x^2 + (2+ep)*x + 1`. (Thanks to Nicholas Harty.)
-
-## Chapter 1
 * **Page 27 / Exercise 1.3.4** The wording in this problem could be clearer. Here is an [alternate version](alt134.pdf).
 
 ## Chapter 4
@@ -15,6 +13,10 @@
 * **Page 199 / (5.4.11)** The sum should start at k=0 to be in sync with the code (this formula is not needed elsewhere). (Thanks to Shahrokh Esmaeili.)
 * **Page 201 / Exercise 5.4.5** The nodes in part (a) are given by t_j = 0.3 + jh. (Thanks to Shahrokh Esmaeili.)
 * **Page 215 / Example 5.5.3** The first expression in the last line of the formula should have a negative sign in front. (Thanks to Peter Monk.) 
+* **Page 237, Exercise 5.7.6** The definition of erf should have sqrt(pi) in the denominator, not pi.
+
+## Chapter 6
+* **Page 255, Exercise 6.2.2** The exact solution of the IVP in part (e) is exp((x^3+3x-4)/3), and the exact solution in part (f) is 6/(2x^3+6x+3).
 
 ## Chapter 7
 * **Page 305 / Theorem 7.2.2** Replace "an nonsingular" with "a nonsingular".
