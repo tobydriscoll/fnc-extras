@@ -8,3 +8,7 @@ Stability.fls
 WormMotion.rel
 *-eps-converted-to.pdf
 python/__pycache__
+*-checkpoint.ipynb
+julia/markdown
+*.synctex.gz
+python/hello.png
