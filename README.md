@@ -1,7 +1,7 @@
 # fnc-extras
 Extra materials for _Fundamentals of Numerical Computation_ by Driscoll and Braun.
 
-The easiest way to obtain the functions and code examples that appear in the book is to download the [toolbox file](Fundamentals%20of%20Numerical%20Computation.mltbx) and double-click it to install as a toolbox in MATLAB. 
+The easiest way to obtain the functions and code examples that appear in the book is to download the [toolbox file](https://github.com/tobydriscoll/fnc-extras/raw/master/Fundamentals%20of%20Numerical%20Computation.mltbx) and double-click it to install as a toolbox in MATLAB. 
 
 - **data** Data files needed for certain exercises.
 - **fnc** Files for all the textbook functions and code examples.
