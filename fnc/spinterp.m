@@ -45,10 +45,10 @@ z = A\v;
 rows = 1:n;
 a = z(rows);
 b = z(n+rows);  c = z(2*n+rows);  d = z(3*n+rows);
-S = @evaulate;
+S = @evaluate;
 
     % This function evaluates the spline when called with a value for x.
-    function f = evaulate(x)
+    function f = evaluate(x)
         f = zeros(size(x));
         for k = 1:n       % iterate over the pieces
             % Evalaute this piece's cubic at the points inside it.
