@@ -12,3 +12,4 @@ python/__pycache__
 julia/markdown
 *.synctex.gz
 python/hello.png
+.DS_Store
