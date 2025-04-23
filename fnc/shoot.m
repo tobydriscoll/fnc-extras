@@ -18,6 +18,7 @@ ivp_opt = odeset('reltol',1e-6,'abstol',1e-6);
 optim_opt = optimset('tolx',1e-5);
 
 % Find the unknown quantity at x=a by rootfinding. 
+v = [];   % make v have shared scope
 s = fzero(@objective,init,optim_opt); 
 
 % Don't need to solve the IVP again. It was done within the
