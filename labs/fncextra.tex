@@ -1,5 +1,7 @@
 \usepackage{amsmath}
 \usepackage{bm}
+\usepackage[T1]{fontenc}
+\usepackage{matlab-prettifier}
 
 \newcommand{\nat}{\mathbb{N}}          % Natural numbers
 \newcommand{\integer}{\mathbb{Z}}      % Integers
@@ -73,3 +75,12 @@
 \newcommand{\myvec}{\operatorname{vec}}
 \newcommand{\unvec}{\operatorname{unvec}}
 \newcommand{\kron}[2]{#1 \otimes #2}
+
+% matlab stuff
+\lstset{style=Matlab-editor,basicstyle=\mlttfamily}
+\newcommand{\Mfile}[1]{\lstinputlisting[]{#1}}
+\lstnewenvironment{matlab}%
+  {\lstset{escapechar=`}}%
+  {}
+\lstMakeShortInline[style=Matlab-editor,basicstyle=\mlttfamily]"  % use " for inline code
+\newcommand{\matlabend}{\lstinline[style=Matlab-style,basicstyle=\mlttfamily,mloverride=true]!end!}

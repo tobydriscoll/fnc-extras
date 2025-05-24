@@ -1,0 +1,49 @@
+\documentclass[11pt,twoside]{fncextra}
+
+\pagestyle{myheadings}
+\markboth{Allen--Cahn}{Allen--Cahn}
+
+
+\begin{document}
+    
+\begin{center}
+  \bf The long Cahn
+\end{center}
+
+The \emph{Allen--Cahn equation} is used as a model for systems that prefer to be in one of two stable states. The governing PDE is
+\begin{equation}
+  \label{eq:1}
+  u_t = u(1-u^2) + \epsilon u_{xx}.
+\end{equation}
+Aside from the diffusion, at each $x$ there is an ODE that has stable steady states at $u=\pm 1$. The boundary conditions and diffusion are the only factors that drive any other behavior.
+
+For this lab you will solve the PDE on $-1\le x \le 1$, with boundary conditions $u(\pm 1,t) = -1$ and initial condition
+\begin{equation}
+  \label{eq:2}
+  u_0(x) = -1 + \beta e^{-20x^2},
+\end{equation}
+where $\beta$ is a parameter. (The initial condition doesn't satisfy the boundary conditions exactly, but numerically it is very close.)
+
+\subsection*{Goals}
+    
+You will use the method of lines to investigate the long-term behavior of solutions of this PDE.
+
+\subsection*{Preparation}
+
+Read section 11.2.
+
+\subsection*{Procedure}
+
+Download the template. In this case it's a function and not a script, so the whole file must be executed each time. The function contains code for making an animation; the animations and final function will be your submission material.
+
+\begin{enumerate}
+\item Define the functions \texttt{extend} and \texttt{chop} that map between a complete vector of $u$ values at a given time and the interior values. Extension to the boundary is defined via the boundary conditions. 
+\item Write a function \texttt{timederiv} that maps interior values of $u$ to interior values of $u_t$, using $\epsilon=10^{-3}$. Use a Chebyshev discretization in space.
+\item Define the initial condition using $\beta = 1.6$ and solve the PDE over $0\le t \le 5$. You should see the bump grow to touch $u=1$. Save this animation as \verb!anim_grow.gif!. 
+\item Repeat step 3 using $\beta = 1$. This time the bump dies away down to nothing, leaving the constant solution $u\equiv -1$. Save this animation as \verb!anim_vanish.gif!.
+\item Now modify the function to solve for the boundary conditions $u(-1,t)=-1$, $u(1,t)=-\cos(t)$, using $\beta=1$. Save this animation as \verb!anim_moving.gif!.
+\end{enumerate}
+  
+    
+\end{document}
+

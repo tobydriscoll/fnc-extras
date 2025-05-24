@@ -1,92 +1,143 @@
 \documentclass[11pt,twoside]{article}
 
-\usepackage[headings]{fullpage}
-\usepackage[utopia]{mathdesign}
+\usepackage{amsmath}
+\usepackage[top=1in,bottom=0.75in,left=1in,right=1in]{geometry}
+\usepackage[charter]{mathdesign}
+\usepackage{color}
 
-\pagestyle{myheadings}
-\markboth{What goes around}{What goes around}
-
-\input{../../fncextra}
+\input{../../fncextra} 
 
 \begin{document}
 
 \begin{center}
+  \Large
   \bf What goes around, comes around
 \end{center}
 
+\section{Plane truth}
 
-A small satellite in the Earth--moon system can be modeled as a \emph{restricted three-body problem}, in which one object has so little relative mass that the motions essentially take place in a plane. In this formulation, Newton's laws of motion are simplified by a transformation so that the Earth has mass $\mu_*$ and remains at $(0,0)$, while the moon has mass $\mu$ and is at $(1,0)$, where $\mu+\mu_*=1$. The position of the satellite is $(x(t),y(t))$ and satisfies
+A small satellite in the Earth--moon system can be modeled as a \emph{restricted three-body problem}, in which one object has so little relative mass that the motions essentially take place in a plane. In this formulation, Newton's laws of motion are simplified by some transformations and conveniently chosen units of measure. 
+
+The value $\mu<0.5$ is the ratio of the masses of the bodies, and the coordinates have origin at the center of mass and rotate so that Earth remains at $(-\mu,0)$, while the moon stays at $(1-\mu,0)$. For the Earth/moon system, $\mu=0.012277471$.
+
+The position of the satellite is $(x(t),y(t))$ and satisfies
 \begin{equation}
+  \label{eq:r3body}
 \begin{split}
-  x'' &= x + 2y' - \mu_* \frac{x+\mu}{r} - \mu \frac{x-\mu_*}{r_*} \\
-  y'' &= y - 2x' - \mu_* \frac{y}{r} - \mu \frac{y}{r_*}, 
-\end{split}\label{eq:r3body}
+  x'' &= x + 2y' - (1-\mu) \frac{x+\mu}{r_e^3} - \mu \frac{x-1+\mu}{r_m^3} \\
+  y'' &= y - 2x' - (1-\mu) \frac{y}{r_e^3} - \mu \frac{y}{r_m^3} 
+\end{split}
 \end{equation}
 where
-\begin{align*}
-  r &= \left[ (x+\mu)^2 + y^2 \right]^{3/2} \\
-	r_* &= \left[ (x-\mu_*)^2 + y^2 \right]^{3/2}.
-\end{align*}
-For the Earth/moon system, $\mu=0.012277471$.
+\begin{equation}
+  \label{eq:rrstar}
+  \begin{split}
+  r_e &= \left[ (x+\mu)^2 + y^2 \right]^{1/2} \\
+  r_m &= \left[ (x-1+\mu)^2 + y^2 \right]^{1/2}
+  \end{split}
+\end{equation}
+are the distances of the satellite to Earth and moon, respectively. The key to computing solutions using standard software is to transform the original ODE system~\eqref{eq:r3body} into a first-order one. 
 
-The key to computing solutions using standard software is to transform the original ODE system into a first-order one. Since there are two dependent variables $x$ and $y$, and both of these appear to second order, there will be 4 variables and 4 equations in the first-order version. Define $u_1=x$, $u_2=y$, $u_3=x'$, $u_4=y'$. Two trivial equations in the new system are $u_1'=u_3$ and $u_2'=u_4$. The other two equations, for $u_3'$ and $u_4'$, come from substitution into the original system~\eqref{eq:r3body}. For example,
-\begin{equation*}
-  u_3' = u_1 + 2u_4 - \mu_* \frac{u_1+\mu}{r} - \mu \frac{u_1-\mu_*}{r_*},
-\end{equation*}
-and so on.
+Define $u_1=x$, $u_2=y$, $u_3=x'$, $u_4=y'$. Two equations in the new system are thus 
+\begin{align}
+  \frac{du_1}{dt} &= u_3  \label{eq:tb1} \\
+  \frac{du_2}{dt} &= u_4  \label{eq:tb2}
+\end{align}
+The other two equations come from substitution into the original system. Since $\frac{du_3}{dt}=\frac{d^2x}{dt^2}$, we get
+\begin{equation}
+  \label{eq:tb3}
+  \frac{du_3}{dt} = u_1 + 2u_4 - (1-\mu) \frac{u_1+\mu}{r_e^3} - \mu \frac{u_1-1+\mu}{r_m^3}
+\end{equation}
+Similarly, from $\frac{du_4}{dt}=\frac{d^2y}{dt^2}$ we get
+\begin{equation}
+  \label{eq:tb4}
+  \frac{du_4}{dt} = u_2 - 2u_3 - (1-\mu) \frac{u_2}{r_e^3} - \mu \frac{u_2}{r_m^3}
+\end{equation}
+Altogether we now have a vector equation $\bm{u}'(t) = \bm{f}(t,\bm{u}(t))$, where $u_i'=f_i$ as given in the four equations above. 
 
-\subsection*{Goals}
+\subsection*{Procedure}
+\begin{enumerate}
+  \item \textbf{AT THE END OF YOUR FILE}, define a function 
+  \begin{matlab}
+  function f = r3body(t,u)
+  \end{matlab}
+  This function should compute a $4\times 1$ vector "f" whose components are given as in equations~\eqref{eq:tb1}--\eqref{eq:tb4}. 
+  \item To check your function, call it with "t=0" and "u=[1;2;3;4]" (back in the main part of your script). The result should be about "[3;4;8.911;-4.178]".
+\end{enumerate}
 
-You will explore unlikely-looking satellite orbits that have fascinated mathematicians since Poincar\'e. They are of more than academic interest, because despite their strangeness, they are energy-efficient. 
+\section{(Not) chaos}
 
-\subsection*{Preparation}
+The full three-body problem famously exhibits chaotic behavior. In our case, with the satellite so small and the motion restricted to a plane, chaos isn't possible. But the motions can be very complex-looking.
 
-Read section 6.1. Fully write out the first-order system of ODEs $\bfu'=\bff(t,\bfu)$ that is equivalent to~\eqref{eq:r3body}. 
+\subsection*{Procedure}
+\begin{enumerate}
+  \item Set
+  \begin{verbatim}
+  opt = odeset('reltol',1e-13,'abstol',1e-13);
+  \end{verbatim}
+  This will be used \textbf{in all of your ODE solutions below} to require strict error tolerances. It should be passed to "ode113" as a fourth input argument. 
+  \item Consider the initial conditions 
+  \begin{align*}
+    x(0) &= \alpha, \; & x'(0) &= 0, \\
+    y(0) &= 0, \; & y'(0) &= 0.
+  \end{align*}
+  Using "ode113" with "opt" as fourth input argument, solve the system with $\alpha = 0.3$ at 2000 time points in the interval $[0,10]$. Plot $x$ and $y$ as functions of $t$ on one graph. (Use a legend and label the time axis.) It will look like a couple of very ``bumpy'' sine waves.
+  \item Using the same solution, clear graphics and make a phase plane plot ($x$ on the horizontal axis, $y$ on the vertical axis). Add the following to put both bodies on the graph and set a 1:1 aspect ratio:
+  \begin{matlab}
+  hold on
+  plot(-mu,0,'go'), plot(1-mu,0,'kx')
+  axis equal
+  \end{matlab}
+  Label the axes.
+  \item Clear graphics and make a phase plot for $\alpha=0.7$.
+  \item Clear graphics and make a phase plot for $\alpha=-0.2$.
+\end{enumerate}
+
+
+\section{Figure eight}
+
+Before the first moon landing, Richard Arenstorf at NASA discovered an orbit with just two loops that looks like an ice skater's figure eight. He thought this would be ideal for a ``space bus'' between Earth and moon some day, because it is more energy-efficient than a more direct route. 
 
 \subsection*{Procedure}
 
-Download the script template and complete it to execute the following steps. 
-
 \begin{enumerate}
-\item Set
-\begin{verbatim}
-opt = odeset('reltol',1e-13,'abstol',1e-13);
-\end{verbatim}
-This will be used below to require strict error tolerances in the ODE solutions. The solutions below will all use \texttt{ode113} with \texttt{opt} as a fourth input argument.
-
-\item Using the expression of equation~\eqref{eq:r3body} as a first-order system, $\bfu'=\bff\,(t,\bfu)$, write the function
-\begin{verbatim}
-function dudt = r3body(t,u)
-\end{verbatim}
-in which \texttt{u} is a vector containing numerical values for the dependent variables, and \texttt{dudt} returns the components of $\bfu'$. 
-
-\item Using the initial conditions 
+ \item Using the initial conditions 
   \begin{align*}
     x(0) &= 1.2, \; & x'(0) &= 0, \\
     y(0) &= 0, \; & y'(0) &= -1.049357510,
   \end{align*}
-solve the problem on the interval $[0,6.192169331]$, using \texttt{ode113} and passing \texttt{opt} as a fourth input argument. Plot the trajectory in the $(x,y)$ phase plane. It will have two major loops, one to each side of the Earth. Add the moon and Earth positions as points in the plot.  
-
-\item Repeat step 3 for
-  \begin{align*}
-    x(0) &= 0.994 \; & x'(0) &= 0 \\
-    y(0) &= 0 \; & y'(0) &= -2.03173262955734
-  \end{align*}
-  and solve over $[0,11.124340337266]$. This orbit has three loops.
-
-\item Repeat step 3 for 
-      \begin{align*}
-        x(0) &= 0.994 \; & x'(0) &= 0 \\
-        y(0) &= 0 \; & y'(0) &= -2.00158510637908
-      \end{align*}
-      and solve over $[0,17.06521656015796]$. This one has four loops. 
-
-\item These orbits are very sensitive to perturbations, and while our convergence theorems apply to a fixed time interval and $h\to 0$, the case of $t\to\infty$ is quite different. Re-solve step~5 for $0\le t \le 100$. Your plot will show the path of the satellite departing from the apparently periodic orbit. 
+  solve the problem at 2000 time points on the interval $[0,10]$, using "ode113" and passing "opt" as a fourth input argument. Clear graphics and make a phase plot. You should see what looks like an infinity symbol.
+  \item The phase plane masks some of the dynamics. Using the computed solution, define a vector "speed" that is the speed of the satellite over time. (Recall that speed is the square root of $(x')^2+(y')^2$.) Make sure that "x" and "y" are vectors describing the position. Then this code uses color to plot the speed around the orbit:
+  \begin{matlab}
+  scatter(x,y,4,speed)
+  axis equal, colorbar
+  \end{matlab}
+  As you would intuitively expect, the satellite moves fastest as it zooms by Earth. 
 \end{enumerate}
 
-\subsection*{Discussion}
 
-In step 3 above, what is the maximum speed of the satellite over the whole orbit? 
+\section{Loop-di-loop}
+
+There is a whole family of orbits like Arenstorf's, with more and more loops in each complete orbit. These orbits are very sensitive to initial conditions and errors, however, and numerical solutions may depart from the true orbits rather dramatically as $t\to\infty$. (Remember that convergence is guaranteed over a fixed interval as the step size goes to zero.)
+
+
+\subsection*{Procedure}
+
+\begin{enumerate}
+  \item Solve for
+  \begin{align*}
+    x(0) &= 0.994, \; & x'(0) &= 0, \\
+    y(0) &= 0, \; & y'(0) &= -2.03173262955734,
+  \end{align*}
+  at 2000 points over $[0,20]$. As in the previous section, make a phase plot with coloring to show the speed of the motion. This orbit has three loops.
+  \item Repeat the previous step for  
+      \begin{align*}
+        x(0) &= 0.994, \; & x'(0) &= 0, \\
+        y(0) &= 0, \; & y'(0) &= -2.00158510637908.
+      \end{align*}
+      This one has four loops, and now the fastest speed is during the fly-by of the moon.
+  \item Repeat the previous step for 5000 time points over $[0,100]$. You should see the orbit deviate and then the satellite veer off out of the system entirely.
+\end{enumerate}
 
 
 \end{document}

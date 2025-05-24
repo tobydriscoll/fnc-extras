@@ -12,39 +12,65 @@
 \begin{document}
 
 \begin{center}
+  \Large
   \bf We didn't start the fire
 \end{center}
+
+\section{Light it up}
 
 The initial-value problem
 \begin{equation}
   \label{eq:fire}
-  \frac{dr}{dt} = r^2(1-r), \qquad t > 0, \quad r(0)=r_0,
+  \frac{dr}{dt} = r^2(R-r), \qquad t > 0, \quad r(0)=r_0,
 \end{equation}
-is a simple model for the radius of a \href{https://youtu.be/Q58-la_yAB4}{spherical flame ball in zero gravity}. If $r$ is initially small, it grows slowly for a while before rapidly increasing to a value close to 1, which it approaches asymptotically. 
+is a simple model for the radius of a \href{https://youtu.be/Q58-la_yAB4}{spherical flame ball in zero gravity}. If $r$ is initially small, it grows slowly for a while before rapidly increasing to a value close to $R$, which it approaches asymptotically.
 
-Although the solution is quite simple, it proves to be surprisingly challenging for some IVP solvers, including Euler's method.
-
-\subsection*{Preparation}
-
-Read sections 6.1 and 6.2. 
-
-\subsection*{Goals}
-
-You will solve the flame ball equation numerically using Euler's method, observing its convergence. 
+Although the equation is quite simple, it proves to be surprisingly challenging for some IVP solvers. For everything below, use $R=100$ and $r_0=0.001$, and solve over $t\in [0,20]$.
 
 \subsection*{Procedure}
 
-Download the template code and edit it to perform the following steps. 
-
 \begin{enumerate}
-	\item Follow the script to create a high-accuracy reference solution of the problem with $r_0=0.01$. Plot the reference solution for $0\le t\le 500$. 
-  \item For $n = 100,200,400,800,1600,6400,25600$, use the
-    \texttt{eulerivp} function to solve the IVP with $r_0=0.01$ up to
-    time $t=100$. Find the error in the Euler solution by taking the
-    difference between its value of $r$ at
-   and the reference solution at $t=100$. Make a log-log plot of the errors and verify that the method is first-order convergent.
-  \item Repeat part 2 but at time $t=200$. This time, the convergence behavior is a lot less smooth than first-order accuracy might seem to imply.
-  \item Plot the solution $r(t)$ over $0\le t \le 500$ using \texttt{eulerivp} with $n=150$, 200, 250, and 300. Even though the errors are getting smaller, these could hardly be called ``good'' solutions qualitatively!
+  \item Solve the IVP using "eulerivp" from the textbook. Use $n=1000$ time steps. Plot $r$ as a function of time. (The answer is not close to the true solution.)
+  \item Repeat the previous step with $n=10^4$. (Still not good!) 
+  \item Repeat again with $n=10^5$. (Finally, this should look something like what is described above, with a sudden jump near $t=10$ and settling near $r=R$.)
+\end{enumerate}
+
+\section{Surely the Germans can do better than that\ldots}
+
+I've been saying that Euler's method isn't very accurate. Maybe we could do a lot better with the fourth-order Runge--Kutta method. Remember that this has four stages in each time step, so for a fair comparison with Euler we need to divide $n$ by four. 
+
+\subsection*{Procedure}
+\begin{enumerate}
+  \item Solve the IVP using "rk4" from the textbook. Use $n=10^5/4$ time steps. Plot $r$ as a function of time. (Not good.)
+  \item Repeat with $n=10^5/2$ steps. (Closer, but still not good.)
+  \item Repeat with $n=10^5$ steps. (This is the first ``good'' solution you have seen, but at what cost?) 
+\end{enumerate}
+
+\section{Adapt or die?}
+
+The solution has about 10 seconds of very slow change, a sudden jump (i.e., thermal ignition), and then another 10 seconds of slow change. Perhaps an adaptive time stepping method would be a big improvement here. 
+
+\subsection*{Procedure}
+\begin{enumerate}
+  \item Solve the IVP using "rk23" from the textbook. Use $10^{-3}$ as the error tolerance. Plot $r$ as a function of time. Print out the number of time steps taken (length of "t" minus 1). (It is less than the $10^5$ we needed with Euler, but not by orders of magnitude.)
+  \item Repeat with error tolerances $10^{-5}$ and $10^{-7}$. (The number of steps increases only very modestly. Hence you can't save computing time in this problem by asking for low accuracy.)
+  \item From your last solution, make a "semilogy" plot of the time step sizes, as in the gamma function lab. (See the following for a description of this plot.)
+\end{enumerate}
+
+\section{Stiff upper lip}
+
+The graph in the last step reveals an unfortunate aspect of the numerical results. During the initial slow phase, the automatic step size is relatively large, staying over $0.1$ after an initial seeking phase. That's what we want. The step size plummets to less than $10^{-5}$ right at $t=10$. This is to be expected because the solution is changing very rapidly. But afterwards the step size remains less than $10^{-3}$, even though the solution is again changing very slowly. That seems far from ideal. 
+
+The phenomenon at play is called \textit{stiffness}. There are many manifestations, but one is that the time steps seem to be much smaller than the features of the solution would demand. Stiff problems are what makes implicit methods relevant. While each time step takes much longer than in an explicit formula, in stiff problems they can take a lot fewer steps. 
+
+MATLAB has several implicit solvers for stiff problems. They all have an ``s'' in the solver name.
+
+\subsection*{Procedure}
+\begin{enumerate}
+  \item The "am2" function makes repeated calls to "levenberg", some of which will print failure warnings. To turn these off, insert "warning off" into your script here.
+  \item Solve the IVP using "am2" (aka trapezoid) from the textbook, with $n=100$ steps. Plot $r$ as a function of time. (This solution is wrong, but in a way that resembles the true solution.)
+  \item Repeat using "am2" with $n=10^4$ steps. (This too isn't very accurate, because the step is too large to resolve the jump at $t=10$, but it has nailed the picture qualitatively.)
+  \item To really take advantage of an implicit formula, it needs to be paired with adaptive step sizing. Solve once more using "ode15s". Plot the solution, and then make a "semilogy" plot of the step sizes taken. (You should see that the step sizes are similar during both of the ``slow'' phases in the exact solution.)
 \end{enumerate}
 
 
