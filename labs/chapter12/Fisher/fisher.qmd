@@ -1,0 +1,43 @@
+---
+title: Fishing for answers
+---
+
+
+The Fisher equation is 
+
+$$
+u_t = u - u^2 + k^2 u_{xx}. 
+$$ {#eq-fisher}
+
+This is a simple model of the spread of a biological population in one dimension. The dependent variable $u(x,t)$ represents the population density. The term $u-u^2$ suggests an exponential growth in the population modulated by the effect of competition between individuals, while $k^2 u_{xx}$ represents diffusion, with parameter $k^2$ determining the relative strength of that contribution.
+
+In this context, we can use a homogeneous Neumann condition to represent a physical barrier to the spread of the population and a homogeneous Dirichlet condition to represent a location that is inhospitable to the species.
+
+Diffusive processes typically approach a steady state as $t \to \infty$. In this case, the steady state is given by setting $u_t=0$ in @eq-fisher to obtain
+
+$$
+u - u^2 + k^2 u_{xx} = 0.
+$$ {#eq-fisher-steady}
+
+When we impose the same boundary conditions as in the time-dependent equation, we obtain a two-point boundary value problem (BVP) for the steady state. 
+
+## Goals
+
+Solve the time-dependent Fisher equation using the method of lines, and compare the solution to the steady-state solution obtained from the BVP.
+
+## Procedure
+
+1. Using the function `parabolic` from the text, solve @eq-fisher over $0 \le x \le 6$, $0 \le t \le 8$, with $k^2=0.5$, the initial condition
+$$
+u(x,0) = e^{-2(x-3)^2},
+$$
+a homogeneous Neumann condition at $x=0$, and a homogeneous Dirichlet condition at $x=6$. Use a grid size of $m=80$ in space. Make an animation of the solution.
+2. Make a plot of $u(0,t)$ for $0 \le t \le 8$. Since $x=0$ is a node in the discretization, this is straightforward. 
+3. Use the numerical solution and a scalar rootfinding method (such as `secant` from the textbook) to find the time $t_0$ when $u(0,t_0)=0.5$. 
+4. Make a plot of $u(4,t)$ for $0 \le t \le 8$. Since $x=4$ is not a node in the discretization, you will need to use (Chebyshev) polynomial interpolation to find the value at $x=4$ of the solution vector returned for a given time $t$. Also print out the numerical values of $u(4,t)$ for $t=2,4,6,8$. 
+5. Solve the BVP @eq-fisher-steady with the same domain and boundary conditions using the function `bvp` from the text. Since this function uses less-accurate finite differences rather than a Chebyshev discretization, solve with $m=800$. 
+6. Plot the difference as a function of $x$ between the steady-state solution and the PDE solution at $t=8$. You will again need to use Chebyshev interpolation to put the numerical solutions on the same grid.
+
+
+
+
