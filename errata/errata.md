@@ -2,6 +2,7 @@
 * **Page 19/Exercise 1.2.7.** The polynomial in part (a) should be `x^2 - (2+ep)*x + 1`, not `x^2 + (2+ep)*x + 1`. (Thanks to Nicholas Harty.)
 * **Page 23 / Example 1.3.3** "Using (1.2.8)" should be "using (1.2.9)."
 * **Page 27 / Exercise 1.3.4** The wording in this problem could be clearer. Here is an [alternate version](alt134.pdf).
+* **Exercise 1.4.2** The last power in the series should be `x^7`.
 
 ## Chapter 3
 * **Page 102 / Exercise 3.1.3.** (a) The last coefficient should be `c_8`. (Thanks John Tran.)
